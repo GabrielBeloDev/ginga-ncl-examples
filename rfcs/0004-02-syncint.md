@@ -5,7 +5,7 @@
 | **Status** | ✅ Implementado e verificado (roda no Ginga atual) |
 | **App / Exemplo** | `Primeiro joao/.../Exemplos/02syncInt.ncl` |
 | **Verificado em** | 2026-06-24 · Ginga telemidia/ginga (C++) · Ubuntu 22.04 |
-| **Captura** | [`../screenshots/02syncInt.png`](../screenshots/02syncInt.png) |
+| **Captura** | [`../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/02syncInt.png`](../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/02syncInt.png) |
 
 ## 1. Resumo
 
@@ -162,7 +162,7 @@ canto (PiP) e roda o anúncio das chuteiras; ao final do anúncio o vídeo volta
 
 **Resultado verificado:** ✅ A apresentação roda no Ginga atual; a captura mostra o vídeo
 principal (`animGar.mp4`) em tela cheia com o jogador animado em campo, confirmando o ponto de
-entrada e o layout `screenReg` (tela cheia) — ver captura `../screenshots/02syncInt.png`.
+entrada e o layout `screenReg` (tela cheia) — ver captura `../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/02syncInt.png`.
 
 ## 5. Observações
 

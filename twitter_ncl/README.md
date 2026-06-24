@@ -13,23 +13,31 @@ ginga main.ncl
 Dica: adicione `-f` (tela cheia) ou `-s 960x540` (tamanho da janela).
 
 ## O que você deve ver
-Não foi possível ver a aplicação: o Ginga abortou no carregamento, antes de exibir qualquer interface (chegou a aparecer o diálogo do Ubuntu "Ginga closed unexpectedly"). Sem screenshot. A ideia original era ver o vídeo de fundo com a timeline do Twitter desenhada por cima e botões coloridos (tweet, reply, retweet, etc.) navegáveis pelo controle remoto.
+Não foi possível ver a aplicação em funcionamento. Após corrigir dois crashes de carregamento (ver "Status da verificação"), o Ginga não aborta mais por esses motivos, mas o app **não exibe a timeline**: ele depende da API v1 do Twitter (login/senha), desativada há anos, então não há serviço que responda às requisições. Sem screenshot útil. A ideia original era ver o vídeo de fundo com a timeline do Twitter desenhada por cima e botões coloridos (tweet, reply, retweet, etc.) navegáveis pelo controle remoto.
 
 ## Status da verificação
-Testado em **2026-06-24** · Ginga (telemidia/ginga, C++) · Ubuntu 22.04
-- ❌ Não roda — o processo Ginga abortou no carregamento dos scripts Lua.
-- Erro exato: `./util.lua:8: attempt to call a nil value (global 'module')`
-- Causa-raiz: a função Lua `module()` foi removida no Lua 5.2+. Vários scripts deste app (`util.lua`, `config.lua`, e a LuaXML) começam com `module(...)`, que não existe mais no Lua usado por este Ginga, quebrando o `require`/carregamento logo de início.
+Testado em **2026-06-24** · Ginga (telemidia/ginga, C++) · Ginga atual embarca **Lua 5.3** (os apps eram Lua 5.1) · Ubuntu 22.04
+
+🔧 **Dois crashes corrigidos, mas o app ainda NÃO funciona.**
+
+Correções aplicadas (detalhes em `../docs/CODE-CHANGES.md`):
+1. **`module()` removido no Lua 5.2+** — vários scripts (`util.lua`, `config.lua`, `tcp.lua`, LuaXML, etc.) começam com `module(...)`, que não existe no Lua 5.3, gerando logo de início:
+   `./util.lua:8: attempt to call a nil value (global 'module')`.
+   Solução: foi adicionado o shim **`compat.lua`** (arquivo novo, não altera a lógica original), reativando `module()`/`setfenv()`, carregado com `require "compat"` na **primeira linha** de `main.lua`.
+2. **`%d` com float no Lua 5.3** — em `util.lua` (linha ~90), `string.format("%d", areaWidth / tw)` recebia um float (divisão), e no Lua 5.3 o especificador `%d` exige inteiro, causando PANIC. Solução: envolver com `math.floor(...)` → `string.format("%d", math.floor(areaWidth / tw))`.
+
+Resultado: o Ginga não aborta mais por esses motivos. Porém, como o serviço de que o app depende não existe mais, ele **não consegue obter nem exibir a timeline**.
 
 ## Limitações conhecidas
-- **Lua `module()` removido (Lua 5.2+):** causa o crash imediato. Correção possível (fora do escopo agora): criar um shim para `module` ou portar os scripts para o sistema de módulos do Lua atual.
-- **API antiga do Twitter:** o código fala com a API v1 do Twitter usando login/senha (autenticação básica). Essa API foi desativada há anos; mesmo com o Lua corrigido, as requisições não funcionariam.
+- **API antiga do Twitter (causa-raiz atual):** o código fala com a API v1 do Twitter usando login/senha (autenticação básica). Essa API foi desativada há anos; não há mais serviço que responda, então o app não exibe a timeline mesmo com os crashes corrigidos.
 - **Canal de retorno TCP:** depende de conexão TCP de saída (`tcp.lua`/`http.lua`) para um serviço externo que não existe mais.
-- **Credenciais em texto puro:** usuário e senha do Twitter ficavam em `twitter.config.lua`.
+- **Credenciais em texto puro:** usuário e senha do Twitter ficam em `twitter.config.lua`.
+- **Compatibilidade Lua 5.1 → 5.3:** o app só carrega graças ao shim `compat.lua`; os scripts originais foram escritos para Lua 5.1.
 
 ## Arquivos principais
 - `main.ncl` — documento NCL principal: regiões, vídeo de fundo (`media/Wanna_Work_Together_-_Creative_Commons.avi`) e mídia Lua (`main.lua`).
-- `main.lua` — ponto de entrada Lua: monta a interface, desenha botões e trata os eventos de teclado/controle remoto.
+- `main.lua` — ponto de entrada Lua: monta a interface, desenha botões e trata os eventos de teclado/controle remoto. Recebeu `require "compat"` na linha 1.
+- `compat.lua` — shim de compatibilidade (arquivo novo) que reativa `module()`/`setfenv()` do Lua 5.1 no Lua 5.3. Ver `../docs/CODE-CHANGES.md`.
 - `Twitter.lua` — classe que implementa a API do Twitter (HTTP para `api.twitter.com`/`twitter.com`, parse XML).
 - `ShowTweets.lua` — exibe a home timeline e a timeline de um usuário selecionado.
 - `SendTweet.lua` — tela de envio de tweet e reply (usa `TextField.lua`).
@@ -37,7 +45,7 @@ Testado em **2026-06-24** · Ginga (telemidia/ginga, C++) · Ubuntu 22.04
 - `TextField.lua` — campo de texto para digitação na tela.
 - `http.lua` / `tcp.lua` — cliente HTTP e canal de retorno TCP.
 - `base64.lua` — codificação Base64 para autenticação básica.
-- `util.lua` / `config.lua` — utilitários gerais e leitura de configuração (declaram `module(...)`, origem do crash).
+- `util.lua` / `config.lua` — utilitários gerais e leitura de configuração (declaravam `module(...)`; `util.lua` também teve o ajuste de `%d`/`math.floor`).
 - `twitter.config.lua` — arquivo de configuração com usuário e senha do Twitter.
 - `Entities2AccentedChars.lua` — conversão de entidades HTML para caracteres acentuados.
 - `LuaXML/` (e `LuaXML-0.0.0-lua5.1.tgz`) — cópia local da biblioteca LuaXML para parse das respostas.

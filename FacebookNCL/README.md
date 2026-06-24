@@ -10,27 +10,29 @@ Aplicação Ginga-NCL que se conecta à antiga Graph API do Facebook (`graph.fac
 cd FacebookNCL
 ginga main.ncl
 ```
-Dica: adicione `-f` (tela cheia) ou `-s 960x540` (tamanho da janela).
 
 ## O que você deve ver
 Em tese: a foto de fundo de São Luís com o logo do Facebook no canto superior direito; ao apertar a tecla VERMELHA, abriria um mural na parte inferior com setas e a mensagem "Carregando..." até os posts do perfil (`maranhao.br`, por padrão) chegarem da API e serem exibidos com nome, texto e foto. Na prática isso **não acontece** neste Ginga (ver abaixo). Sem screenshot.
 
 ## Status da verificação
-Testado em **2026-06-24** · Ginga (telemidia/ginga, C++) · Ubuntu 22.04
-- ❌ Não roda — o objeto NCLua não inicializa; o app não chega a exibir o feed.
-- O `script1.lua` faz `require 'tcp'`, `require 'json'` e `require 'http'`, e essas bibliotecas (além de `util.lua` e `base64.lua`) começam com a função `module(...)` — por exemplo `module 'tcp'`, `module("json")`, `module "http"`, `module "util"`, `module('base64',package.seeall)`. Essa função foi **removida no Lua 5.2+**, então o carregamento dos módulos falha e o script quebra.
-- Causa-raiz: mesmo padrão dos outros apps NCLua da coleção — código escrito para o Lua antigo (com `module()`), incompatível com o Lua novo embarcado neste Ginga.
+Testado em **2026-06-24** · Ginga atual com **Lua 5.3**.
+- 🔧 **`module()` RESOLVIDO**, mas **AINDA NÃO RODA** por causa de um erro de NCL.
+- **Correção do `module()` (funcionou):** foi adicionado o shim `compat.lua` e a linha `require "compat"` no **topo do `script1.lua`** (linha 1). Esse shim reativa `module()`/`setfenv()` do Lua 5.1 sob o Lua 5.3, sem alterar a lógica original. Com isso, o carregamento de `tcp.lua`, `json.lua`, `http.lua`, `util.lua` e `base64.lua` (que começam com `module(...)`) não quebra mais. Detalhes em `docs/CODE-CHANGES.md`.
+- **Novo bloqueio (erro de NCL):** o parser novo é mais estrito e rejeita o `ConnectorBase.ncl`. No conector `onSelectionTestOnStopStart` há um `<simpleCondition role="onStop"/>` (linha **1699**) **sem o atributo obrigatório `eventType`**. Como o documento não é aceito, o app não chega a inicializar. Isso ainda não foi corrigido — ver `docs/CODE-CHANGES.md` (seção 3).
+- **Mesmo com o NCL corrigido, não funcionaria:** o app depende da **antiga Graph API do Facebook** (`graph.facebook.com/<perfil>/feed`, `/?fields=picture`), desativada há anos. Logo, não há serviço para responder ao feed.
 
 ## Limitações conhecidas
-- **`module()` removido no Lua 5.2+**: impede o carregamento de `tcp.lua`, `json.lua`, `http.lua`, `util.lua` e `base64.lua`. Correção possível (fora do escopo): criar um shim de `module` ou portar os scripts para o Lua novo.
-- **API antiga do Facebook desativada**: o app depende da Graph API legada (`graph.facebook.com/<perfil>/feed`, `/?fields=picture`), que não existe mais nesse formato — exigiria hoje token de acesso e endpoints atuais. Logo, mesmo com o `module()` corrigido, o feed não carregaria.
+- **`<simpleCondition>` sem `eventType` no `ConnectorBase.ncl` (linha 1699)**: o parser atual exige o atributo e rejeita o documento, então o app não inicializa. Correção possível (fora do escopo até aqui): adicionar `eventType="presentation"` (ou equivalente) na condição `onStop`. Ver `docs/CODE-CHANGES.md`.
+- **API antiga do Facebook desativada**: o app depende da Graph API legada (`graph.facebook.com/<perfil>/feed`, `/?fields=picture`), que não existe mais nesse formato — exigiria hoje token de acesso e endpoints atuais. Mesmo com o NCL corrigido, o feed não carregaria.
+- **`module()` era um problema (já resolvido)**: as bibliotecas `tcp.lua`, `json.lua`, `http.lua`, `util.lua` e `base64.lua` usam `module(...)`, removido no Lua 5.2+. Resolvido pelo shim `compat.lua` + `require "compat"` no topo do `script1.lua` (ver `docs/CODE-CHANGES.md`).
 - **Depende de rede/canal de retorno (TCP)**: precisa de acesso TCP de saída para `graph.facebook.com` e para baixar as imagens de perfil; sem isso, nada é exibido.
 - Perfil-alvo fixo no código (`facebookUserID = "maranhao.br"`), apenas 7 feeds, 7 s por feed.
 
 ## Arquivos principais
 - `main.ncl` — documento NCL principal: regiões, descritores, mídias e links (tecla VERMELHA abre/fecha o mural, setas navegam nos feeds).
-- `script1.lua` — lógica NCLua: baixa o feed via HTTP, decodifica o JSON, baixa fotos de perfil e desenha cada post no canvas.
-- `ConnectorBase.ncl` — base de conectores (causal connectors) importada pelo `main.ncl`.
+- `script1.lua` — lógica NCLua: baixa o feed via HTTP, decodifica o JSON, baixa fotos de perfil e desenha cada post no canvas. Tem `require "compat"` na linha 1 (correção do `module()`).
+- `compat.lua` — **arquivo novo** (não original): shim que reativa `module()`/`setfenv()`/`getfenv()`/`package.seeall` do Lua 5.1 no Lua 5.3, via biblioteca `debug`. Ver `docs/CODE-CHANGES.md`.
+- `ConnectorBase.ncl` — base de conectores (causal connectors) importada pelo `main.ncl`. Contém o `<simpleCondition>` sem `eventType` (linha 1699) que bloqueia a execução no parser atual.
 - `http.lua` — biblioteca de requisições/download HTTP (autor: Manoel Campos da Silva Filho); usa `module "http"`.
 - `tcp.lua` — sockets TCP via canal de retorno, base do `http.lua`; usa `module 'tcp'`.
 - `json.lua` — JSON4Lua, codificação/decodificação JSON (Craig Mason-Jones); usa `module("json")`.

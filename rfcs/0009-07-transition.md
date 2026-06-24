@@ -6,7 +6,7 @@
 | **Status** | ✅ Implementado e verificado (roda no Ginga atual) |
 | **App / Exemplo** | `Primeiro joao/.../Exemplos/07transition.ncl` |
 | **Verificado em** | 2026-06-24 · Ginga telemidia/ginga (C++) · Ubuntu 22.04 |
-| **Captura** | [`../screenshots/07transition.png`](../screenshots/07transition.png) |
+| **Captura** | [`../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/07transition.png`](../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/07transition.png) |
 
 ## 1. Resumo
 

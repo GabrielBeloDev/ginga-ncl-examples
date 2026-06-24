@@ -1,3 +1,4 @@
+require "compat"  -- restaura module()/setfenv() do Lua 5.1 (ver compat.lua)
 package.path = package.path..';engine/?.lua'
 require 'constantes'
 require 'jogo'

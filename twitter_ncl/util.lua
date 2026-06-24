@@ -87,7 +87,7 @@ function paintBreakedString(areaWidth, x, initialY, text)
      
      --Estima quantos caracteres cabem dentro da largura
      --definida para a exibição de uma mensagem do Twitter 
-     local charsByLine = tonumber(string.format("%d", areaWidth / tw))
+     local charsByLine = tonumber(string.format("%d", math.floor(areaWidth / tw)))
      
      --Quebra o texto em diversas linhas, 
      --gerando uma tabela onde cada item é uma linha que

@@ -15,7 +15,7 @@ Dica: adicione `-f` (tela cheia) ou `-s 960x540` (tamanho da janela).
 ## O que você deve ver
 Sobe sem erro e exibe a vinheta de abertura com o texto "APRESENTA", iniciando a reprodução do vídeo/áudio (gstreamer em PLAYING). A interatividade (menu, quiz, pacotes por CEP) aparece em pontos específicos do vídeo, ancorada nas `<area>` definidas (por exemplo, candiru em ~350s, menu em ~395s, quiz em ~480s, créditos em ~740s).
 
-![screenshot](../screenshots/A_Onda.png)
+![screenshot](screenshots/A_Onda.png)
 
 ## Status da verificação
 Testado em **2026-06-24** · Ginga (telemidia/ginga, C++) · Ubuntu 22.04

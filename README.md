@@ -73,41 +73,45 @@ Verificado em **2026-06-24**, Ginga `telemidia/ginga` (C++), Ubuntu 22.04. Cada 
 |-----|-------|---------|--------------------|
 | **Exemplos "Primeiro João"** | [`Primeiro joao/.../Exemplos`](Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/) | 14 exemplos didáticos de NCL (sincronismo, contexto, reuso, switch, transição, animação, menu, NCLua…) | ✅ **Todos os 14 rodam** |
 | **A_Onda** | [`A_Onda/`](A_Onda/) | App educacional sobre a Amazônia (PUC-Rio/TeleMídia) | ✅ **Roda** (abertura + vídeo) |
-| **ClimaTV** | [`ClimaTV/`](ClimaTV/) | Previsão do tempo via canal de retorno | ❌ Crash (NCLua: *out of memory*) |
-| **damasTV** | [`damasTV/`](damasTV/) | Jogo de damas (local / rede TCP) | ❌ Erro de parse NCL (`<descriptorParam>`) |
-| **enquete-ncl** | [`enquete-ncl/`](enquete-ncl/) | Enquete/votação via canal de retorno | ❌ Crash (Lua `module()` removido) |
-| **FacebookNCL** | [`FacebookNCL/`](FacebookNCL/) | Leitor de feed do Facebook | ❌ Não roda (Lua `module()` / API morta) |
-| **TVDQuiz** | [`TVDQuiz/`](TVDQuiz/) | Quiz/trivia interativo | ❌ Crash (Lua `module()` removido) |
-| **twitter_ncl** | [`twitter_ncl/`](twitter_ncl/) | Cliente de Twitter (ler/postar) | ❌ Crash (Lua `module()` / API morta) |
-| **RSS Reader** | [`rss-reader/`](rss-reader/) | Leitor de RSS em NCLua | ❌ Crash (Lua `module()` removido) |
+| **TVDQuiz** | [`TVDQuiz/`](TVDQuiz/) | Quiz/trivia interativo | ✅ **Roda** após correção (quiz funcional) |
+| **enquete-ncl** | [`enquete-ncl/`](enquete-ncl/) | Enquete/votação via canal de retorno | ✅ **Roda** após correção (UI de votação) |
+| **RSS Reader** | [`rss-reader/`](rss-reader/) | Leitor de RSS em NCLua | ✅ **Roda** após correção (vídeo + UI) |
+| **damasTV** | [`damasTV/`](damasTV/) | Jogo de damas (local / rede TCP) | 🔶 Carrega após correção (abertura); jogo precisa de tecla |
+| **twitter_ncl** | [`twitter_ncl/`](twitter_ncl/) | Cliente de Twitter (ler/postar) | 🔧 Crashes corrigidos; API do Twitter desativada |
+| **ClimaTV** | [`ClimaTV/`](ClimaTV/) | Previsão do tempo via canal de retorno | 🔧 `module()` ok; *out of memory* + weather.com morto |
+| **FacebookNCL** | [`FacebookNCL/`](FacebookNCL/) | Leitor de feed do Facebook | 🔧 `module()` ok; erro de conector NCL + API morta |
 
-**Placar:** **15 de 22** pontos de entrada rodam neste Ginga (14 exemplos didáticos + A_Onda).
+**Placar:** **18 de 22** rodam com interface (14 didáticos + A_Onda + TVDQuiz + enquete + RSS Reader);
+**damasTV** carrega a abertura. Os 3 restantes dependem de serviços externos desativados. Detalhes das
+correções de código em **[`docs/CODE-CHANGES.md`](docs/CODE-CHANGES.md)**.
 
 <p align="center">
-  <img src="screenshots/A_Onda.png" width="45%" alt="A_Onda rodando">
-  <img src="screenshots/01sync.png" width="45%" alt="Exemplo de sincronismo rodando">
+  <img src="A_Onda/screenshots/A_Onda.png" width="45%" alt="A_Onda rodando">
+  <img src="Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/01sync.png" width="45%" alt="Exemplo de sincronismo rodando">
 </p>
 
-> 📸 Capturas de tela (em tela cheia) de **todos os que rodam** ficam em [`screenshots/`](screenshots/).
+> 📸 Cada app que roda tem sua **própria** pasta `screenshots/` (ex.: [`A_Onda/screenshots/`](A_Onda/screenshots/); os didáticos em [`Primeiro joao/.../Exemplos/screenshots/`](Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/)).
 > 📄 Cada um que roda tem também um documento técnico (RFC) em [`rfcs/`](rfcs/).
 
 ---
 
-## ⚠️ Problema de compatibilidade conhecido (por que os apps NCLua quebram)
+## 🔧 Compatibilidade Lua 5.1 → 5.3 (resolvida)
 
-A maioria dos apps que **não** rodam falha pela mesma causa: os scripts `.lua` começam com a função
-**`module(...)`**, que era idiomática no **Lua 5.1** mas foi **removida no Lua 5.2+**. O Ginga atual
-embarca um Lua novo, então o carregamento do script aborta com:
+A maioria dos apps NCLua quebrava pela mesma causa: os scripts `.lua` usam funções do **Lua 5.1**
+(`module()`, `setfenv()`) que foram **removidas no Lua 5.2+** — e o Ginga atual usa **Lua 5.3**:
 
 ```
 attempt to call a nil value (global 'module')
 ```
 
-**Correção possível (fora do escopo desta primeira etapa):** adicionar um *shim* de `module` ou
-portar os scripts para o estilo de módulos do Lua moderno (`local M = {} ... return M`). Mesmo
-assim, vários desses apps ainda dependem de **serviços externos hoje desativados** (APIs antigas do
-Twitter/Facebook, weather.com, backends PHP, canal de retorno), então não funcionariam de ponta a
-ponta sem reescrita adicional.
+Isso foi **corrigido** com um shim de compatibilidade (`compat.lua`) carregado antes de tudo, que
+reativa essas funções **sem alterar a lógica original** dos apps. Resultado: **TVDQuiz, enquete-ncl e
+rss-reader voltaram a rodar** e **damasTV** parou de crashar. Apps que dependem de **serviços externos
+desativados** (Twitter, Facebook, weather.com) seguem sem funcionar de ponta a ponta — não por código,
+mas por falta do serviço.
+
+👉 Todas as mudanças de código (o que, onde e por quê, com *antes → depois*) estão em
+**[`docs/CODE-CHANGES.md`](docs/CODE-CHANGES.md)**.
 
 ---
 

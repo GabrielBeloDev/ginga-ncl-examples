@@ -1,3 +1,4 @@
+require "compat"  -- restaura module()/setfenv() do Lua 5.1 (ver compat.lua)
 ---NCLua Tweet - Cliente de Twitter para TV Digital v0.5<br/>
 --http://manoelcampos.com
 --Reference: http://apiwiki.twitter.com/<p/>

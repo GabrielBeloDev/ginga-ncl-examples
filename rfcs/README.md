@@ -4,8 +4,10 @@ Cada **RFC** documenta a estrutura NCL real (regiões, descritores, conectores, 
 app/exemplo **verificado como executável** no Ginga atual. Funcionam como uma *especificação técnica*
 de cada exemplo funcional — útil tanto para estudo quanto como base para a pesquisa de autoria de NCL.
 
-> Apenas os **15 entrypoints que rodam** têm RFC (A_Onda + os 14 exemplos didáticos "Primeiro João").
-> Os apps que não rodam estão documentados nos READMEs de suas pastas, com o erro e a causa-raiz.
+> Têm RFC os entrypoints que rodam: **A_Onda + os 14 exemplos didáticos** "Primeiro João", **e os apps
+> recuperados após as correções de compatibilidade** (TVDQuiz, enquete-ncl, rss-reader, damasTV — veja
+> [`../docs/CODE-CHANGES.md`](../docs/CODE-CHANGES.md)). Os apps que ainda não rodam estão documentados
+> nos READMEs de suas pastas, com o erro e a causa-raiz.
 
 | RFC | Título | Exemplo |
 |-----|--------|---------|
@@ -24,3 +26,7 @@ de cada exemplo funcional — útil tanto para estudo quanto como base para a pe
 | [RFC-0013](0013-11-nclua.md) | Integração com NCLua | `11nclua.ncl` |
 | [RFC-0014](0014-12-embncl.md) | NCL embarcado / documento aninhado | `12embNCL.ncl` |
 | [RFC-0015](0015-advert.md) | Inserção de propaganda | `advert.ncl` |
+| [RFC-0016](0016-tvdquiz.md) | TVD Quiz — quiz interativo *(recuperado)* | `TVDQuiz/main.ncl` |
+| [RFC-0017](0017-enquete.md) | Enquete/votação *(recuperado)* | `enquete-ncl/main.ncl` |
+| [RFC-0018](0018-rss-reader.md) | Leitor de RSS (LuaRSS) *(recuperado)* | `rss-reader/main.ncl` |
+| [RFC-0019](0019-damastv.md) | damasTV — jogo de damas *(carrega após correções)* | `damasTV/damas.ncl` |

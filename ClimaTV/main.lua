@@ -1,3 +1,4 @@
+require "compat"  -- restaura module()/setfenv() do Lua 5.1 (ver compat.lua)
 require 'app'
 dofile ('controle.lua')
 

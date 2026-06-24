@@ -36,7 +36,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 			<descriptorParam name="soundLevel" value="0.1" />
 		</descriptor>
 		<descriptor id="efeitoDesc" >
-					<descriptorParam name="soundLevel" region="test" value="1" />
+					<descriptorParam name="soundLevel" value="1" />
 		</descriptor>
 	</descriptorBase>
 
@@ -131,7 +131,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 		<bindRule rule="somSopra" constituent="efeitoSopra" />
 		<media id="efeitoSopra" type="audio/mp3" src="sounds/piu.mp3" descriptor="efeitoDesc"/>
 
-		<bindRule rule="somVence" constituent="efeitoVence" />
+		<bindRule rule="somVence" constituent="efeitovence" />
 		<media id="efeitovence" type="audio/basic" src="sounds/victory.wav" descriptor="efeitoDesc"/>
 	</switch>
 
@@ -164,7 +164,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 	</link>
 
 
-<!-- de execuçao-->
+<!-- de execuï¿½ao-->
 
 <!-- Sons-efeitos -->
 	<link id="LancaEfectSeleciona" xconnector="onBeginSetabortStart">

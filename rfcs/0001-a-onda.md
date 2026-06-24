@@ -6,7 +6,7 @@
 | **Status** | ✅ Implementado e verificado (roda no Ginga atual) |
 | **App / Exemplo** | `A_Onda/A_Onda.ncl` |
 | **Verificado em** | 2026-06-24 · Ginga telemidia/ginga (C++) · Ubuntu 22.04 |
-| **Captura** | [`../screenshots/A_Onda.png`](../screenshots/A_Onda.png) |
+| **Captura** | [`../A_Onda/screenshots/A_Onda.png`](../A_Onda/screenshots/A_Onda.png) |
 
 ## 1. Resumo
 

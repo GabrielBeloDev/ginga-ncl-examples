@@ -1,3 +1,4 @@
+require "compat"  -- restaura module()/setfenv() do Lua 5.1 (ver compat.lua)
 ---LuaRSS Reader para TV Digital<br/>
 ---@author Manoel Campos da Silva Filho<br/> 
 ---Professor do Instituto Federal de Educação, Ciência e Tecnologia do Tocantins<br/>

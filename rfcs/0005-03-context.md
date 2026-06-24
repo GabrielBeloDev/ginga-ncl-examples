@@ -5,7 +5,7 @@
 | **Status** | ✅ Implementado e verificado (roda no Ginga atual) |
 | **App / Exemplo** | `Primeiro joao/.../Exemplos/03context.ncl` |
 | **Verificado em** | 2026-06-24 · Ginga telemidia/ginga (C++) · Ubuntu 22.04 |
-| **Captura** | [`../screenshots/03context.png`](../screenshots/03context.png) |
+| **Captura** | [`../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/03context.png`](../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/03context.png) |
 
 ## 1. Resumo
 Este documento demonstra o uso do elemento `<context>` em NCL como mecanismo de composição para agrupar componentes relacionados. No exemplo, um vídeo de animação ("João") dispara, ao longo do tempo, diversas mídias sincronizadas (trilha sonora, drible, foto) e, em determinado segmento, ativa um contexto de propaganda (`advert`) que encapsula um ícone interativo e um vídeo de chuteiras. O contexto isola seus próprios componentes e elos internos, expondo apenas portas (`<port>`) como interface para o documento que o contém.

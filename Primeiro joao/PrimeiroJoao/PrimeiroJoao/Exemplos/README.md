@@ -11,10 +11,10 @@ Testado em **2026-06-24** · Ginga `telemidia/ginga` (C++) · Ubuntu 22.04 ·
 **✅ Todos os 14 rodam** (carregam e renderizam sem erro; vídeo/áudio tocam normalmente).
 
 Cada execução foi feita em **tela cheia** (`ginga -f <arquivo>.ncl`) e a tela capturada. As capturas
-de todos os exemplos ficam na pasta [`screenshots/`](../../../../screenshots/) na raiz do repositório.
+ficam na pasta [`screenshots/`](screenshots/) aqui dentro de `Exemplos/`.
 
 <p align="center">
-  <img src="../../../../screenshots/01sync.png" width="60%" alt="01sync.ncl rodando — animação sincronizada">
+  <img src="screenshots/01sync.png" width="60%" alt="01sync.ncl rodando — animação sincronizada">
 </p>
 
 ## Como rodar

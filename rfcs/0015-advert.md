@@ -5,7 +5,7 @@
 | **Status** | ✅ Implementado e verificado (roda no Ginga atual) |
 | **App / Exemplo** | `Primeiro joao/.../Exemplos/advert.ncl` |
 | **Verificado em** | 2026-06-24 · Ginga telemidia/ginga (C++) · Ubuntu 22.04 |
-| **Captura** | [`../screenshots/advert.png`](../screenshots/advert.png) |
+| **Captura** | [`../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/advert.png`](../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/advert.png) |
 
 ## 1. Resumo
 Este documento demonstra a **inserção de uma propaganda interativa** em uma aplicação de TV digital escrita em NCL 3.0 (perfil EDTV). Um ícone permanente na tela funciona como gatilho: ao ser selecionado pelo telespectador (tecla OK do controle remoto), o ícone é encerrado e dispara, em paralelo, a peça publicitária completa — fundo, vídeo do produto (tênis) e um formulário HTML interativo. Quando o formulário chega ao fim de sua duração, toda a aplicação é encerrada. O exemplo ilustra **interação por seleção**, **disparo paralelo de mídias** e **encerramento do contexto raiz** via elos causais com conectores importados.
@@ -135,7 +135,7 @@ ginga advert.ncl
 
 **Comportamento esperado:** a aplicação inicia exibindo o ícone (gatilho) em tela cheia. Ao selecionar o ícone com a tecla OK do controle remoto, o ícone desaparece e surge a propaganda: imagem de fundo cobrindo a tela, o vídeo dos tênis na metade esquerda (`shoesReg`) e o formulário HTML interativo na metade direita (`formReg`). Após cerca de 12 segundos (fim do formulário), a aplicação é encerrada.
 
-**Resultado verificado:** ✅ A aplicação carrega, o ícone é exibido e a seleção dispara corretamente o conjunto de mídias da propaganda em paralelo (fundo, vídeo e formulário lado a lado); o encerramento pelo `onEnd` do formulário ocorre como esperado — ver captura [`../screenshots/advert.png`](../screenshots/advert.png).
+**Resultado verificado:** ✅ A aplicação carrega, o ícone é exibido e a seleção dispara corretamente o conjunto de mídias da propaganda em paralelo (fundo, vídeo e formulário lado a lado); o encerramento pelo `onEnd` do formulário ocorre como esperado — ver captura [`../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/advert.png`](../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/advert.png).
 
 ## 5. Observações
 - **Mídias locais necessárias** (todas presentes em `../media/` relativo ao `.ncl`): `iconPassive.png`, `backgroundPassive.png`, `shoes.mp4`, `ptForm.htm`. A ausência de qualquer uma delas deixa a respectiva região vazia.

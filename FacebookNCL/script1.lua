@@ -1,3 +1,4 @@
+require "compat"  -- restaura module()/setfenv() do Lua 5.1 (ver compat.lua)
 -- @author Thiago Nunes - thiagonunes.tns@gmail.com
 -- @author Marcio Fraga - marcior.mfraga@gmail.com
 -- @author Victor Muniz - munizcp@hotmail.com

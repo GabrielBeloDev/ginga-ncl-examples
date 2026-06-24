@@ -1,3 +1,4 @@
+require "compat"  -- restaura module()/setfenv() do Lua 5.1 (ver compat.lua)
 ---Sistema de enquete para TV Digital<br/>
 ---Sistema de enquete para TV Digital.
 ---Esta versão envio o voto a uma página PHP

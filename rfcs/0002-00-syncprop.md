@@ -5,7 +5,7 @@
 | **Status** | ✅ Implementado e verificado (roda no Ginga atual) |
 | **App / Exemplo** | `Primeiro joao/.../Exemplos/00syncProp.ncl` |
 | **Verificado em** | 2026-06-24 · Ginga telemidia/ginga (C++) · Ubuntu 22.04 |
-| **Captura** | [`../screenshots/00syncProp.png`](../screenshots/00syncProp.png) |
+| **Captura** | [`../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/00syncProp.png`](../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/00syncProp.png) |
 
 ## 1. Resumo
 
@@ -113,7 +113,7 @@ mesmo quadro, a imagem `photo.png` por 5 s. Ao terminar a animação, a trilha �
 **Resultado verificado:** ✅ a apresentação roda no Ginga atual; a animação principal é
 exibida em tela cheia conforme as propriedades `width/height=100%` e `zIndex=2`, com o quadro
 PiP previsto pelas propriedades `left=5%`/`top=6.7%`/`18.5%`/`zIndex=3` — ver captura
-[`../screenshots/00syncProp.png`](../screenshots/00syncProp.png).
+[`../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/00syncProp.png`](../Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/00syncProp.png).
 
 ## 5. Observações
 

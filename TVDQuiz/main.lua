@@ -1,3 +1,4 @@
+require "compat"  -- restaura module()/setfenv() do Lua 5.1 (ver compat.lua)
 ---TVD Quiz (script lua principal, responsável
 --por desenhar e controlar toda a interface gráfica
 --e a interação com o usuário)
