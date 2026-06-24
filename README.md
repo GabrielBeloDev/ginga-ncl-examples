@@ -79,14 +79,17 @@ Verificado em **2026-06-24**, Ginga `telemidia/ginga` (C++), Ubuntu 22.04. Cada 
 | **FacebookNCL** | [`FacebookNCL/`](FacebookNCL/) | Leitor de feed do Facebook | ❌ Não roda (Lua `module()` / API morta) |
 | **TVDQuiz** | [`TVDQuiz/`](TVDQuiz/) | Quiz/trivia interativo | ❌ Crash (Lua `module()` removido) |
 | **twitter_ncl** | [`twitter_ncl/`](twitter_ncl/) | Cliente de Twitter (ler/postar) | ❌ Crash (Lua `module()` / API morta) |
-| **RSS Reader (raiz)** | [`README_RSS.md`](README_RSS.md) | Leitor de RSS (`main.ncl` na raiz) | ❌ Crash (Lua `module()` removido) |
+| **RSS Reader** | [`rss-reader/`](rss-reader/) | Leitor de RSS em NCLua | ❌ Crash (Lua `module()` removido) |
 
 **Placar:** **15 de 22** pontos de entrada rodam neste Ginga (14 exemplos didáticos + A_Onda).
 
 <p align="center">
-  <img src="A_Onda/screenshot.png" width="45%" alt="A_Onda rodando">
-  <img src="Primeiro%20joao/PrimeiroJoao/PrimeiroJoao/Exemplos/screenshots/ex01_sync.png" width="45%" alt="Exemplo de sincronismo rodando">
+  <img src="screenshots/A_Onda.png" width="45%" alt="A_Onda rodando">
+  <img src="screenshots/01sync.png" width="45%" alt="Exemplo de sincronismo rodando">
 </p>
+
+> 📸 Capturas de tela (em tela cheia) de **todos os que rodam** ficam em [`screenshots/`](screenshots/).
+> 📄 Cada um que roda tem também um documento técnico (RFC) em [`rfcs/`](rfcs/).
 
 ---
 
@@ -110,9 +113,10 @@ ponta sem reescrita adicional.
 
 ## Bibliotecas auxiliares (não executáveis)
 
-- **`LuaXML/`** — parser XML em Lua (Paul Chakravarti) reutilizado por vários apps.
-- **`tcp.lua`, `http.lua`, `json.lua`, `base64.lua`, `util.lua`** — bibliotecas de apoio (rede,
-  codificação) usadas pelos apps de integração web.
+- **`rss-reader/LuaXML/`** — parser XML em Lua (Paul Chakravarti), usado pelo leitor de RSS (e há
+  uma cópia própria dentro de `twitter_ncl/LuaXML/`).
+- **`tcp.lua`, `http.lua`, `json.lua`, `base64.lua`, `util.lua`** (dentro de cada app) — bibliotecas
+  de apoio (rede, codificação) usadas pelos apps de integração web.
 
 ---
 

@@ -10,11 +10,11 @@ o middleware.
 Testado em **2026-06-24** · Ginga `telemidia/ginga` (C++) · Ubuntu 22.04 ·
 **✅ Todos os 14 rodam** (carregam e renderizam sem erro; vídeo/áudio tocam normalmente).
 
-Cada execução foi `ginga -s 960x540 <arquivo>.ncl`, capturada após alguns segundos. As capturas
-estão em [`screenshots/`](screenshots/).
+Cada execução foi feita em **tela cheia** (`ginga -f <arquivo>.ncl`) e a tela capturada. As capturas
+de todos os exemplos ficam na pasta [`screenshots/`](../../../../screenshots/) na raiz do repositório.
 
 <p align="center">
-  <img src="screenshots/ex01_sync.png" width="60%" alt="01sync.ncl rodando — animação sincronizada">
+  <img src="../../../../screenshots/01sync.png" width="60%" alt="01sync.ncl rodando — animação sincronizada">
 </p>
 
 ## Como rodar

@@ -1,4 +1,4 @@
-# RSS-root (LuaRSS Reader para TV Digital)
+# RSS Reader — LuaRSS para TV Digital
 
 > Leitor de RSS em NCLua que exibe notícias de um feed sobre um vídeo · Manoel Campos da Silva Filho (IFTO) · ~2010
 
@@ -7,7 +7,7 @@ Aplicação de TV Digital Interativa escrita em NCL + Lua (NCLua) que funciona c
 
 ## Como rodar
 ```bash
-# a partir da raiz do repositório:
+cd rss-reader
 ginga main.ncl
 ```
 Dica: adicione `-f` (tela cheia) ou `-s 960x540` (tamanho da janela).
