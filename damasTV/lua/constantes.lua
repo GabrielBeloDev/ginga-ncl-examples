@@ -1,0 +1,9 @@
+CORES = {'green','red'}
+JOGADOR1 = 1
+JOGADOR2 = 2
+BLOCO_A = 1
+BLOCO_B =2
+BLOCO_S = 'imagens/blocos/blocoS.gif'
+BLOCO_C = 'imagens/blocos/blocoC.gif'
+ORIENTACAO= true
+ANIMACAO= true

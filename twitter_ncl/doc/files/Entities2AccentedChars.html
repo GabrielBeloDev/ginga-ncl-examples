@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../luadoc.css" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>LuaDoc</h1>
+<ul>
+	
+	<li><a href="../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+<h1>Modules</h1>
+<ul>
+
+	<li>
+		<a href="../modules/base64.html">base64</a>
+	</li>
+
+	<li>
+		<a href="../modules/config.html">config</a>
+	</li>
+
+	<li>
+		<a href="../modules/http.html">http</a>
+	</li>
+
+	<li>
+		<a href="../modules/tcp.html">tcp</a>
+	</li>
+
+	<li>
+		<a href="../modules/util.html">util</a>
+	</li>
+
+</ul>
+
+
+
+<!-- File list -->
+
+<h1>Files</h1>
+<ul>
+
+	<li><strong>Entities2AccentedChars.lua</strong></li>
+	
+	<li>
+		<a href="../files/Entities2AccentedChars.original.html">Entities2AccentedChars.original.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/Retweet.html">Retweet.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/SendTweet.html">SendTweet.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/ShowTweets.html">ShowTweets.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/TextField.html">TextField.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/Twitter.html">Twitter.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/base64.html">base64.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/config.html">config.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/http.html">http.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/main.html">main.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/tcp.html">tcp.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/twitter.config.html">twitter.config.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/util.html">util.lua</a>
+	</li>
+
+</ul>
+
+
+
+
+
+
+</div> <!-- id="navigation" -->
+
+<div id="content">
+
+<h1>File <code>Entities2AccentedChars.lua</code></h1>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#ConvertFile">ConvertFile</a>&nbsp;(filename)</td>
+	<td class="summary">Converte o conteúdo de um arquivo, substituindo os códigos HTML para caracteres em seus respectivos caracteres.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#ConvertString">ConvertString</a>&nbsp;(text)</td>
+	<td class="summary">Converte uma string, substituindo os códigos HTML para caracteres em seus respectivos caracteres.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#GetEol">GetEol</a>&nbsp;(str)</td>
+	<td class="summary">Obtem o formato de quebra de linha usada em uma string.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#ProcessLine">ProcessLine</a>&nbsp;(line)</td>
+	<td class="summary">Processa uma linha (string), substituindo todos os códigos HTML de caracteres (em formato &#NUMERO; ou &NOME; como &#192; ou &Agrave; ) para seus respectivos caracteres.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#ReplaceNamedEntity">ReplaceNamedEntity</a>&nbsp;(entity)</td>
+	<td class="summary">Converte um código HTML de caractere especial ou acentuado para seu respectivo caractere.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#ReplaceNumericCodeEntity">ReplaceNumericCodeEntity</a>&nbsp;(entity)</td>
+	<td class="summary">Converte um código de caractere em formato HTML ISO8859-1 para seu respectivo caractere.</td>
+	</tr>
+
+</table>
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="ConvertFile"></a><strong>ConvertFile</strong>&nbsp;(filename)</dt>
+<dd>
+Converte o conteúdo de um arquivo, substituindo os códigos HTML para caracteres em seus respectivos caracteres.
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  filename: Nome do arquivo convertido.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="ConvertString"></a><strong>ConvertString</strong>&nbsp;(text)</dt>
+<dd>
+Converte uma string, substituindo os códigos HTML para caracteres em seus respectivos caracteres.
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  text: String a ser convertida
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="GetEol"></a><strong>GetEol</strong>&nbsp;(str)</dt>
+<dd>
+Obtem o formato de quebra de linha usada em uma string. Checa somente a primeira linha da string, considerando que a mesma é consistente.
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  str: String de onde será obtida o formato de quebra de linha.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="ProcessLine"></a><strong>ProcessLine</strong>&nbsp;(line)</dt>
+<dd>
+Processa uma linha (string), substituindo todos os códigos HTML de caracteres (em formato &#NUMERO; ou &NOME; como &#192; ou &Agrave; ) para seus respectivos caracteres.
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  line: Linha (string) a ser processada
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="ReplaceNamedEntity"></a><strong>ReplaceNamedEntity</strong>&nbsp;(entity)</dt>
+<dd>
+Converte um código HTML de caractere especial ou acentuado para seu respectivo caractere. Usada como parâmetro para a função string.gsub
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  entity: Código a ser convertido para seu respectivo caractere
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../files/Entities2AccentedChars.html#ProcessLine">
+		ProcessLine
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="ReplaceNumericCodeEntity"></a><strong>ReplaceNumericCodeEntity</strong>&nbsp;(entity)</dt>
+<dd>
+Converte um código de caractere em formato HTML ISO8859-1 para seu respectivo caractere. Usada como parâmetro para a função string.gsub
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  entity: Código a ser convertido para seu respectivo caractere
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../files/Entities2AccentedChars.html#ProcessLine">
+		ProcessLine
+	</a>
+	
+</ul>
+
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>

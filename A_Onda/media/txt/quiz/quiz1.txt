@@ -1,0 +1,19 @@
+question="Qual o significado da palavra Pororoca na língua tupi?"//a="Grande destruição"//b="Grande inundação"//c="Grande estrondo"//d="Grande onda"//answer="c"//
+
+question="O que causa o fenômeno da Pororoca?"//a="Fortes chuvas tropicais"//b="Maremotos"//c="Aquecimento global"//d="Encontro das correntes fluviais com as águas oceânicas"//answer="d"//
+
+question="Em quais Estados brasileiros acontece a Pororoca?"//a="Amazonas, Acre, Rondônia e Roraima"//b="Amazonas, Amapá, Pará e Maranhão"//c="Amazonas, Pará, Mato Grosso e Amapá"//d="Maranhão, Pará, Rondônia e Amapá"//answer="b"//
+
+question="Qual é o recorde de tempo e distância de surfe sobre uma<> mesma onda de Pororoca?"//a="1,2 Km em 8 min"//b="2,7 Km em 17 min"//c="5,3 Km em 22 min"//d="12,5 Km em 37 min"//answer="d"//
+
+question="Qual é o nome científico do candiru (ou peixe-vampiro)<> encontrado nas regiões onde ocorrem a Pororoca?"//a="Vandellia cirrhosa"//b="Mandellia dirrhosi"//c="Trichechus inunguis"//d="Trichechus cirrhosa"//answer="a"//
+
+question="Como também é chamado o peixe-boi, espécie encontrada<> nas regiões onde ocorrem a Pororoca?"//a="Manary"//b="Mandely"//c="Manati"//d="Menteri"//answer="c"//
+
+question="No Brasil, qual é o período mais comum para ocorrência da<> Pororoca?"//a="Dezembro e Janeiro"//b="Fevereiro e Março"//c="Junho e Julho"//d="O ano inteiro"//answer="b"//
+
+question="Qual é o tamanho máximo das ondas geradas na Pororoca?"//a="Até 2 metros"//b="Até 4 metros"//c="Até 6 metros"//d="Até 8 metros"//answer="c"//
+
+question="Qual é a velocidade máxima das ondas geradas na<> Pororoca?"//a="10 kilômetros por hora"//b="20 kilômetros por hora"//c="30 kilômetros por hora"//d="40 kilômetros por hora"//answer="b"//
+
+question="Em quais outros países também ocorre o fenômeno da<> Pororoca?"//a="Nenhum outro país"//b="França, Reino Unido e China"//c="Austrália, Índia e Chile"//d="Rússia, Canadá e EUA"//answer="b"//

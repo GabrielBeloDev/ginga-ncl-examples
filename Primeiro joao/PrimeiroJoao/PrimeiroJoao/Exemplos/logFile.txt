@@ -1,0 +1,1223 @@
+ginga main() remote NCLFILE
+ginga main() COMMAND = 'C:\Program Files (x86)\TeleMidia\Ginga\ginga.exe' NCLFILE = 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\12embNCL.ncl'
+LocalScreenManager::createScreen argv[9]
+LocalScreenManager::createScreen PARSER argv[0] = 'C:\Program Files (x86)\TeleMidia\Ginga\ginga.exe'
+LocalScreenManager::createScreen PARSER argv[1] = '--ncl'
+LocalScreenManager::createScreen PARSER argv[2] = 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\12embNCL.ncl'
+LocalScreenManager::createScreen PARSER argv[3] = '--vmode'
+LocalScreenManager::createScreen PARSER argv[4] = '854x480'
+LocalScreenManager::createScreen PARSER argv[5] = '--disable-fkeys'
+LocalScreenManager::createScreen PARSER argv[6] = '--enable-log'
+LocalScreenManager::createScreen PARSER argv[7] = 'file'
+LocalScreenManager::createScreen PARSER argv[8] = '--set-exitonend'
+SDLDeviceScreen::setEmbedFromParent: ''
+SDLDeviceScreen::getWidthResolution returns '854'
+SDLDeviceScreen::getHeightResolution returns '480'
+SDLDeviceScreen::initScreen renderer accelerated by hardware was created
+InputManager::initializeInputIntervalTime imperative = '0' declarative = '200'
+ginga main() NCLFILE = C:\Users\LFGS\Desktop\Garrincha\Exemplos\12embNCL.ncl
+PresentationEngineManager::openNclFile document process time: 0
+ContextManager::addContextListener
+SystemInfo::getSystemLanguage can't find 'system.language, return por
+SDLDeviceScreen::getWidthResolution returns '854'
+SDLDeviceScreen::getHeightResolution returns '480'
+SDLDeviceScreen::getWidthResolution returns '854'
+SDLDeviceScreen::getHeightResolution returns '480'
+SDLDeviceScreen::getHeightResolution returns '480'
+SDLDeviceScreen::getWidthResolution returns '854'
+PresentationContext::getPropertyValue prop 'default.focusBorderColor' == 'blue'
+PresentationContext::getPropertyValue prop 'default.focusBorderWidth' == '3'
+PresentationContext::getPropertyValue prop 'default.selBorderColor' == 'green'
+PrivateBaseContext::createPrivateBase '-1'
+FormatterMediator::printData(01085D40) screenId: 0 baseId: -1 playerId: C:\Users\LFGS\Desktop\Garrincha\Exemplos\12embNCL.ncl devClass: 0 x: 0 y: 0 w: 854 h: 480 enableGfx: 1 parentDocId:  docId: 
+FormatterMediator::addDocument(01085D40) call addDocument 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\12embNCL.ncl'
+PATH = [C:\Users\LFGS\Desktop\Garrincha\Exemplos\]
+parseRegionBase
+>>region: screenRegparseRegion
+>>region: frameRegparseRegion
+>>region: passiveAdvRegparseRegion
+parseDescriptorBase
+>>descriptor: passiveAdvDesc
+parseDescriptor
+>>descriptorParam: 
+parseDescriptorParam
+>>descriptor: screenDesc
+parseDescriptor
+>>descriptor: photoDesc
+parseDescriptor
+>>descriptor: audioDesc
+parseDescriptor
+>>descriptor: dribleDesc
+parseDescriptor
+parseConnectorBase
+>>importBase: 
+NclDocumentConverter::importDocument location 'causalConnBase.ncl' translated URI = 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\causalConnBase.ncl'
+PATH = [C:\Users\LFGS\Desktop\Garrincha\Exemplos\]
+parseConnectorBase
+>>causalConnector: onBeginStart
+parseCausalConnector
+>>simpleCondition: 
+parseSimpleCondition
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onBeginStart_delay
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onEndStop
+parseCausalConnector
+>>simpleCondition: 
+parseSimpleCondition
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onBeginSet_varStart
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>compoundAction: 
+parseCompoundAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onKeySelectionStopSet_varStart
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>compoundAction: 
+parseCompoundAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onEndSet_var
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onKeySelectionStopStart
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>compoundAction: 
+parseCompoundAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onSelectionStopStart
+parseCausalConnector
+>>simpleCondition: 
+parseSimpleCondition
+>>compoundAction: 
+parseCompoundAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onKeySelectionSet_var
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onBeginVarStart
+parseCausalConnector
+>>compoundCondition: 
+parseCompoundCondition
+>>simpleCondition: 
+parseSimpleCondition
+>>assessmentStatement: 
+parseAssessmentStatement
+parseAttributeAssessment
+parseValueAssessment
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onBeginStartSet_var_delay_duration
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>connectorParam: 
+parseConnectorParam
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>compoundAction: 
+parseCompoundAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onSelectionSet_varStop
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>compoundAction: 
+parseCompoundAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onSelection_orSet_varStopStart
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>compoundAction: 
+parseCompoundAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onBeginSet_var
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onEndSet_varStop_delay
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>compoundAction: 
+parseCompoundAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onEndStop_delay
+parseCausalConnector
+>>simpleCondition: 
+parseSimpleCondition
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onOrSelectionSetStop
+parseCausalConnector
+>>connectorParam: 
+parseConnectorParam
+>>simpleCondition: 
+parseSimpleCondition
+>>compoundAction: 
+parseCompoundAction
+>>simpleAction: 
+parseSimpleAction
+>>simpleAction: 
+parseSimpleAction
+>>causalConnector: onEndStart
+parseCausalConnector
+>>simpleCondition: 
+parseSimpleCondition
+>>simpleAction: 
+parseSimpleAction
+parseMedia
+parseArea
+parseArea
+parseArea
+parseMedia
+parseMedia
+parseMedia
+parseMedia
+posCompileContext
+posCompileContext
+parseLink
+lMusic
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+>>bindParam: 
+parseBindParam
+parseLink
+lDrible
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+parseLink
+lPhoto
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+parseLink
+lEnd
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+parseLink
+lIcon
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+parsePort
+PrivateBaseContext::addDocument id='_03prepPassiveDevicesEx' url='C:\Users\LFGS\Desktop\Garrincha\Exemplos\12embNCL.ncl' all done
+FormatterMediator::getDepUriFromNode checking descriptor 'screenDesc'
+FormatterMediator::getDepUriFromNode checking descriptor 'audioDesc'
+FormatterMediator::getDepUriFromNode checking descriptor 'dribleDesc'
+FormatterMediator::getDepUriFromNode checking descriptor 'photoDesc'
+FormatterMediator::getDepUriFromNode checking descriptor 'passiveAdvDesc'
+FormatterMultiDevice::addActiveUris activeBaseUri=C:\Users\LFGS\Desktop\Garrincha\Exemplos\
+ExecutionObject::addEvent '-1_1' in '-1\'
+ExecutionObject::addPresentationEvent in '-1\'. Call transition manager addPresentationEvent for '-1_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\', perspective = '-1' and parent = 'NULL'
+ExecutionObject::addEvent '_03prepPassiveDevicesEx_1' in '-1\_03prepPassiveDevicesEx\'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\'. Call transition manager addPresentationEvent for '_03prepPassiveDevicesEx_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\_03prepPassiveDevicesEx\', perspective = '-1\_03prepPassiveDevicesEx' and parent = '-1\'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\_03prepPassiveDevicesEx\animation\screenDesc', perspective = '-1\_03prepPassiveDevicesEx\animation' and parent = '-1\_03prepPassiveDevicesEx\'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\_03prepPassiveDevicesEx\' has '5' uncompiled links
+FormatterConverter::compileExecutionObjectLinks processing ncmLink 'lMusic' inside '-1\_03prepPassiveDevicesEx\'
+Link::containsNode searching 'animation' inside link 'lMusic' (1 condition binds)
+Link::containsNode link 'lMusic' has 'animation' with descriptor = 'screenDesc'
+CompositeExecutionObject::removeLinkUncompiled 'lMusic'
+FormatterLinkConverter::createCausalLink inside '-1\_03prepPassiveDevicesEx\' from ncmlinkId 'lMusic'
+CascadingDescriptor::~CascadingDescriptor(screenDesc)
+ExecutionObject::addEvent 'animation_1' in '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\animation\screenDesc'. Call transition manager addPresentationEvent for 'animation_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\_03prepPassiveDevicesEx\choro\audioDesc', perspective = '-1\_03prepPassiveDevicesEx\choro' and parent = '-1\_03prepPassiveDevicesEx\'
+FormatterMultiDevice::getFormatterLayout region is NULL
+CascadingDescriptor::setFormatterRegion Warning! region == NULL
+ExecutionObject::addEvent 'choro_1' in '-1\_03prepPassiveDevicesEx\choro\audioDesc'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\choro\audioDesc'. Call transition manager addPresentationEvent for 'choro_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::compileExecutionObjectLinks LINKCOMPILED 'lMusic'
+FormatterConverter::compileExecutionObjectLinks processing ncmLink 'lDrible' inside '-1\_03prepPassiveDevicesEx\'
+Link::containsNode searching 'animation' inside link 'lDrible' (1 condition binds)
+Link::containsNode link 'lDrible' has 'animation' with descriptor = 'screenDesc'
+CompositeExecutionObject::removeLinkUncompiled 'lDrible'
+FormatterLinkConverter::createCausalLink inside '-1\_03prepPassiveDevicesEx\' from ncmlinkId 'lDrible'
+CascadingDescriptor::~CascadingDescriptor(screenDesc)
+ExecutionObject::addEvent 'segDrible_1' in '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\animation\screenDesc'. Call transition manager addPresentationEvent for 'segDrible_1' begin = '12000'; end = '1.#INF' position = '1'
+EventTransitionManager::addEventTransition(010A1A88) for event 'segDrible_1': begin = '12000'; end = '1.#INF'; pos = '1'; type = '2'. Transition time = '12000'
+EventTransitionManager::addEventTransition(010A1A88) for event 'segDrible_1': begin = '12000'; end = '1.#INF'; pos = '3'; type = '2'. Transition time = '1.#INF'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\_03prepPassiveDevicesEx\drible\dribleDesc', perspective = '-1\_03prepPassiveDevicesEx\drible' and parent = '-1\_03prepPassiveDevicesEx\'
+ExecutionObject::addEvent 'drible_1' in '-1\_03prepPassiveDevicesEx\drible\dribleDesc'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\drible\dribleDesc'. Call transition manager addPresentationEvent for 'drible_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::compileExecutionObjectLinks LINKCOMPILED 'lDrible'
+FormatterConverter::compileExecutionObjectLinks processing ncmLink 'lPhoto' inside '-1\_03prepPassiveDevicesEx\'
+Link::containsNode searching 'animation' inside link 'lPhoto' (1 condition binds)
+Link::containsNode link 'lPhoto' has 'animation' with descriptor = 'screenDesc'
+CompositeExecutionObject::removeLinkUncompiled 'lPhoto'
+FormatterLinkConverter::createCausalLink inside '-1\_03prepPassiveDevicesEx\' from ncmlinkId 'lPhoto'
+CascadingDescriptor::~CascadingDescriptor(screenDesc)
+ExecutionObject::addEvent 'segPhoto_1' in '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\animation\screenDesc'. Call transition manager addPresentationEvent for 'segPhoto_1' begin = '41000'; end = '1.#INF' position = '2'
+EventTransitionManager::addEventTransition(010A1A88) for event 'segPhoto_1': begin = '41000'; end = '1.#INF'; pos = '2'; type = '2'. Transition time = '41000'
+EventTransitionManager::addEventTransition(010A1A88) for event 'segPhoto_1': begin = '41000'; end = '1.#INF'; pos = '5'; type = '2'. Transition time = '1.#INF'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\_03prepPassiveDevicesEx\photo\photoDesc', perspective = '-1\_03prepPassiveDevicesEx\photo' and parent = '-1\_03prepPassiveDevicesEx\'
+ExecutionObject::addEvent 'photo_1' in '-1\_03prepPassiveDevicesEx\photo\photoDesc'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\photo\photoDesc'. Call transition manager addPresentationEvent for 'photo_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::compileExecutionObjectLinks LINKCOMPILED 'lPhoto'
+FormatterConverter::compileExecutionObjectLinks processing ncmLink 'lEnd' inside '-1\_03prepPassiveDevicesEx\'
+Link::containsNode searching 'animation' inside link 'lEnd' (1 condition binds)
+Link::containsNode link 'lEnd' has 'animation' with descriptor = 'screenDesc'
+CompositeExecutionObject::removeLinkUncompiled 'lEnd'
+FormatterLinkConverter::createCausalLink inside '-1\_03prepPassiveDevicesEx\' from ncmlinkId 'lEnd'
+CascadingDescriptor::~CascadingDescriptor(screenDesc)
+ApplicationExecutionObject::initializeApplicationObject(-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc)
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc', perspective = '-1\_03prepPassiveDevicesEx\advert' and parent = '-1\_03prepPassiveDevicesEx\'
+ExecutionObject::addEvent 'advert_1' in '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'. Call transition manager addPresentationEvent for 'advert_1' begin = '0'; end = '1.#INF' position = '-1'
+CascadingDescriptor::~CascadingDescriptor(audioDesc)
+FormatterConverter::compileExecutionObjectLinks LINKCOMPILED 'lEnd'
+FormatterConverter::compileExecutionObjectLinks processing ncmLink 'lIcon' inside '-1\_03prepPassiveDevicesEx\'
+Link::containsNode searching 'animation' inside link 'lIcon' (1 condition binds)
+Link::containsNode link 'lIcon' has 'animation' with descriptor = 'screenDesc'
+CompositeExecutionObject::removeLinkUncompiled 'lIcon'
+FormatterLinkConverter::createCausalLink inside '-1\_03prepPassiveDevicesEx\' from ncmlinkId 'lIcon'
+CascadingDescriptor::~CascadingDescriptor(screenDesc)
+ExecutionObject::addEvent 'segIcon_1' in '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\animation\screenDesc'. Call transition manager addPresentationEvent for 'segIcon_1' begin = '45000'; end = '51000' position = '3'
+EventTransitionManager::addEventTransition(010A1A88) for event 'segIcon_1': begin = '45000'; end = '51000'; pos = '3'; type = '2'. Transition time = '45000'
+EventTransitionManager::addEventTransition(010A1A88) for event 'segIcon_1': begin = '45000'; end = '51000'; pos = '4'; type = '2'. Transition time = '51000'
+CascadingDescriptor::~CascadingDescriptor(passiveAdvDesc)
+FormatterConverter::compileExecutionObjectLinks LINKCOMPILED 'lIcon'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterMediator::initializeSettingNodes checking 'animation'
+FormatterMediator::initializeSettingNodes checking 'choro'
+FormatterMediator::initializeSettingNodes checking 'drible'
+FormatterMediator::initializeSettingNodes checking 'photo'
+FormatterMediator::initializeSettingNodes checking 'advert'
+PresentationEngineManager::startPresentation
+PresentationEngineManager::getNclPlayer
+PresentationEngineManager::startPresentation play 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\12embNCL.ncl'
+FormatterScheduler::startDocument Through event '_03prepPassiveDevicesEx_1'
+PresentationContext::getPropertyValue prop 'default.focusBorderTransparency' == '0'
+PresentationContext::getPropertyValue prop 'default.focusBorderColor' == 'blue'
+PresentationContext::getPropertyValue prop 'default.focusBorderWidth' == '3'
+PresentationContext::getPropertyValue prop 'default.selBorderColor' == 'green'
+FormatterScheduler::runAction acquiring player for '-1\_03prepPassiveDevicesEx\animation\screenDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+RuleAdapter::adaptDescriptor for '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+RuleAdapter::adaptDescriptor first unsolved descriptor address '00000000'
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+AVPlayer::createProvider 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4'
+SDL2ffmpeg::read_init context flags = '0'
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4' doesn't have any audio stream!
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4' doesn't have any subtitle stream!
+AVPlayer::createProvider 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4' all done
+FormatterPlayerAdapter::createPlayer for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4' object = '-1\_03prepPassiveDevicesEx\animation\screenDesc' objectDevice = '0'
+ExecutionObject::prepare(-1\_03prepPassiveDevicesEx\animation\screenDesc) 2nd call addEventListener '010A1D70' or '010A1E4C'
+Player::setScope 'animation'
+FormatterLayout::prepareFormatterRegion for '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+FormatterRegion::prepareOutputDisplay '01098A10' created with left   = '0' top    = '0' width  = '854' height = '480' 
+SDLWindow::renderFrom(01098A10) Warning! NULL underlying surface!
+FormatterLayout::prepareFormatterRegion deviceRegion class is '0'
+AVPlayer::play() calling provider play over
+SDLVideoProvider::playOver
+AVPlayer::play(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) all done!
+FormatterScheduler::eventStateChanged 'animation_1' transition '0'
+FormatterMultiDevice::showObject '-1\_03prepPassiveDevicesEx\animation\screenDesc' class '0'
+FormatterRegion::setRegionVisibility 'screenDesc): '01098A10' SHOW
+FormatterFocusManager::showObject 'animation' with focus index = '' current focus = ''
+PresentationContext::getPropertyValue prop 'service.currentKeyMaster' has a NULL value
+AVPlayer::run
+AVPlayer::run total media time that will be considered  is '70.57'
+SDL2ffmpeg::play called
+SDL2ffmpeg::prepare Video frame rate is '2997/100'
+EntryEventListener::eventStateChanged SDL2ffmpeg::prepare Video average frame rate is 'parent id = '2997-1\_03prepPassiveDevicesEx\/' 100parent is running = ''1
+' interface id = 'entrySDL2ffmpeg::prepare Video time base frame rate is ''1 events running = '/02997''
+
+PresentationEngineManager::updateStatus
+FormatterScheduler::eventStateChanged '_03prepPassiveDevicesEx_1' transition '0'
+FormatterPlayerAdapter::checkAnchorMonitor creating TIME NominalEventMonitor for '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+FormatterScheduler::runAction takes '24' ms to start '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+LinkSimpleAction::~LinkSimpleAction
+FormatterScheduler::startDocument Through event '_03prepPassiveDevicesEx_1' started '1' events====== Anchor Monitor Activated for '
+-1\_03prepPassiveDevicesEx\animation\screenDesc' (PresentationEngineManager::waitUnlockCondition010B0E78
+ ======
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '1.34687e+009' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '0' (duration = '70570')
+ANCHORMONITOR NEXTTRANSITIONTIME = '12000' MEDIATIME = '0' EXPECTEDSLEEPTIME = '12000' (010B0E78)
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '0.848168' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '0.834168' (duration = '70570')
+AVPlayer::run dur = '70.57' curMediaTime = '0.834168' total = '70.57' for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4'
+CompositeExecutionObject::linkEvaluationFinished(-1\_03prepPassiveDevicesEx\) 'lMusic'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\choro\audioDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\_03prepPassiveDevicesEx\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\_03prepPassiveDevicesEx\'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterScheduler::runAction acquiring player for '-1\_03prepPassiveDevicesEx\choro\audioDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+RuleAdapter::adaptDescriptor for '-1\_03prepPassiveDevicesEx\choro\audioDesc'
+RuleAdapter::adaptDescriptor first unsolved descriptor address '00000000'
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+AVPlayer::createProvider 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4'
+SDL2ffmpeg::read_init context flags = '0'
+SDL2ffmpeg::audio_open 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4'
+Desired format = '32784'
+Desired silence = ' '
+Desired samples = '1024'
+Desired size = '0'
+Desired channels = '2'
+Desired frequency = '44100'
+
+Obtained format = '32784'
+Obtained silence = ' '
+Obtained samples = '1024'
+Obtained size = '4096'
+Obtained channels = '2'
+Obtained frequency = '44100'
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4' doesn't have any video stream!
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4' doesn't have any subtitle stream!
+SDL2ffmpeg::getOriginalResolution(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4Can't get video data. video_st = '00000000'
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done
+SDL2ffmpeg::~SDL2ffmpeg
+
+SDL2ffmpeg::~SDL2ffmpeg calling SDL_PauseAudio(1)
+
+SDL2ffmpeg::release
+SDL2ffmpeg::stream_close all done
+SDL2ffmpeg::read_init context flags = '0'
+SDL2ffmpeg::audio_open 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4'
+Desired format = '32784'
+Desired silence = ' '
+Desired samples = '1024'
+Desired size = '4096'
+Desired channels = '2'
+Desired frequency = '44100'
+
+Obtained format = '32784'
+Obtained silence = ' '
+Obtained samples = '1024'
+Obtained size = '4096'
+Obtained channels = '2'
+Obtained frequency = '44100'
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4' doesn't have any video stream!
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4' doesn't have any subtitle stream!
+AVPlayer::createProvider 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4' all done
+FormatterPlayerAdapter::createPlayer for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4' object = '-1\_03prepPassiveDevicesEx\choro\audioDesc' objectDevice = '0'
+ExecutionObject::prepare(-1\_03prepPassiveDevicesEx\choro\audioDesc) 2nd call addEventListener '010A1D70' or '010A1E4C'
+Player::setScope 'choro'
+FormatterMultiDevice::getFormatterLayout region is NULL
+AVPlayer::play() calling provider play over
+SDLAudioProvider::playOver
+SDL2ffmpeg::play called
+AVPlayer::play(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done!
+FormatterScheduler::eventStateChanged 'choro_1' transition '0'
+FormatterMultiDevice::getFormatterLayout region is NULL
+FormatterFocusManager::showObject Warning!  FR is null.
+FormatterPlayerAdapter::checkAnchorMonitor can't create TIME NominalEventMonitor for '-1\_03prepPassiveDevicesEx\choro\audioDesc' because next transition = '1.#INF' 
+FormatterScheduler::runAction takes '352' ms to start '-1\_03prepPassiveDevicesEx\choro\audioDesc'
+AVPlayer::run
+AVPlayer::run total media time that will be considered  is '53.057'
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) master_clock = '0.73982' (duration = '53057')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) current_pts = '0' (duration = '53057')
+AVPlayer::run dur = '53.057' curMediaTime = '0.743039' total = '53.057' for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4'
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '11.5689' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '11.5449' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '11.5689' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '11.5449' (duration = '70570')
+ANCHORMONITOR NEXTTRANSITIONTIME = '12000' MEDIATIME = '11544.9' EXPECTEDSLEEPTIME = '455.122' (010B0E78)
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '12.013' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '12.012' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '12.013' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '12.012' (duration = '70570')
+ANCHORMONITOR NEXTTRANSITIONTIME = '41000' MEDIATIME = '12012' EXPECTEDSLEEPTIME = '28988' (010B0E78)
+CompositeExecutionObject::linkEvaluationFinished(-1\_03prepPassiveDevicesEx\) 'lDrible'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\drible\dribleDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\_03prepPassiveDevicesEx\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\_03prepPassiveDevicesEx\'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterScheduler::runAction acquiring player for '-1\_03prepPassiveDevicesEx\drible\dribleDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+RuleAdapter::adaptDescriptor for '-1\_03prepPassiveDevicesEx\drible\dribleDesc'
+RuleAdapter::adaptDescriptor first unsolved descriptor address '00000000'
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+AVPlayer::createProvider 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4'
+SDL2ffmpeg::read_init context flags = '0'
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4' doesn't have any audio stream!
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4' doesn't have any subtitle stream!
+AVPlayer::createProvider 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4' all done
+FormatterPlayerAdapter::createPlayer for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4' object = '-1\_03prepPassiveDevicesEx\drible\dribleDesc' objectDevice = '0'
+ExecutionObject::prepare(-1\_03prepPassiveDevicesEx\drible\dribleDesc) 2nd call addEventListener '010A1D70' or '010A1E4C'
+Player::setScope 'drible'
+FormatterLayout::prepareFormatterRegion for '-1\_03prepPassiveDevicesEx\drible\dribleDesc'
+FormatterRegion::prepareOutputDisplay '01098A98' created with left   = '42' top    = '32' width  = '157' height = '88' 
+SDLWindow::renderFrom(01098A98) Warning! NULL underlying surface!
+FormatterLayout::prepareFormatterRegion deviceRegion class is '0'
+AVPlayer::play() calling provider play over
+SDLVideoProvider::playOver
+SDL2ffmpeg::play called
+SDL2ffmpeg::prepare Video frame rate is '2997/100'
+AVPlayer::play(SDL2ffmpeg::prepare Video average frame rate is 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp42997) all done!/
+100'
+SDL2ffmpeg::prepare Video time base frame rate is '1/2997'
+FormatterScheduler::eventStateChanged 'drible_1' transition '0'
+FormatterMultiDevice::showObject '-1\_03prepPassiveDevicesEx\drible\dribleDesc' class '0'
+FormatterRegion::setRegionVisibility 'dribleDesc): '01098A98' SHOW
+FormatterFocusManager::showObject 'drible' with focus index = '' current focus = ''
+PresentationContext::getPropertyValue prop 'service.currentKeyMaster' has a NULL value
+AVPlayer::run
+FormatterPlayerAdapter::checkAnchorMonitor can't create TIME NominalEventMonitor for '-1\_03prepPassiveDevicesEx\drible\dribleDesc' because next transition = '1.#INF' 
+AVPlayer::run total media time that will be considered  is '5.305FormatterScheduler::runAction takes ''38
+' ms to start '-1\_03prepPassiveDevicesEx\drible\dribleDesc'
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) master_clock = '0.837803' (duration = '5305')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) current_pts = '0.800801' (duration = '5305')
+AVPlayer::run dur = '5.305' curMediaTime = '0.800801' total = '5.305' for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4'
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) all done
+SDL2ffmpeg::read_thread(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) all done (EOF)
+SDL2ffmpeg::video_thread all done
+SDL2ffmpeg::video_image_display aborting
+SDL2ffmpeg::video_image_display aborting
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) master_clock = '5.30685' (duration = '5305')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) current_pts = '5.17184' (duration = '5305')
+AVPlayer::run dur = '5.305' curMediaTime = '5.17184' total = '5.305' for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4'
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) master_clock = '5.44085' (duration = '5305')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) current_pts = '5.17184' (duration = '5305')
+AVPlayer::run has exited from loop cause dur = '5.305' and current time = '5.17184'
+AVPlayer::run(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) notifying ... 
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) all done
+AVPlayer::run(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) NOTIFY STOP
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) all done
+AVPlayer::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) all done!
+FormatterScheduler::eventStateChanged 'drible_1' transition '1'
+FormatterScheduler::eventStateChanged 'drible_1' STOPS: hideObject '-1\_03prepPassiveDevicesEx\drible\dribleDesc
+FormatterMultiDevice::hideObject '-1\_03prepPassiveDevicesEx\drible\dribleDesc'
+FormatterRegion::setRegionVisibility(dribleDesc): '01098A98' HIDE
+SDLWindow::~SDLWindow(01098A98) all done
+AVPlayer::run(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) ALL DONE
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) all done
+AVPlayer::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) all done!
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) all done
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\drible.mp4) all done
+SDL2ffmpeg::~SDL2ffmpeg
+SDL2ffmpeg::release
+SDL2ffmpeg::stream_close all done
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '40.9953' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '40.9743' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '41.0307' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '41.0077' (duration = '70570')
+ANCHORMONITOR NEXTTRANSITIONTIME = '45000' MEDIATIME = '41007.7' EXPECTEDSLEEPTIME = '3992.33' (010B0E78)
+CompositeExecutionObject::linkEvaluationFinished(-1\_03prepPassiveDevicesEx\) 'lPhoto'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\photo\photoDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\_03prepPassiveDevicesEx\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\_03prepPassiveDevicesEx\'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterScheduler::runAction acquiring player for '-1\_03prepPassiveDevicesEx\photo\photoDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+RuleAdapter::adaptDescriptor for '-1\_03prepPassiveDevicesEx\photo\photoDesc'
+RuleAdapter::adaptDescriptor first unsolved descriptor address '00000000'
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+ExecutionObject::removeEvent 'photo_1'from '-1\_03prepPassiveDevicesEx\photo\photoDesc'
+ExecutionObject::addEvent 'photo_1' in '-1\_03prepPassiveDevicesEx\photo\photoDesc'
+ExecutionObject::addPresentationEvent in '-1\_03prepPassiveDevicesEx\photo\photoDesc'. Call transition manager addPresentationEvent for 'photo_1' begin = '0'; end = '3000' position = '-1'
+FormatterPlayerAdapter::prepare '-1\_03prepPassiveDevicesEx\photo\photoDesc' with explicitDur = '3000' object duration was '1.#INF'. Updated info: event begin = '0' event end = '3000'
+ImagePlayerAdapter::createPlayer 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\photo.png'
+ImagePlayerAdapter::createPlayer 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\photo.png' ALL DONE
+FormatterPlayerAdapter::createPlayer for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\photo.png' object = '-1\_03prepPassiveDevicesEx\photo\photoDesc' objectDevice = '0'
+ExecutionObject::prepare(-1\_03prepPassiveDevicesEx\photo\photoDesc) 2nd call addEventListener '010A1D70' or '010A1E4C'
+Player::setScope 'photo'
+FormatterLayout::prepareFormatterRegion for '-1\_03prepPassiveDevicesEx\photo\photoDesc'
+FormatterRegion::prepareOutputDisplay '01098A98' created with left   = '42' top    = '32' width  = '157' height = '88' 
+FormatterLayout::prepareFormatterRegion deviceRegion class is '0'
+FormatterScheduler::eventStateChanged 'photo_1' transition '0'
+FormatterMultiDevice::showObject '-1\_03prepPassiveDevicesEx\photo\photoDesc' class '0'
+FormatterRegion::setRegionVisibility 'photoDesc): '01098A98' SHOW
+FormatterFocusManager::showObject 'photo' with focus index = '' current focus = ''
+PresentationContext::getPropertyValue prop 'service.currentKeyMaster' has a NULL value
+FormatterPlayerAdapter::checkAnchorMonitor creating TIME NominalEventMonitor for '-1\_03prepPassiveDevicesEx\photo\photoDesc'
+FormatterScheduler::runAction takes '40' ms to start '-1\_03prepPassiveDevicesEx\photo\photoDesc'
+====== Anchor Monitor Activated for '-1\_03prepPassiveDevicesEx\photo\photoDesc' (010B7540 ======
+ANCHORMONITOR NEXTTRANSITIONTIME = '3000' MEDIATIME = '3' EXPECTEDSLEEPTIME = '2997' (010B7540)
+FormatterScheduler::eventStateChanged 'photo_1' transition '1'
+FormatterScheduler::eventStateChanged 'photo_1' STOPS: hideObject '-1\_03prepPassiveDevicesEx\photo\photoDesc
+FormatterMultiDevice::hideObject '-1\_03prepPassiveDevicesEx\photo\photoDesc'
+FormatterRegion::setRegionVisibility(photoDesc): '01098A98' HIDE
+SDLWindow::~SDLWindow(01098A98) all done
+NominalEventMonitor::run calling force natural end
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '44.8468' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '44.8448' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '44.8468' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '44.8448' (duration = '70570')
+ANCHORMONITOR NEXTTRANSITIONTIME = '45000' MEDIATIME = '44844.8' EXPECTEDSLEEPTIME = '155.155' (010B0E78)
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '45.0013' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '44.9783' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '45.0117' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '45.0117' (duration = '70570')
+ANCHORMONITOR NEXTTRANSITIONTIME = '51000' MEDIATIME = '45011.7' EXPECTEDSLEEPTIME = '5988.32' (010B0E78)
+CompositeExecutionObject::linkEvaluationFinished(-1\_03prepPassiveDevicesEx\) 'lIcon'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\_03prepPassiveDevicesEx\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\_03prepPassiveDevicesEx\'
+FormatterConverter::compileExecutionObjectLinks object = '-1\_03prepPassiveDevicesEx\'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterScheduler::runAction acquiring player for '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+ApplicationPlayerAdapter::ApplicationPlayerAdapter(010B73D8)
+FormatterScheduler::runAction event 'advert_1' for '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' action '1'
+FormatterScheduler::runActionOverApplicationObject ACTION = '1' event = 'advert_1'
+ApplicationPlayerAdapter::hasPrepared() return false because object = '00000000' and player = '00000000'
+RuleAdapter::adaptDescriptor for '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'
+RuleAdapter::adaptDescriptor first unsolved descriptor address '00000000'
+FormatterScheduler::runActionOverApplicationObject START 'advert_1' call player->prepare1
+FormatterPlayerAdapter::prepareProperties(C:\Users\LFGS\Desktop\Garrincha\Exemplos\advert.ncl) param 'transparency' with value '50%'
+FormatterPlayerAdapter::prepareProperties parent opacity is '1' original transparency property is '50' new value is '0.5'
+ContextManager::addContextListener
+SystemInfo::getSystemLanguage can't find 'system.language, return por
+SDLDeviceScreen::getWidthResolution returns '854'
+SDLDeviceScreen::getHeightResolution returns '480'
+SDLDeviceScreen::getWidthResolution returns '854'
+SDLDeviceScreen::getHeightResolution returns '480'
+SDLDeviceScreen::getHeightResolution returns '480'
+SDLDeviceScreen::getWidthResolution returns '854'
+PresentationContext::getPropertyValue prop 'default.focusBorderColor' == 'blue'
+PresentationContext::getPropertyValue prop 'default.focusBorderWidth' == '3'
+PresentationContext::getPropertyValue prop 'default.selBorderColor' == 'green'
+FormatterMediator::printData(010B7540) screenId: 0 baseId: -1 playerId: -1\_03prepPassiveDevicesEx\advert\passiveAdvDesc devClass: 0 x: 42 y: 24 w: 341 h: 192 enableGfx: 0 parentDocId: _03prepPassiveDevicesEx docId: 
+FormatterMediator::addDocument(010B7540) call embedDocument 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\advert.ncl'
+PATH = [C:\Users\LFGS\Desktop\Garrincha\Exemplos\]
+parseRegionBase
+>>region: backgroundRegparseRegion
+>>region: iconRegparseRegion
+>>region: shoesRegparseRegion
+>>region: formRegparseRegion
+parseDescriptorBase
+>>descriptor: backgroundDesc
+parseDescriptor
+>>descriptor: iconDesc
+parseDescriptor
+>>descriptor: shoesDesc
+parseDescriptor
+>>descriptor: formDesc
+parseDescriptor
+parseConnectorBase
+>>importBase: 
+NclDocumentConverter::importDocument location 'causalConnBase.ncl' translated URI = 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\causalConnBase.ncl'
+parseMedia
+parseMedia
+parseMedia
+parseMedia
+posCompileContext
+posCompileContext
+parseLink
+lBegingAdvert
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+parseLink
+
+>>bind: 
+parseBind
+>>bind: 
+parseBind
+parsePort
+PrivateBaseContext::embedDocument(0108AA50) nodeId = 'advert' docId = '_00prepPassiveDevicesEx'
+FormatterMediator::getDepUriFromNode checking descriptor 'iconDesc'
+FormatterMediator::getDepUriFromNode checking descriptor 'backgroundDesc'
+FormatterMediator::getDepUriFromNode checking descriptor 'shoesDesc'
+FormatterMediator::getDepUriFromNode checking descriptor 'formDesc'
+FormatterMultiDevice::addActiveUris activeBaseUri=C:\Users\LFGS\Desktop\Garrincha\Exemplos\
+ExecutionObject::addEvent '-1_1' in '-1\'
+ExecutionObject::addPresentationEvent in '-1\'. Call transition manager addPresentationEvent for '-1_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\', perspective = '-1' and parent = 'NULL'
+ExecutionObject::addEvent 'adv_1' in '-1\adv\'
+ExecutionObject::addPresentationEvent in '-1\adv\'. Call transition manager addPresentationEvent for 'adv_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\adv\', perspective = '-1\adv' and parent = '-1\'
+FormatterConverter::compileExecutionObjectLinks object = '-1\adv\'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\adv\icon\iconDesc', perspective = '-1\adv\icon' and parent = '-1\adv\'
+FormatterConverter::compileExecutionObjectLinks object = '-1\adv\icon\iconDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\adv\' has '2' uncompiled links
+FormatterConverter::compileExecutionObjectLinks processing ncmLink 'lBegingAdvert' inside '-1\adv\'
+Link::containsNode searching 'icon' inside link 'lBegingAdvert' (1 condition binds)
+Link::containsNode link 'lBegingAdvert' has 'icon' with descriptor = 'iconDesc'
+CompositeExecutionObject::removeLinkUncompiled 'lBegingAdvert'
+FormatterLinkConverter::createCausalLink inside '-1\adv\' from ncmlinkId 'lBegingAdvert'
+CascadingDescriptor::~CascadingDescriptor(iconDesc)
+ExecutionObject::addEvent 'icon_0' in '-1\adv\icon\iconDesc'
+CascadingDescriptor::~CascadingDescriptor(iconDesc)
+ExecutionObject::addEvent 'icon_1' in '-1\adv\icon\iconDesc'
+ExecutionObject::addPresentationEvent in '-1\adv\icon\iconDesc'. Call transition manager addPresentationEvent for 'icon_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\adv\background\backgroundDesc', perspective = '-1\adv\background' and parent = '-1\adv\'
+ExecutionObject::addEvent 'background_1' in '-1\adv\background\backgroundDesc'
+ExecutionObject::addPresentationEvent in '-1\adv\background\backgroundDesc'. Call transition manager addPresentationEvent for 'background_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\adv\ptForm\formDesc', perspective = '-1\adv\ptForm' and parent = '-1\adv\'
+ExecutionObject::addEvent 'ptForm_1' in '-1\adv\ptForm\formDesc'
+ExecutionObject::addPresentationEvent in '-1\adv\ptForm\formDesc'. Call transition manager addPresentationEvent for 'ptForm_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = '-1\adv\shoes\shoesDesc', perspective = '-1\adv\shoes' and parent = '-1\adv\'
+ExecutionObject::addEvent 'shoes_1' in '-1\adv\shoes\shoesDesc'
+ExecutionObject::addPresentationEvent in '-1\adv\shoes\shoesDesc'. Call transition manager addPresentationEvent for 'shoes_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::compileExecutionObjectLinks LINKCOMPILED 'lBegingAdvert'
+FormatterConverter::compileExecutionObjectLinks processing ncmLink '' inside '-1\adv\'
+Link::containsNode searching 'icon' inside link '' (1 condition binds)
+Link::containsNode link '' has 'ptForm' with descriptor = 'iconDesc'
+FormatterConverter::compileExecutionObjectLinks can't process ncmLink '' inside '-1\adv\'  because '' does not contain 'icon' src
+FormatterConverter::compileExecutionObjectLinks object = '-1\adv\icon\iconDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterMediator::initializeSettingNodes checking 'icon'
+FormatterMediator::initializeSettingNodes checking 'background'
+FormatterMediator::initializeSettingNodes checking 'shoes'
+FormatterMediator::initializeSettingNodes checking 'ptForm'
+FormatterMediator::setParentLayout in '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'
+ApplicationPlayerAdapter::createPlayer(010B73D8)
+FormatterPlayerAdapter::createPlayer for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\advert.ncl' object = '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' objectDevice = '0'
+ExecutionObject::addEvent Warning! Trying to add the same event 'advert_1' twice current event address '010AA7B0'  addEvent address '010AA7B0'
+FormatterLayout::prepareFormatterRegion for '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'
+FormatterRegion::prepareOutputDisplay '01098D40' created with left   = '42' top    = '24' width  = '341' height = '192' 
+SDLWindow::renderFrom(01098D40) Warning! NULL underlying surface!
+FormatterLayout::prepareFormatterRegion deviceRegion class is '0'
+Player::setScope ''
+ApplicationPlayerAdapter::start 
+FormatterScheduler::startDocument Through event 'adv_1'
+PresentationContext::getPropertyValue prop 'default.focusBorderTransparency' == '0'
+PresentationContext::getPropertyValue prop 'default.focusBorderColor' == 'blue'
+PresentationContext::getPropertyValue prop 'default.focusBorderWidth' == '3'
+PresentationContext::getPropertyValue prop 'default.selBorderColor' == 'green'
+FormatterScheduler::runAction acquiring player for '-1\adv\icon\iconDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+RuleAdapter::adaptDescriptor for '-1\adv\icon\iconDesc'
+RuleAdapter::adaptDescriptor first unsolved descriptor address '00000000'
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+ExecutionObject::removeEvent 'icon_1'from '-1\adv\icon\iconDesc'
+ExecutionObject::addEvent 'icon_1' in '-1\adv\icon\iconDesc'
+ExecutionObject::addPresentationEvent in '-1\adv\icon\iconDesc'. Call transition manager addPresentationEvent for 'icon_1' begin = '0'; end = '6000' position = '-1'
+FormatterPlayerAdapter::prepare '-1\adv\icon\iconDesc' with explicitDur = '6000' object duration was '1.#INF'. Updated info: event begin = '0' event end = '6000'
+ImagePlayerAdapter::createPlayer 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\iconPassive.png'
+ImagePlayerAdapter::createPlayer 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\iconPassive.png' ALL DONE
+FormatterPlayerAdapter::createPlayer for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\iconPassive.png' object = '-1\adv\icon\iconDesc' objectDevice = '0'
+ExecutionObject::prepare(-1\adv\icon\iconDesc) 2nd call addEventListener '010C2EA0' or '010C2F7C'
+Player::setScope 'icon'
+FormatterLayout::prepareFormatterRegion for '-1\adv\icon\iconDesc'
+FormatterRegion::prepareOutputDisplay '01098DC8' created with left   = '42' top    = '24' width  = '341' height = '192' 
+FormatterLayout::prepareFormatterRegion deviceRegion class is '0'
+FormatterScheduler::eventStateChanged 'icon_1' transition '0'
+FormatterMultiDevice::showObject '-1\adv\icon\iconDesc' class '0'
+FormatterRegion::setRegionVisibility 'iconDesc): '01098DC8' SHOW
+FormatterFocusManager::showObject 'icon' with focus index = '1' current focus = ''
+PresentationContext::getPropertyValue prop 'service.currentKeyMaster' has a NULL value
+FormatterFocusManager::setFocus(010AA9A8) can't set focus index because I'm not handling
+EntryEventListener::eventStateChanged parent id = '-1\adv\' parent is running = '1' interface id = 'pIcon' events running = '0'
+FormatterScheduler::eventStateChanged 'adv_1' transition '0'
+FormatterPlayerAdapter::checkAnchorMonitor creating TIME NominalEventMonitor for '-1\adv\icon\iconDesc'
+ApplicationPlayerAdapter::notificationHandler with code = '1' param = 'pIcon' type = '10' and value = ''
+ApplicationPlayerAdapter::notificationHandler call startEvent 'pIcon' type '10'
+ExecutionObject::getEventFromAnchorId searching 'pIcon' for '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' with following events = 
+ApplicationPlayerAdapter::startEvent event not found 'pIcon' in object '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc
+FormatterScheduler::runAction takes '20' ms to start '-1\adv\icon\iconDesc'
+LinkSimpleAction::~LinkSimpleAction
+====== Anchor Monitor Activated for '-1\adv\icon\iconDesc' (010CEC80 ======
+ANCHORMONITOR NEXTTRANSITIONTIME = '6000' MEDIATIME = '3' EXPECTEDSLEEPTIME = '5997' (010CEC80)
+FormatterScheduler::startDocument Through event 'adv_1' started '1' events
+ApplicationExecutionObject::start starting transition manager!
+FormatterScheduler::eventStateChanged 'advert_1' transition '0'
+FormatterMultiDevice::showObject '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' class '0'
+FormatterRegion::setRegionVisibility 'passiveAdvDesc): '01098D40' SHOW
+FormatterFocusManager::showObject 'advert' with focus index = '5' current focus = ''
+PresentationContext::getPropertyValue prop 'service.currentKeyMaster' has a NULL value
+FormatterFocusManager::setFocus index '5' is not in focus Table.
+PresentationContext::setPropertyValue propName = 'service.currentFocus' propValue = '5'
+ApplicationExecutionObject::start YEAP! Current event is running!
+FormatterPlayerAdapter::checkAnchorMonitor can't create TIME NominalEventMonitor for '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' because next transition = '1.#INF' 
+FormatterScheduler::runActionOverApp takes '54' ms to start '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'
+FormatterFocusManager::tapObject 
+PresentationContext::setPropertyValue propName = 'service.currentKeyMaster' propValue = 'advert'
+FormatterFocusManager::setFocus index '1' is not in focus Table.
+PresentationContext::setPropertyValue propName = 'service.currentFocus' propValue = '1'
+FormatterFocusManager::enterSelection(0108AED0): 'advert'
+FormatterFocusManager::tapObject 
+PresentationContext::setPropertyValue propName = 'service.currentKeyMaster' propValue = 'icon'
+FormatterFocusManager::enterSelection(010AA9A8): 'icon'
+ExecutionObject::selectionEvent(-1\adv\icon\iconDesc) event 'icon_0' has selCode = '1' (looking for key code '1'
+FormatterFocusManager::exitSelection(010AA9A8)
+PresentationContext::setPropertyValue propName = 'service.currentKeyMaster' propValue = ''
+LinkSimpleAction::~LinkSimpleAction
+LinkCompoundAction::run '2' actions
+LinkCompoundAction::run '3' actions
+FormatterScheduler::runAction acquiring player for '-1\adv\icon\iconDesc' FormatterScheduler::eventStateChanged 'icon_1' transition '1'
+FormatterScheduler::eventStateChanged 'icon_1' STOPS: hideObject '-1\adv\icon\iconDesc
+FormatterMultiDevice::hideObject '-1\adv\icon\iconDesc'
+FormatterRegion::setRegionVisibility(iconDesc): '01098DC8' HIDE
+SDLWindow::~SDLWindow(01098DC8) all done
+EntryEventListener::eventStateChanged parent id = '-1\adv\' parent is running = '1' interface id = 'pIcon' events running = '1'
+ApplicationPlayerAdapter::notificationHandler with code = '4' param = 'pIcon' type = '10' and value = ''
+ApplicationPlayerAdapter::notificationHandler call stopEvent 'pIcon' type '10'
+ExecutionObject::getEventFromAnchorId searching 'pIcon' for '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' with following events = 
+ApplicationPlayerAdapter::stopEvent can't stop event'pIcon'
+CompositeExecutionObject::listRunningObjects for '-1\adv\':  runingEvents->size = '0'
+CompositeExecutionObject::listPendingLinks for '-1\adv\': 'lBegingAdvert',  pendingLinks.size = '1'
+FormatterConverter::compileExecutionObjectLinks object = '-1\adv\background\backgroundDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\adv\' has '1' uncompiled links
+FormatterConverter::compileExecutionObjectLinks processing ncmLink '' inside '-1\adv\'
+Link::containsNode searching 'background' inside link '' (1 condition binds)CompositeExecutionObject::linkEvaluationFinished(-1\adv\) '
+lBegingAdvert'Link::containsNode link '' has '
+ptForm' with descriptor = 'backgroundDesc'
+FormatterConverter::compileExecutionObjectLinks can't process ncmLink '' inside '-1\adv\'  because '' does not contain 'background' src
+FormatterConverter::compileExecutionObjectLinks object = '-1\adv\background\backgroundDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterScheduler::runAction acquiring player for '-1\adv\background\backgroundDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+RuleAdapter::adaptDescriptor for '-1\adv\background\backgroundDesc'
+RuleAdapter::adaptDescriptor first unsolved descriptor address '00000000'
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+ExecutionObject::removeEvent 'background_1'from '-1\adv\background\backgroundDesc'
+ExecutionObject::addEvent 'background_1' in '-1\adv\background\backgroundDesc'
+ExecutionObject::addPresentationEvent in '-1\adv\background\backgroundDesc'. Call transition manager addPresentationEvent for 'background_1' begin = '0'; end = '12000' position = '-1'
+FormatterPlayerAdapter::prepare '-1\adv\background\backgroundDesc' with explicitDur = '12000' object duration was '1.#INF'. Updated info: event begin = '0' event end = '12000'
+ImagePlayerAdapter::createPlayer 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\backgroundPassive.png'
+ImagePlayerAdapter::createPlayer 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\backgroundPassive.png' ALL DONE
+FormatterPlayerAdapter::createPlayer for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\backgroundPassive.png' object = '-1\adv\background\backgroundDesc' objectDevice = '0'
+ExecutionObject::prepare(-1\adv\background\backgroundDesc) 2nd call addEventListener '010C2EA0' or '010C2F7C'
+Player::setScope 'background'
+FormatterLayout::prepareFormatterRegion for '-1\adv\background\backgroundDesc'
+FormatterRegion::prepareOutputDisplay '01098DC8' created with left   = '42' top    = '24' width  = '341' height = '192' 
+FormatterLayout::prepareFormatterRegion deviceRegion class is '0'
+FormatterScheduler::eventStateChanged 'background_1' transition '0'
+FormatterMultiDevice::showObject '-1\adv\background\backgroundDesc' class '0'
+FormatterRegion::setRegionVisibility 'backgroundDesc): '01098DC8' SHOW
+FormatterFocusManager::showObject 'background' with focus index = '' current focus = ''
+PresentationContext::getPropertyValue prop 'service.currentKeyMaster' == ''
+FormatterPlayerAdapter::checkAnchorMonitor creating TIME NominalEventMonitor for '-1\adv\background\backgroundDesc'
+FormatterScheduler::runAction takes '132' ms to start '-1\adv\background\backgroundDesc'
+FormatterConverter::compileExecutionObjectLinks object = '-1\adv\ptForm\formDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\adv\' has '1' uncompiled links
+FormatterConverter::compileExecutionObjectLinks processing ncmLink '' inside '-1\adv\'
+Link::containsNode searching 'ptForm' inside link '' (1 condition binds)
+Link::containsNode link '' has 'ptForm' with descriptor = 'formDesc'
+CompositeExecutionObject::removeLinkUncompiled ''
+FormatterLinkConverter::createCausalLink inside '-1\adv\' from ncmlinkId ''
+CascadingDescriptor::~CascadingDescriptor(formDesc)
+FormatterConverter::compileExecutionObjectLinks LINKCOMPILED ''
+FormatterConverter::compileExecutionObjectLinks object = '-1\adv\ptForm\formDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterScheduler::runAction acquiring player for '-1\adv\ptForm\formDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+RuleAdapter::adaptDescriptor for '-1\adv\ptForm\formDesc'
+RuleAdapter::adaptDescriptor first unsolved descriptor address '00000000'
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+ExecutionObject::removeEvent 'ptForm_1'from '-1\adv\ptForm\formDesc'
+ExecutionObject::addEvent 'ptForm_1' in '-1\adv\ptForm\formDesc'
+ExecutionObject::addPresentationEvent in '-1\adv\ptForm\formDesc'. Call transition manager addPresentationEvent for 'ptForm_1' begin = '0'; end = '12000' position = '-1'
+FormatterPlayerAdapter::prepare '-1\adv\ptForm\formDesc' with explicitDur = '12000' object duration was '1.#INF'. Updated info: event begin = '0' event end = '12000'
+BerkeliumPlayer::BerkeliumPlayer 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm'
+====== Anchor Monitor Activated for '-1\adv\background\backgroundDesc' (010CFF70 ======
+ANCHORMONITOR NEXTTRANSITIONTIME = '12000' MEDIATIME = '4' EXPECTEDSLEEPTIME = '11996' (010CFF70)
+BerkeliumPlayerAdapter::updateProperties bounds = '212,33,153,172'
+BerkeliumPlayer::setProperty 'bounds' value '212,33,153,172'
+BerkeliumPlayer::setBounds x = '212', y = 33', w = '153', h = '172'.
+FormatterPlayerAdapter::createPlayer for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm' object = '-1\adv\ptForm\formDesc' objectDevice = '0'
+ExecutionObject::prepare(-1\adv\ptForm\formDesc) 2nd call addEventListener '010C2EA0' or '010C2F7C'
+BerkeliumPlayer::setNotifyContentUpdate 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm'
+Player::setScope 'ptForm'
+BerkeliumPlayer::getSurface 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm'
+FormatterLayout::prepareFormatterRegion for '-1\adv\ptForm\formDesc'
+FormatterRegion::prepareOutputDisplay '01098E50' created with left   = '212' top    = '33' width  = '153' height = '172' 
+FormatterLayout::prepareFormatterRegion deviceRegion class is '0'
+BerkeliumPlayer::setOutWindow 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm'
+FormatterScheduler::eventStateChanged 'ptForm_1' transition '0'
+FormatterMultiDevice::showObject '-1\adv\ptForm\formDesc' class '0'
+FormatterRegion::setRegionVisibility 'formDesc): '01098E50' SHOW
+FormatterFocusManager::showObject 'ptForm' with focus index = '2' current focus = ''
+PresentationContext::getPropertyValue prop 'service.currentKeyMaster' == ''
+FormatterFocusManager::setFocus index '2' is not in focus Table.
+PresentationContext::setPropertyValue propName = 'service.currentFocus' propValue = '2'
+FormatterPlayerAdapter::checkAnchorMonitor creating TIME NominalEventMonitor for '-1\adv\ptForm\formDesc'
+FormatterScheduler::runAction takes '60' ms to start '-1\adv\ptForm\formDesc'
+FormatterConverter::compileExecutionObjectLinks object = '-1\adv\shoes\shoesDesc'
+CompositeExecutionObject::getUncompiledLinks '-1\adv\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\adv\'
+FormatterConverter::compileExecutionObjectLinks object = '-1\adv\'
+CompositeExecutionObject::getUncompiledLinks '-1\' has '0' uncompiled links
+FormatterConverter::compileExecutionObjectLinks all links are already compiled for '-1\'
+FormatterScheduler::runAction acquiring player for '-1\adv\shoes\shoesDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+RuleAdapter::adaptDescriptor for '-1\adv\shoes\shoesDesc'
+RuleAdapter::adaptDescriptor first unsolved descriptor address '00000000'
+FormatterPlayerAdapter::hasPrepared return false because object = '00000000' and player = '00000000'
+AVPlayer::createProvider 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4'
+SDL2ffmpeg::read_init context flags = '0'
+====== Anchor Monitor Activated for '-1\adv\ptForm\formDesc' (010CFFD8 ======
+ANCHORMONITOR NEXTTRANSITIONTIME = '12000' MEDIATIME = '25' EXPECTEDSLEEPTIME = '11975' (010CFFD8)
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4' doesn't have any audio stream!
+SDL2ffmpeg::openStreams 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4' doesn't have any subtitle stream!
+BerkeliumPlayer::mainLoop
+AVPlayer::createProvider 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4' all done
+FormatterPlayerAdapter::createPlayer for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4' object = '-1\adv\shoes\shoesDesc' objectDevice = '0'
+ExecutionObject::prepare(-1\adv\shoes\shoesDesc) 2nd call addEventListener '010C2EA0' or '010C2F7C'
+Player::setScope 'shoes'
+FormatterLayout::prepareFormatterRegion for '-1\adv\shoes\shoesDesc'
+FormatterRegion::prepareOutputDisplay '01098ED8' created with left   = '59' top    = '81' width  = '136' height = '76' 
+SDLWindow::renderFrom(01098ED8) Warning! NULL underlying surface!
+FormatterLayout::prepareFormatterRegion deviceRegion class is '0'
+AVPlayer::play() calling provider play over
+SDLVideoProvider::playOver
+AVPlayer::play(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) all done!
+FormatterScheduler::eventStateChanged 'shoes_1' transition '0'
+FormatterMultiDevice::showObject '-1\adv\shoes\shoesDesc' class '0'
+FormatterRegion::setRegionVisibility 'shoesDesc): '01098ED8' SHOW
+FormatterFocusManager::showObject 'shoes' with focus index = '' current focus = '2'
+PresentationContext::getPropertyValue prop 'service.currentFocus' == '2'
+PresentationContext::getPropertyValue prop 'service.currentKeyMaster' == ''
+FormatterPlayerAdapter::checkAnchorMonitor can't create TIME NominalEventMonitor for '-1\adv\shoes\shoesDesc' because next transition = '1.#INF' 
+FormatterScheduler::runAction takes '96' ms to start '-1\adv\shoes\shoesDesc'
+AVPlayer::run
+AVPlayer::run total media time that will be considered  is '13.113'
+SDL2ffmpeg::play called
+SDL2ffmpeg::prepare Video frame rate is '2997/100'
+SDL2ffmpeg::prepare Video average frame rate is '2997/100'
+SDL2ffmpeg::prepare Video time base frame rate is '1/2997'
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) master_clock = '0.811802' (duration = '13113')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) current_pts = '0.800801' (duration = '13113')
+AVPlayer::run dur = '13.113' curMediaTime = '0.800801' total = '13.113' for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4'
+BerkeliumHandler::Loading state changed C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm to loading
+FormatterFocusManager::tapObject 
+PresentationContext::setPropertyValue propName = 'service.currentKeyMaster' propValue = 'ptForm'
+BerkeliumPlayer::setKeyHandler 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm'
+FormatterFocusManager::enterSelection(010AA9A8): 'ptForm'
+BerkeliumHandler::Start loading file:///C:/Users/LFGS/Desktop/Garrincha/media/ptForm.htm from C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm
+BerkeliumHandler::onAddressChanged to file:///C:/Users/LFGS/Desktop/Garrincha/media/ptForm.htm
+BerkeliumHandler::onAddressChanged to file:///C:/Users/LFGS/Desktop/Garrincha/media/ptForm.htm
+BerkeliumHandler::Loading state changed file:///C:/Users/LFGS/Desktop/Garrincha/media/ptForm.htm to stopped
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '50.8658' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '49.7497' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '50.8658' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '49.7497' (duration = '70570')
+ANCHORMONITOR NEXTTRANSITIONTIME = '51000' MEDIATIME = '49749.7' EXPECTEDSLEEPTIME = '1250.25' (010B0E78)
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '50.4501' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '50.4171' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '50.4501' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '50.4171' (duration = '70570')
+ANCHORMONITOR NEXTTRANSITIONTIME = '51000' MEDIATIME = '50417.1' EXPECTEDSLEEPTIME = '582.916' (010B0E78)
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '51.0327' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '51.0177' (duration = '70570')
+ANCHORMONITOR NEXTTRANSITIONTIME = '1.#INF' MEDIATIME = '51017.7' EXPECTEDSLEEPTIME = '1.#INF' (010B0E78)
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived MB key = '96' translated to '13' ()
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '' on (0, 0)
+BerkeliumHandler::Loading state changed file:///C:/Users/LFGS/Desktop/Garrincha/media/ptForm.htm to loading
+BerkeliumHandler::Start loading file:///C:/Users/LFGS/Desktop/Garrincha/media/ptComprou.htm from file:///C:/Users/LFGS/Desktop/Garrincha/media/ptForm.htm
+BerkeliumHandler::onAddressChanged to file:///C:/Users/LFGS/Desktop/Garrincha/media/ptComprou.htm
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::onAddressChanged to file:///C:/Users/LFGS/Desktop/Garrincha/media/ptComprou.htm
+BerkeliumHandler::Loading state changed file:///C:/Users/LFGS/Desktop/Garrincha/media/ptComprou.htm to stopped
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) master_clock = '53.0029' (duration = '53057')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) current_pts = '0' (duration = '53057')
+AVPlayer::run has exited from loop cause dur = '53.057' and current time = '52.9879'
+AVPlayer::run(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) notifying ... 
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done
+AVPlayer::run(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) NOTIFY STOP
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done
+AVPlayer::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done!
+FormatterScheduler::eventStateChanged 'choro_1' transition '1'
+FormatterScheduler::eventStateChanged 'choro_1' STOPS: hideObject '-1\_03prepPassiveDevicesEx\choro\audioDesc
+FormatterMultiDevice::hideObject '-1\_03prepPassiveDevicesEx\choro\audioDesc'
+FormatterMultiDevice::getFormatterLayout region is NULL
+AVPlayer::run(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) ALL DONE
+SDL2ffmpeg::read_thread(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done
+BerkeliumHandler::userEventReceived 
+BerkeliumHandler::userEventReceived all done
+BerkeliumHandler::updateEvents text event '	' on (0, 0)
+BerkeliumHandler::onPaint all done
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done
+AVPlayer::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done!
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\choro.mp4) all done
+SDL2ffmpeg::~SDL2ffmpeg
+
+SDL2ffmpeg::~SDL2ffmpeg calling SDL_PauseAudio(1)
+
+SDL2ffmpeg::release
+SDL2ffmpeg::stream_close all done
+BerkeliumHandler::motionEventReceived 
+BerkeliumHandler::motionEventReceived 
+FormatterScheduler::eventStateChanged 'background_1' transition '1'
+FormatterScheduler::eventStateChanged 'background_1' STOPS: hideObject '-1\adv\background\backgroundDesc
+FormatterMultiDevice::hideObject '-1\adv\background\backgroundDesc'
+FormatterRegion::setRegionVisibility(backgroundDesc): '01098DC8' HIDE
+SDLWindow::~SDLWindow(01098DC8) all done
+NominalEventMonitor::run calling force natural end
+FormatterScheduler::eventStateChanged 'ptForm_1' transition '1'
+FormatterScheduler::eventStateChanged 'ptForm_1' STOPS: hideObject '-1\adv\ptForm\formDesc
+FormatterFocusManager::exitSelection(010AA9A8)
+BerkeliumPlayer::setKeyHandler 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm'
+PresentationContext::setPropertyValue propName = 'service.currentKeyMaster' propValue = ''
+FormatterMultiDevice::hideObject '-1\adv\ptForm\formDesc'
+FormatterRegion::setRegionVisibility(formDesc): '01098E50' HIDE
+SDLWindow::~SDLWindow(01098E50) all done
+CompositeExecutionObject::listRunningObjects for '-1\adv\': '-1\adv\shoes\shoesDesc',  runingEvents->size = '1'
+NominalEventMonitor::run calling force natural end
+BerkeliumPlayer::stop 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm'
+CompositeExecutionObject::linkEvaluationFinished(-1\adv\) ''
+FormatterScheduler::runAction event 'adv_1' for '-1\adv\' OVER COMPOSITION with action event = 'adv_1'
+FormatterScheduler::runActionOverComposition action '4' over COMPOSITION '-1\adv\'
+FormatterScheduler::runActionOverComposition getting main event of '-1\adv\background\backgroundDesc'
+FormatterScheduler::runActionOverComposition getting main event of '-1\adv\icon\iconDesc'
+FormatterScheduler::runActionOverComposition getting main event of '-1\adv\ptForm\formDesc'
+FormatterScheduler::runActionOverComposition getting main event of '-1\adv\shoes\shoesDesc'
+ExecutionObject::addEvent 'adv_1' in 'adv\'
+ExecutionObject::addPresentationEvent in 'adv\'. Call transition manager addPresentationEvent for 'adv_1' begin = '0'; end = '1.#INF' position = '-1'
+FormatterConverter::getExecutionObjectFromPerspective Adding_object with id = 'adv\', perspective = 'adv' and parent = 'NULL'
+FormatterScheduler::runActionOverComposition (else) action '4' over COMPOSITION 'adv\' (objects = '00000000'): '0' EVENTS FOUND
+FormatterScheduler::runAction acquiring player for '-1\adv\background\backgroundDesc' FormatterScheduler::runAction acquiring player for '-1\adv\icon\iconDesc' PlayerAdapterManager::getPlayerClass is finding a suitable player
+FormatterScheduler::runAction acquiring player for '-1\adv\ptForm\formDesc' BerkeliumPlayer::stop 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\ptForm.htm'
+FormatterScheduler::runAction acquiring player for '-1\adv\shoes\shoesDesc' BerkeliumHandler::stop all done
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) all done
+SDL2ffmpeg::video_thread all done
+AVPlayer::run can't sleep '12312.2' => exitingAVPlayer::stop(
+C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) all done!AVPlayer::run has exited from loop cause dur = '
+13.113' and current time = '0.800801'FormatterScheduler::eventStateChanged '
+shoes_1' transition '1'AVPlayer::run(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) notifying ... 
+
+FormatterScheduler::eventStateChanged 'AVPlayer::run(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) ALL DONEshoes_1
+' STOPS: hideObject '-1\adv\shoes\shoesDesc
+FormatterMultiDevice::hideObject '-1\adv\shoes\shoesDesc'
+FormatterRegion::setRegionVisibility(shoesDesc): '01098ED8' HIDE
+SDLWindow::~SDLWindow(01098ED8) all done
+CompositeExecutionObject::listRunningObjects for '-1\adv\':  runingEvents->size = '0'
+SDL2ffmpeg::read_thread(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) all done
+CompositeExecutionObject::run I (-1\adv\) am ending because of STOP of the last running event (no pending links nor paused events)
+FormatterScheduler::eventStateChanged 'adv_1' transition '1'
+FormatterMediator::presentationCompleted for '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'
+ApplicationPlayerAdapter::notificationHandler with code = '4' param = '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' type = '10' and value = ''
+ApplicationPlayerAdapter::notificationHandler call stopEvent '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' type '10'
+ApplicationPlayerAdapter::stopEvent  considering anchor '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' will call naturalEnd
+ApplicationPlayerAdapter::naturalEnd 
+FormatterScheduler::eventStateChanged 'advert_1' transition '1'
+FormatterScheduler::eventStateChanged 'advert_1' STOPS: hideObject '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc
+FormatterFocusManager::exitSelection(0108AED0)
+PresentationContext::setPropertyValue propName = 'service.currentKeyMaster' propValue = ''
+FormatterMultiDevice::hideObject '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'
+FormatterRegion::setRegionVisibility(passiveAdvDesc): '01098D40' HIDE
+CompositeExecutionObject::listRunningObjects for '-1\':  runingEvents->size = '0'
+SDLWindow::~SDLWindow(01098D40) all done
+CompositeExecutionObject::listRunningObjects for '-1\_03prepPassiveDevicesEx\': '-1\_03prepPassiveDevicesEx\animation\screenDesc', '-1\_03prepPassiveDevicesEx\animation\screenDesc', '-1\_03prepPassiveDevicesEx\animation\screenDesc',  runingEvents->size = '1'
+ApplicationPlayerAdapter::unprepare 
+ApplicationPlayerAdapter::unprepare set object '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc' as NULL
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) all done
+AVPlayer::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) all done!
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) all done
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4)
+SDL2ffmpeg::stop(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\shoes.mp4) all done
+SDL2ffmpeg::~SDL2ffmpeg
+
+SDL2ffmpeg::~SDL2ffmpeg calling SDL_PauseAudio(1)
+
+SDL2ffmpeg::release
+SDL2ffmpeg::stream_close all done
+CompositeExecutionObject::run I (-1\) am ending because of STOP of the last running event (no pending links nor paused events)
+ApplicationPlayerAdapter::ApplicationPlayerAdapter(010B73D8)
+FormatterMediator::stopDocument from '_00prepPassiveDevicesEx'
+FormatterMediator::stopDocument can't stop document '_00prepPassiveDevicesEx'
+FormatterMediator::~FormatterMediator '-1\_03prepPassiveDevicesEx\advert\passiveAdvDesc'
+FormatterConverter::getObjectFromNodeId Warning! cannot find object '_00prepPassiveDevicesEx'
+FormatterScheduler::~FormatterScheduler(010B9CA0)
+ExecutionObject::~ExecutionObject(-1\)
+LinkSimpleAction::~LinkSimpleAction
+LinkSimpleAction::~LinkSimpleAction
+LinkSimpleAction::~LinkSimpleAction
+LinkSimpleAction::~LinkSimpleAction
+LinkSimpleAction::~LinkSimpleAction
+ExecutionObject::~ExecutionObject(-1\adv\)
+ExecutionObject::~ExecutionObject(-1\adv\background\backgroundDesc)
+CascadingDescriptor::~CascadingDescriptor(backgroundDesc)
+ExecutionObject::~ExecutionObject(-1\adv\icon\iconDesc)
+CascadingDescriptor::~CascadingDescriptor(iconDesc)
+ExecutionObject::~ExecutionObject(-1\adv\ptForm\formDesc)
+CascadingDescriptor::~CascadingDescriptor(formDesc)
+ExecutionObject::~ExecutionObject(-1\adv\shoes\shoesDesc)
+CascadingDescriptor::~CascadingDescriptor(shoesDesc)
+InputManger::dispatchEvent code '117' screen id = '0'
+FormatterMultiDevice::tapObject '-1\_03prepPassiveDevicesEx\animation\screenDesc'
+FormatterFocusManager::tapObject 
+PresentationContext::setPropertyValue propName = 'service.currentKeyMaster' propValue = 'animation'
+FormatterFocusManager::enterSelection(0108AED0): 'animation'
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '62.1538' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '62.1288' (duration = '70570')
+FormatterMultiDevice::tapObject can't find object at '565' and '65' coords
+SDLWindow::renderFrom(01098A10) Warning! NULL underlying surface!
+FormatterFocusManager::exitSelection(0108AED0)
+PresentationContext::setPropertyValue propName = 'service.currentKeyMaster' propValue = ''
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) master_clock = '67.9416' (duration = '70570')
+SDL2ffmpeg::getPosition(C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4) current_pts = '67.9346' (duration = '70570')
+AVPlayer::run dur = '70.57' curMediaTime = '67.9346' total = '70.57' for 'C:\Users\LFGS\Desktop\Garrincha\Exemplos\..\media\animGar.mp4'

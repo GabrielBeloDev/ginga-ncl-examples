@@ -1,0 +1,25 @@
+# ============================================================
+#  Artefatos GRANDES / locais — ficam só na sua máquina,
+#  NÃO sobem pro GitHub (estouram cota / são derivados).
+#  A documentação explica onde obtê-los.
+# ============================================================
+
+# Stream MPEG-TS de ~1.3 GB (transport stream de transmissão; derivado dos exemplos)
+Primeiro joao/primeirojoao_ait.ts
+
+# Arquivo .zip redundante (mesmo conteúdo já presente descompactado na pasta)
+Primeiro joao/PrimeiroJoao.zip
+
+# ============================================================
+#  Lixo de sistema operacional / controle de versão legado
+# ============================================================
+**/__MACOSX/
+**/.DS_Store
+**/Thumbs.db
+**/CVS/
+
+# ============================================================
+#  Saídas de verificação / temporários
+# ============================================================
+*.log
+ginga_*.log

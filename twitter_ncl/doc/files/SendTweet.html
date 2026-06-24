@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../luadoc.css" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>LuaDoc</h1>
+<ul>
+	
+	<li><a href="../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+<h1>Modules</h1>
+<ul>
+
+	<li>
+		<a href="../modules/base64.html">base64</a>
+	</li>
+
+	<li>
+		<a href="../modules/config.html">config</a>
+	</li>
+
+	<li>
+		<a href="../modules/http.html">http</a>
+	</li>
+
+	<li>
+		<a href="../modules/tcp.html">tcp</a>
+	</li>
+
+	<li>
+		<a href="../modules/util.html">util</a>
+	</li>
+
+</ul>
+
+
+
+<!-- File list -->
+
+<h1>Files</h1>
+<ul>
+
+	<li>
+		<a href="../files/Entities2AccentedChars.html">Entities2AccentedChars.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/Entities2AccentedChars.original.html">Entities2AccentedChars.original.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/Retweet.html">Retweet.lua</a>
+	</li>
+
+	<li><strong>SendTweet.lua</strong></li>
+	
+	<li>
+		<a href="../files/ShowTweets.html">ShowTweets.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/TextField.html">TextField.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/Twitter.html">Twitter.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/base64.html">base64.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/config.html">config.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/http.html">http.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/main.html">main.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/tcp.html">tcp.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/twitter.config.html">twitter.config.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/util.html">util.lua</a>
+	</li>
+
+</ul>
+
+
+
+
+
+
+</div> <!-- id="navigation" -->
+
+<div id="content">
+
+<h1>File <code>SendTweet.lua</code></h1>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#SendTweet:back">SendTweet:back</a>&nbsp;(main)</td>
+	<td class="summary">Volta para a tela de exibição de tweets </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#SendTweet:paint">SendTweet:paint</a>&nbsp;(main, inReplyTo)</td>
+	<td class="summary">Desenha a interface para envio de um tweet </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#SendTweet:send">SendTweet:send</a>&nbsp;(main, callback)</td>
+	<td class="summary">Envia uma requisição para realizar um novo Tweet </td>
+	</tr>
+
+</table>
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="SendTweet:back"></a><strong>SendTweet:back</strong>&nbsp;(main)</dt>
+<dd>
+Volta para a tela de exibição de tweets
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  main: 
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="SendTweet:paint"></a><strong>SendTweet:paint</strong>&nbsp;(main, inReplyTo)</dt>
+<dd>
+Desenha a interface para envio de um tweet
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  main: Tabela contendo as funções comuns para o desenha da interface da aplicação, além de variáveis comuns usadas por cada uma das telas da mesma
+	</li>
+	
+	<li>
+	  inReplyTo: Se fornecido, a mensagem será enviada em resposta a um tweet de outro usuário. O valor deste parâmetro deve ser o nome do usuário que receberá o reply, no formato @username.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="SendTweet:send"></a><strong>SendTweet:send</strong>&nbsp;(main, callback)</dt>
+<dd>
+Envia uma requisição para realizar um novo Tweet
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  main: Tabela contendo as funções comuns para o desenha da interface da aplicação, além de variáveis comuns usadas por cada uma das telas da mesma
+	</li>
+	
+	<li>
+	  callback: 
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>

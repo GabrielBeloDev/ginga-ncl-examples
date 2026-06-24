@@ -1,0 +1,171 @@
+require 'constantes'
+
+tabuleiro = {}
+
+tabuleiro.Novo = function(this)
+	require 'pecaTabuleiro'
+
+	local self = {}
+	self.Inicio = function(this)
+		self.pecas = {}
+		local par = true
+		for i=0,2 do
+			par =  not(par)
+			for j = 0,7,2 do
+				if(par) then
+					if(ORIENTACAO)then
+						posicao = {y=j,x=i}
+					else
+						posicao = {y=i,x=j}
+					end
+				else
+					if(ORIENTACAO)then
+						posicao = {y=j+1,x=i}
+					else
+						posicao = {y=i,x=j+1}
+					end
+				end
+				self.pecas[#self.pecas+1]= pecaTabuleiro:Novo(posicao,1,1,this)
+			end
+		end
+
+		for i=5,7 do
+			par=  not(par)
+			for j = 0,7,2 do
+				if(par) then
+					if(ORIENTACAO)then
+						posicao = {y=j,x=i}
+					else
+						posicao = {y=i,x=j}
+					end
+				else
+					if(ORIENTACAO)then
+						posicao = {y=j+1,x=i}
+					else
+						posicao = {y=i,x=j+1}
+					end
+				end
+				self.pecas[#self.pecas+1] = pecaTabuleiro:Novo(posicao,2,1,this)
+			end
+		end
+	end
+
+	--blocos, não fazem nada então não há razão para ser criado um array deles cria-se apenas objetos para um ou outro
+	self.blocos = {}
+
+
+	self.blocos[1] = {}
+	self.blocos[1].figura  = canvas:new('imagens/blocos/bloco'..BLOCO_A..'.gif')
+	self.blocos[1].largura, self.blocos[1].altura = self.blocos[1].figura:attrSize()
+
+	self.blocos[2]= {}
+	self.blocos[2].figura  = canvas:new('imagens/blocos/bloco'..BLOCO_B..'.gif')
+	--self.blocos[2].largura, tabuleiro.blocos[2].altura = tabuleiro.blocos[2].figura:attrSize()
+
+	self.blocos['cursor']= {}
+	self.blocos['cursor'].figura  = canvas:new(BLOCO_C)
+	--self.blocos['cursor'].largura, tabuleiro.blocos[1].altura = tabuleiro.blocos[1].figura:attrSize()
+
+	self.blocos['selecionado']= {}
+	self.blocos['selecionado'].figura  = canvas:new(BLOCO_S)
+	--self.blocos['selecionado'].largura, tabuleiro.blocos[1].altura = tabuleiro.blocos[1].figura:attrSize()
+	math.random(2)
+	if(math.random(2)==1)then
+		self.cursor = {posicao={x=3,y=3},jogador=1}
+	else
+		self.cursor = {posicao={x=5,y=5},jogador=2}
+	end
+	self.cursor.figuras = {canvas:new('imagens/cursors/cursor'..JOGADOR1..'.gif'),canvas:new('imagens/cursors/cursor'..JOGADOR2..'.gif')}
+	self.cursor.largura,self.cursor.altura = self.cursor.figuras[1]:attrSize()
+	self.cursor.frame = 1
+	self.cursor.Move = function(this,x,y)
+		self.cursor.posicao.x,self.cursor.posicao.y = x,y
+	end
+	self.cursor.Desenhar = function(this)
+		local tamx = LARGURA/2 +15
+		local tamy = ALTURA/2 -30
+		local larguraBloco = self.blocos[1].largura/2
+		local fundoBp2 = (self.blocos[1].altura/2)/2
+		local  frame = self.cursor.frame*self.blocos[1].largura
+		local x,y = self.cursor.posicao.x,self.cursor.posicao.y
+		self.cursor.figuras[self.cursor.jogador]:attrCrop(frame,0,self.blocos[1].largura,self.blocos[1].altura)
+		canvas:compose(tamx + ((y-x) * (larguraBloco))
+		, tamy + ((x+y) * (fundoBp2))-self.blocos[1].altura*2
+		, self.cursor.figuras[self.cursor.jogador])
+		if(ANIMACAO)then
+			self.cursor.frame =self.cursor.frame+1
+			if(self.cursor.frame > 8)then
+				self.cursor.frame = 1
+			end
+		end
+	end
+	self.blocosJogadas = {}
+
+	self.Desenhar = function(this)
+		local par = true
+		local tamx = LARGURA/2 +15
+		local tamy = ALTURA/2 -30
+		local larguraBloco = self.blocos[1].largura/2
+		local fundoBp2 = (self.blocos[1].altura/2)/2
+
+		for x=0, 7 do
+			for y=0, 7 do
+				local figura
+				if(self.cursor.posicao.x == x and self.cursor.posicao.y == y)then
+					figura = self.blocos.cursor.figura
+				elseif(self:TemJogada(x,y))then
+					figura = self.blocos.selecionado.figura
+				elseif(par)then
+					figura = self.blocos[1].figura
+				else
+					figura =self.blocos[2].figura
+				end
+				canvas:compose(tamx + ((y-x) * (larguraBloco)),
+					tamy + ((x+y) * (fundoBp2)) - self.blocos[1].altura,
+					figura)
+				par = not(par)
+			end
+			par=not(par)
+		end
+
+		for indice,peca in pairs(self.pecas)do
+			peca:Desenhar(self.blocos[1])
+		end
+		self.cursor:Desenhar()
+
+	end
+
+	self.TemJogada= function(this,x,y)
+		local retorno
+		for indice,bloco in pairs(self.blocosJogadas)do
+			if(bloco.x == x and bloco.y ==y)then
+				return bloco
+			end
+		end
+	end
+
+	self.TemPeca = function(this,x,y)
+		for indice,peca in pairs(self.pecas) do
+			if (peca.viva and peca.posicao.x==x and peca.posicao.y==y) then
+				return indice
+			end
+		end
+	end
+
+	self.TemCome = function(this)
+		local jogadasCome = {}
+		for indice,bloco in pairs(self.blocosJogadas)do
+			if(bloco.come)then
+				jogadasCome[#jogadasCome+1] = bloco
+			end
+		end
+		return jogadasCome
+	end
+
+	return self
+end
+
+
+
+
+

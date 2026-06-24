@@ -1,0 +1,34 @@
+ClimaTV
+
+- O "Clima TV" é uma aplicação interativa que possibilita, através do canal de retorno, a consulta a previsão do tempo das capitais brasileiras. 
+
+- A aplicação é desenvolvida em NCL/Lua e utiliza o serviço disponível no site do http://www.weather.com
+
+- A partir da navegação de menus, o telespectador poderá consultar a previsão do tempo de todas as capitais brasileiras.
+
+
+* Arquivos
+- main.lua
+	Arquivo inicial da aplicação.
+- app.lua
+	Arquivo que contem toda a inteligência da aplicação. Apresenta os menus e a previsão do tempo, formatação de dados e mudança de telas.
+- controle.lua
+	Controlador de eventos da aplicação.
+- libCity.lua
+	Biblioteca com dados básicos para apresentação e consulta da previsão do tempo.
+- tcp.lua
+	Biblioteca para acesso ao serviço a partir da classe TCP do Ginga.
+- xmlparser.lua
+	Parser XML.
+
+* Problemas
+- Não foi possível realizar as consultas ao serviço a partir da classe TCP do Ginga, sendo assim, foi utilizada a biblioteca Luasocket.
+- No arquivo app.lua existe uma função para consulta ao serviço. Atualmente ela utiliza o parâmetro SOCKET para consulta a partir de Lua Socket. Para utilizar a classe TCP do Ginga, basta alterar o parâmetro para TCP.
+- A chamada é realizada na linha 199 do arquivo app.lua
+
+* Esta aplicação é licenciada Creative Commons. Apenas para uso não comercial.
+
+* Autores
+- Cid Boechat - Design - http://fubap.org/cidboechat
+- Luiz Eduardo de Araujo - Desenvolvimento - http://luizeduardoaraujo.info/
+- http://versaodigital.blogspot.com/

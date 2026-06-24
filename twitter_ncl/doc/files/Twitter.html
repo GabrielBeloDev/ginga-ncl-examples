@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../luadoc.css" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>LuaDoc</h1>
+<ul>
+	
+	<li><a href="../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+<h1>Modules</h1>
+<ul>
+
+	<li>
+		<a href="../modules/base64.html">base64</a>
+	</li>
+
+	<li>
+		<a href="../modules/config.html">config</a>
+	</li>
+
+	<li>
+		<a href="../modules/http.html">http</a>
+	</li>
+
+	<li>
+		<a href="../modules/tcp.html">tcp</a>
+	</li>
+
+	<li>
+		<a href="../modules/util.html">util</a>
+	</li>
+
+</ul>
+
+
+
+<!-- File list -->
+
+<h1>Files</h1>
+<ul>
+
+	<li>
+		<a href="../files/Entities2AccentedChars.html">Entities2AccentedChars.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/Entities2AccentedChars.original.html">Entities2AccentedChars.original.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/Retweet.html">Retweet.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/SendTweet.html">SendTweet.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/ShowTweets.html">ShowTweets.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/TextField.html">TextField.lua</a>
+	</li>
+
+	<li><strong>Twitter.lua</strong></li>
+	
+	<li>
+		<a href="../files/base64.html">base64.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/config.html">config.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/http.html">http.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/main.html">main.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/tcp.html">tcp.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/twitter.config.html">twitter.config.lua</a>
+	</li>
+
+	<li>
+		<a href="../files/util.html">util.lua</a>
+	</li>
+
+</ul>
+
+
+
+
+
+
+</div> <!-- id="navigation" -->
+
+<div id="content">
+
+<h1>File <code>Twitter.lua</code></h1>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:directMessages">Twitter:directMessages</a>&nbsp;()</td>
+	<td class="summary">Returns a list of the 20 most recent direct messages sent to the authenticating user </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:directMessagesNew">Twitter:directMessagesNew</a>&nbsp;(user, text)</td>
+	<td class="summary">Sends a new direct message to the specified user from the authenticating user.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:directMessagesSent">Twitter:directMessagesSent</a>&nbsp;()</td>
+	<td class="summary">Returns a list of the 20 most recent direct messages sent by the authenticating user.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:endSession">Twitter:endSession</a>&nbsp;()</td>
+	<td class="summary">Ends the session of the authenticating user, returning a null cookie.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:favorites">Twitter:favorites</a>&nbsp;()</td>
+	<td class="summary">Favorites </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:favoritesCreate">Twitter:favoritesCreate</a>&nbsp;()</td>
+	<td class="summary">Favorites the status specified in the ID parameter as the authenticating user.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:getXml">Twitter:getXml</a>&nbsp;(url, params, callback, method)</td>
+	<td class="summary">Envia uma requisição HTTP para o servidor do Twitter para obter um retorno em XML, que é convertido para uma table lua.<br> </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:homeTimeline">Twitter:homeTimeline</a>&nbsp;(callback)</td>
+	<td class="summary">Obtém o timeline do usuário autenticado pelo login e senha.<br> </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:new">Twitter:new</a>&nbsp;(user_, password_)</td>
+	<td class="summary">Construtor da classe </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:oAuth">Twitter:oAuth</a>&nbsp;()</td>
+	<td class="summary">Authentication </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:rateLimiteStatus">Twitter:rateLimiteStatus</a>&nbsp;()</td>
+	<td class="summary">Account </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:retweet">Twitter:retweet</a>&nbsp;(callback, tweetId)</td>
+	<td class="summary">Retweeta uma mensagem.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:search">Twitter:search</a>&nbsp;()</td>
+	<td class="summary">Search </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:statusUpdate">Twitter:statusUpdate</a>&nbsp;(callback, text)</td>
+	<td class="summary">Envia um tweet.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Twitter:userTimeline">Twitter:userTimeline</a>&nbsp;(callback, userNameOrUserId)</td>
+	<td class="summary">Obtém o timeline de um determinado usuário.<br> </td>
+	</tr>
+
+</table>
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="Twitter:directMessages"></a><strong>Twitter:directMessages</strong>&nbsp;()</dt>
+<dd>
+Returns a list of the 20 most recent direct messages sent to the authenticating user
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:directMessagesNew"></a><strong>Twitter:directMessagesNew</strong>&nbsp;(user, text)</dt>
+<dd>
+Sends a new direct message to the specified user from the authenticating user.
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  user: User to send the message
+	</li>
+	
+	<li>
+	  text: Message to the user
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:directMessagesSent"></a><strong>Twitter:directMessagesSent</strong>&nbsp;()</dt>
+<dd>
+Returns a list of the 20 most recent direct messages sent by the authenticating user.
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:endSession"></a><strong>Twitter:endSession</strong>&nbsp;()</dt>
+<dd>
+Ends the session of the authenticating user, returning a null cookie. Use this method to sign users out of client-facing applications like widgets.
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:favorites"></a><strong>Twitter:favorites</strong>&nbsp;()</dt>
+<dd>
+Favorites
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:favoritesCreate"></a><strong>Twitter:favoritesCreate</strong>&nbsp;()</dt>
+<dd>
+Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful.
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:getXml"></a><strong>Twitter:getXml</strong>&nbsp;(url, params, callback, method)</dt>
+<dd>
+Envia uma requisição HTTP para o servidor do Twitter para obter um retorno em XML, que é convertido para uma table lua.<br>
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  url: URL para onde enviar a requisição
+	</li>
+	
+	<li>
+	  params: String com o conteúdo a ser adicionado à requisição, já no formato URL-Encode, ou uma tabela, contendo pares de paramName=value, representando parâmetros a serem enviados. Opcional.
+	</li>
+	
+	<li>
+	  callback: Função de callback a ser executada quando for obtido o retorno da requisição enviada ao servidor do Twitter. Esta função de callback deve, obrigatoriamente, conter um parâmetro que será a tabela lua gerada a partir do parser do XML obtido do servidor do Twitter. Quando o código XML for obtido do servidor, a função de callback será executada e receberá, nesse parâmetro, a tabela lua gerada a partir do XML recebido. Tal função pode, por exemplo, exibir a primeira mensagem contida na tabela lua recebida por parâmetro. Se for passado nil para este parâmetro, nenhuma função será executada após a resposta da requisição ser obtida.
+	</li>
+	
+	<li>
+	  method: Método HTTP a ser usado. Opcional: se não informado, tem valor padrão GET
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:homeTimeline"></a><strong>Twitter:homeTimeline</strong>&nbsp;(callback)</dt>
+<dd>
+Obtém o timeline do usuário autenticado pelo login e senha.<br>
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  callback: Função de callback a ser executada quando for obtido o retorno da requisição enviada ao servidor do Twitter. Esta função de callback deve, obrigatoriamente, conter um parâmetro que será a tabela lua gerada a partir do parser do XML obtido do servidor do Twitter.<br/>
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="">
+		Twitter.getXml <a href="http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses-home_timeline">Twitter API</a>
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:new"></a><strong>Twitter:new</strong>&nbsp;(user_, password_)</dt>
+<dd>
+Construtor da classe
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  user_: Nome de usuário do Twitter. Se não informado, será procurado o valor no arquivo de configuração.
+	</li>
+	
+	<li>
+	  password_: Senha do usuário do Twitter. Se não informado, será procurado o valor no arquivo de configuração.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:oAuth"></a><strong>Twitter:oAuth</strong>&nbsp;()</dt>
+<dd>
+Authentication
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:rateLimiteStatus"></a><strong>Twitter:rateLimiteStatus</strong>&nbsp;()</dt>
+<dd>
+Account
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:retweet"></a><strong>Twitter:retweet</strong>&nbsp;(callback, tweetId)</dt>
+<dd>
+Retweeta uma mensagem.
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  callback: Função de callback a ser executada quando for obtido o retorno da requisição enviada ao servidor do Twitter. Esta função de callback deve, obrigatoriamente, conter um parâmetro que será a tabela lua gerada a partir do parser do XML obtido do servidor do Twitter.<p/> <a href="http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses-retweet">http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses-retweet</a>
+	</li>
+	
+	<li>
+	  tweetId: Identificador do tweet a ser retweetado
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="">
+		Twitter.getXml
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:search"></a><strong>Twitter:search</strong>&nbsp;()</dt>
+<dd>
+Search
+
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:statusUpdate"></a><strong>Twitter:statusUpdate</strong>&nbsp;(callback, text)</dt>
+<dd>
+Envia um tweet.
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  callback: Função de callback a ser executada quando for obtido o retorno da requisição enviada ao servidor do Twitter. Esta função de callback deve, obrigatoriamente, conter um parâmetro que será a tabela lua gerada a partir do parser do XML obtido do servidor do Twitter.
+	</li>
+	
+	<li>
+	  text: Texto do Tweet<p/> <a href="http://apiwiki.twitter.com/Twitter-REST-API-Method:-statuses update">http://apiwiki.twitter.com/Twitter-REST-API-Method:-statuses update</a>
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="Twitter:userTimeline"></a><strong>Twitter:userTimeline</strong>&nbsp;(callback, userNameOrUserId)</dt>
+<dd>
+Obtém o timeline de um determinado usuário.<br>
+
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  callback: Função de callback a ser executada quando for obtido o retorno da requisição enviada ao servidor do Twitter. Esta função de callback deve, obrigatoriamente, conter um parâmetro que será a tabela lua gerada a partir do parser do XML obtido do servidor do Twitter.<p/> <a href="http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses-user_timeline">http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses-user_timeline</a>
+	</li>
+	
+	<li>
+	  userNameOrUserId: Nome ou ID do usuário que se deseja obter as mensagens do timeline.
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="">
+		Twitter.getXml
+	</a>
+	
+</ul>
+
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>
