@@ -20,10 +20,18 @@ Cada pasta tem o `.ncl` + os assets (imagens geradas). O mecanismo de navegaçã
 `moveLeft/moveRight/moveUp/moveDown` + `onSelection` (tecla OK) + tecla `RED` para voltar — tudo padrão
 do NCL, sem Lua.
 
-## Próximo passo (benchmark)
+## Benchmark (feito) → [`benchmark/RESULTADO.md`](benchmark/RESULTADO.md)
 
-Rodar as técnicas de prompting **T0, T1, T3, T5, T6** (ver
-[`../02-benchmark-de-prompting.md`](../02-benchmark-de-prompting.md)) sobre estes apps: uma IA **cega**
-recria cada app a partir da intenção, e a gente mede se **a navegação dos botões sai correta**
-(foco/setas/seleção/voltar) e o quão fiel fica ao gabarito. O foco do artigo é a técnica **T6**
-(spec-kit de regras + elicitação por perguntas); as demais entram como **validação comparativa**.
+Rodamos as **5 técnicas (T0, T1, T3, T5, T6)** sobre estes apps: uma IA **cega** recria cada um, e
+medimos se a **navegação dos botões sai correta**. Resultado resumido:
+
+| Técnica | Carrega | Fidelidade estrutural |
+|---|:---:|:---:|
+| T0 vago / T1 zero-shot | 4/4 · 3/4 | 3.8 · 3.2 |
+| **T3 few-shot / T5 regras / T6 elicitação** | 4/4 | **5.0 · 4.5 · 4.5** |
+
+As técnicas **estruturadas ganham**; o **T6 (elicitação, o fluxo do paper)** ainda **recupera a intenção
+exata** via perguntas (ex.: a IA perguntou a ordem dos botões e o usuário corrigiu — algo que o T0 vago
+errou). **Tudo capturado** em `benchmark/<app>/<técnica>/`: prompt, resposta da IA, NCL gerado,
+screenshot da execução, e o diálogo do T6. Detalhes e figuras em
+[`benchmark/RESULTADO.md`](benchmark/RESULTADO.md).
