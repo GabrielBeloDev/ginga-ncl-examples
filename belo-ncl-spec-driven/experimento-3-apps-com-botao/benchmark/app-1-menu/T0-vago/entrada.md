@@ -1,0 +1,17 @@
+# Entrada (pedido / instrucao recebida)
+
+## Pedido do usuario (curto e vago)
+
+> cria um app NCL de menu horizontal de canais com botoes, usando as imagens dessa pasta
+
+## Instrucao completa que o agente recebeu
+
+> Gere um documento NCL e salve em
+> `/home/teleadm/Documents/NCL-files/belo-ncl-spec-driven/experimento-3-apps-com-botao/benchmark/app-1-menu/T0-vago/pasta-de-trabalho/gerado.ncl`.
+> Pedido do usuario (curto e vago): "cria um app NCL de menu horizontal de canais
+> com botoes, usando as imagens dessa pasta". Use so as imagens da pasta (liste-a).
+> No fim, SALVE 3 arquivos nessa pasta
+> (`/home/teleadm/Documents/NCL-files/belo-ncl-spec-driven/experimento-3-apps-com-botao/benchmark/app-1-menu/T0-vago/pasta-de-trabalho`)
+> com a ferramenta Write: 'gerado.ncl' (o NCL), 'entrada.md' (exatamente o
+> pedido/instrucao que voce recebeu) e 'saida.md' (sua resposta/explicacao).
+> Liste a pasta antes pra ver as imagens. NAO leia pastas acima.

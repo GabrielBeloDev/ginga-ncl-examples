@@ -1,0 +1,142 @@
+[
+  {
+    "app": "app-1-menu",
+    "tec": "T0-vago",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-1-menu",
+    "tec": "T1-zeroshot",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-1-menu",
+    "tec": "T3-fewshot",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-1-menu",
+    "tec": "T5-regras",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-1-menu",
+    "tec": "T6-elicitacao",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-2-guia",
+    "tec": "T0-vago",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-2-guia",
+    "tec": "T1-zeroshot",
+    "loads": false,
+    "still": false,
+    "err": "ginga: file:///home/teleadm/Documents/NCL-files/belo-ncl-spec-driven/experimento-3-apps-com-botao/benchmark/ap"
+  },
+  {
+    "app": "app-2-guia",
+    "tec": "T3-fewshot",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-2-guia",
+    "tec": "T5-regras",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-2-guia",
+    "tec": "T6-elicitacao",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-3-grade",
+    "tec": "T0-vago",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-3-grade",
+    "tec": "T1-zeroshot",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-3-grade",
+    "tec": "T3-fewshot",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-3-grade",
+    "tec": "T5-regras",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-3-grade",
+    "tec": "T6-elicitacao",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-4-dialogo",
+    "tec": "T0-vago",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-4-dialogo",
+    "tec": "T1-zeroshot",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-4-dialogo",
+    "tec": "T3-fewshot",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-4-dialogo",
+    "tec": "T5-regras",
+    "loads": true,
+    "still": true,
+    "err": ""
+  },
+  {
+    "app": "app-4-dialogo",
+    "tec": "T6-elicitacao",
+    "loads": true,
+    "still": true,
+    "err": ""
+  }
+]

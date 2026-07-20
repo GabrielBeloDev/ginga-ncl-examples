@@ -1,0 +1,5 @@
+# Entrada (pedido recebido)
+
+Gere um documento NCL EDTV autocontido e salve em `/home/teleadm/Documents/NCL-files/belo-ncl-spec-driven/experimento-3-apps-com-botao/benchmark/app-3-grade/T1-zeroshot/pasta-de-trabalho/gerado.ncl`, reproduzindo este app: Grade de 2 linhas x 3 colunas com 6 apps: VIDEO, MUSICA, FOTOS (linha 1) e JOGOS, LOJA, CONFIG (linha 2) (app-1.png a app-6.png), sobre fundo.png. Navegacao em 2 direcoes (setas CIMA/BAIXO/ESQ/DIR); OK abre a tela do app (tela-1.png a tela-6.png); VERMELHO volta. Foco no primeiro.
+
+Sem exemplos e sem lista de regras — so a descricao acima. Use so as imagens da pasta. No fim, SALVE 3 arquivos nessa pasta (`/home/teleadm/Documents/NCL-files/belo-ncl-spec-driven/experimento-3-apps-com-botao/benchmark/app-3-grade/T1-zeroshot/pasta-de-trabalho`) com a ferramenta Write: `gerado.ncl` (o NCL), `entrada.md` (exatamente o pedido/instrucao que voce recebeu) e `saida.md` (sua resposta/explicacao). Liste a pasta antes pra ver as imagens. NAO leia pastas acima.

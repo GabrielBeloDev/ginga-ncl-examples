@@ -1,0 +1,5 @@
+# Entrada (pedido recebido)
+
+Gere um documento NCL EDTV autocontido e salve em /home/teleadm/Documents/NCL-files/belo-ncl-spec-driven/experimento-3-apps-com-botao/benchmark/app-2-guia/T1-zeroshot/pasta-de-trabalho/gerado.ncl, reproduzindo este app: Lista VERTICAL de 5 itens a esquerda: '18h Novela','19h Jornal','20h Futebol','22h Filme','23h Show' (item-1.png a item-5.png), sobre fundo.png. Setas CIMA/BAIXO movem o foco (circular); OK abre a tela cheia do item (tela-1.png a tela-5.png); VERMELHO volta. Foco no primeiro item.
+
+Sem exemplos e sem lista de regras — so a descricao acima. Use so as imagens da pasta. No fim, SALVE 3 arquivos nessa pasta (/home/teleadm/Documents/NCL-files/belo-ncl-spec-driven/experimento-3-apps-com-botao/benchmark/app-2-guia/T1-zeroshot/pasta-de-trabalho) com a ferramenta Write: 'gerado.ncl' (o NCL), 'entrada.md' (exatamente o pedido/instrucao que voce recebeu) e 'saida.md' (sua resposta/explicacao). Liste a pasta antes pra ver as imagens. NAO leia pastas acima.
