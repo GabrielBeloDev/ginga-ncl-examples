@@ -10,10 +10,10 @@ Um **workflow** orquestrou, para cada exemplo:
 - um agente **analista** (com acesso ao original) que escreveu os **3 prompts de intenção** (níveis
   **B** porco, **C** intermediário, **A** spec) — em `prompts/`;
 - **3 agentes geradores CEGOS** (Opus, contexto isolado, **sem** ver o original nem o histórico) que
-  recriaram o `.ncl` só a partir do prompt + das mídias da pasta — em `gerados/`.
+  recriaram o `.ncl` só a partir do prompt + das mídias da pasta — em `ncl-gerado/`.
 
-Depois rodamos cada `.ncl` gerado no **Ginga** (`screenshots/`) e comparamos a estrutura com o original
-(`originais/`).
+Depois rodamos cada `.ncl` gerado no **Ginga** (`figuras/`) e comparamos a estrutura com o original
+(`gabaritos/`).
 
 ## Resultado 1 — validade técnica: **9/9 carregam e rodam** no Ginga
 
@@ -50,8 +50,8 @@ original; B/C às vezes adicionam regiões a mais).
   valor do spec-kit (**H3**).
 - **Ressalva:** ainda é **1 geração por nível** (sem as demais técnicas do benchmark — zero/one/few-shot,
   self-consistency — nem várias rodadas). Estes 3 exemplos são o **corpus-núcleo** do
-  [benchmark](../benchmark-prompting/BENCHMARK.md); o próximo passo é rodar a matriz completa de técnicas.
+  [benchmark](../02-benchmark-de-prompting.md); o próximo passo é rodar a matriz completa de técnicas.
 
 ---
-*Artefatos: `prompts/` (os 3 prompts por exemplo, escritos pelo analista) · `gerados/` (os 9 `.ncl`
-gerados pelos agentes cegos) · `originais/` (os gabaritos) · `screenshots/` (execução no Ginga).*
+*Artefatos: `prompts/` (os 3 prompts por exemplo, escritos pelo analista) · `ncl-gerado/` (os 9 `.ncl`
+gerados pelos agentes cegos) · `gabaritos/` (os gabaritos) · `figuras/` (execução no Ginga).*

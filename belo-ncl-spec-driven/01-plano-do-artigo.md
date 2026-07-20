@@ -110,15 +110,15 @@ flowchart TD
 
 ## 5. Evidência inicial — o piloto `10menu`
 
-Para tornar o gap semântico **visível e mensurável**, conduzimos um piloto (arquivos em `research/piloto-10menu/`).
+Para tornar o gap semântico **visível e mensurável**, conduzimos um piloto (arquivos em `research/experimento-1-piloto-10menu/`).
 
-**Montagem.** Tomamos um app NCL **real** — o menu interativo do "Garrincha" (`original-10menu.ncl`): vídeo em tela quase cheia, **menu de 4 trilhas** na base (Chorinho/Rock/Techno/Cartoon), *overlays* temporizados em cantos (clipe de drible, foto), indicador de interatividade e uma **propaganda** que abre um formulário HTML. Isolamos **apenas as mídias** numa pasta, **sem o código original**, e pedimos a um **LLM "cego"** (sem acesso ao gabarito) que recriasse o NCL a partir de descrições de intenção em **três níveis de estrutura**:
+**Montagem.** Tomamos um app NCL **real** — o menu interativo do "Garrincha" (`gabarito-10menu.ncl`): vídeo em tela quase cheia, **menu de 4 trilhas** na base (Chorinho/Rock/Techno/Cartoon), *overlays* temporizados em cantos (clipe de drible, foto), indicador de interatividade e uma **propaganda** que abre um formulário HTML. Isolamos **apenas as mídias** numa pasta, **sem o código original**, e pedimos a um **LLM "cego"** (sem acesso ao gabarito) que recriasse o NCL a partir de descrições de intenção em **três níveis de estrutura**:
 
 | Nível | Descrição | Caráter |
 |---|---|---|
-| **B — "porco"** | curta e vaga, como qualquer um digitaria correndo | *baseline* (`prompts/PROMPT-simples.md`) |
-| **C — intermediário** | casual, mas com **noção de espaço e tempo** (cantos, base, "lá pelos 40 s") | meio-termo (`prompts/PROMPT-intermediario.md`) |
-| **A — spec detalhada** | estruturada: **posições, tempos, durações e teclas** precisas | a *spec* (`prompts/PROMPT-detalhado.md`) |
+| **B — "porco"** | curta e vaga, como qualquer um digitaria correndo | *baseline* (`prompts/nivel-B-vago.md`) |
+| **C — intermediário** | casual, mas com **noção de espaço e tempo** (cantos, base, "lá pelos 40 s") | meio-termo (`prompts/nivel-C-intermediario.md`) |
+| **A — spec detalhada** | estruturada: **posições, tempos, durações e teclas** precisas | a *spec* (`prompts/nivel-A-spec.md`) |
 
 Cada saída foi **executada no Ginga** e **comparada estruturalmente** com o gabarito.
 
@@ -257,4 +257,4 @@ Quatro frentes ancoram o paper na literatura:
 
 ---
 
-*Arquivos de apoio:* piloto em `research/piloto-10menu/` (`RESULTADO.md`, `INSTRUCOES.md`, `prompts/`, `gerados/`, `figuras/`); pitfalls de execução em `docs/CODE-CHANGES.md`; apps do corpus na raiz do repositório.
+*Arquivos de apoio:* piloto em `research/experimento-1-piloto-10menu/` (`RESULTADO.md`, `como-reproduzir.md`, `prompts/`, `ncl-gerado/`, `figuras/`); pitfalls de execução em `docs/CODE-CHANGES.md`; apps do corpus na raiz do repositório.

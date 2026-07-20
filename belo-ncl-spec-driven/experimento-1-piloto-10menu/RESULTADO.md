@@ -52,14 +52,14 @@ Este experimento é o **primeiro teste** dessa hipótese.
 Vídeo grande no topo, menu com 4 botões embaixo, overlays em cantos específicos, propaganda que só
 aparece por volta dos 45 segundos.
 
-![Original](figuras/00-original.png)
+![Original](figuras/0-original.png)
 
 ### Nível B (prompt "porco") — funcionou, mas **inventou outro app**
 A IA rodou de primeira, mas **criou um layout totalmente diferente**: três "janelas" de vídeo, a
 propaganda já aparecendo logo no começo (aos 8s em vez de 45s), e um arranjo que não é o do original.
 Ou seja: **funciona, mas não reproduz o app.**
 
-![Nível B](figuras/01-B-porco.png)
+![Nível B](figuras/1-nivel-B-vago.png)
 
 ### Nível C / A (mais detalhe) — **muito mais fiéis** ao original
 As descrições mais ricas fizeram a IA acertar o essencial: **vídeo grande no topo + menu de 4 botões
@@ -67,7 +67,7 @@ embaixo**, igual ao original. O nível A (a spec) foi ainda mais longe: reproduz
 inteira** (as coisas aparecendo em 5s, 12s, 41s, 45s, 51s, 64s — exatamente os mesmos momentos do
 original) e usou as **18 mídias** e as **11 regiões** do original.
 
-![Nível C](figuras/02-C-intermediario.png)
+![Nível C](figuras/2-nivel-C-intermediario.png)
 
 ### A tabela que resume tudo
 

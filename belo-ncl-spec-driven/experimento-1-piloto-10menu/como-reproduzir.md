@@ -9,11 +9,11 @@ NCL mais fiel ao original do que um prompt comum e vago?**
 sdd-experimento-menu/
 ├── sets/                              ← ABRA O CLAUDE CODE AQUI (só tem as mídias)
 │   └── (18 mídias: vídeos, imagens, áudios, formulários)
-├── PROMPT-simples.md                  ← Prompt B: "porco" (curto e vago, como um usuário comum)
-├── PROMPT-intermediario.md            ← Prompt C: porco + noção de espaço/tempo (posições e tempos aprox.)
-├── PROMPT-detalhado.md                ← Prompt A: a "spec" (refinado, com posições/tempos/interações)
+├── nivel-B-vago.md                  ← Prompt B: "porco" (curto e vago, como um usuário comum)
+├── nivel-C-intermediario.md            ← Prompt C: porco + noção de espaço/tempo (posições e tempos aprox.)
+├── nivel-A-spec.md                ← Prompt A: a "spec" (refinado, com posições/tempos/interações)
 ├── 10menu_ORIGINAL_para_comparar.ncl  ← o GABARITO (não fica dentro de sets/)
-└── INSTRUCOES.md                      ← este arquivo
+└── como-reproduzir.md                      ← este arquivo
 ```
 
 > O agente novo só pode ver as **mídias** (em `sets/`). O NCL original fica **fora** de `sets/` de
@@ -23,9 +23,9 @@ sdd-experimento-menu/
 
 | | Prompt | Nível de detalhe |
 |---|--------|------------------|
-| **B** | `PROMPT-simples.md` | "Porco": pedido curto e vago, como qualquer um digitaria (só o grosso). |
-| **C** | `PROMPT-intermediario.md` | Meio-termo: tom casual + noção de espaço/tempo (cantos, base, "~40s"), sem números exatos. |
-| **A** | `PROMPT-detalhado.md` | A **spec** do artigo: intenção estruturada (posições, tempos, durações e teclas precisas). |
+| **B** | `nivel-B-vago.md` | "Porco": pedido curto e vago, como qualquer um digitaria (só o grosso). |
+| **C** | `nivel-C-intermediario.md` | Meio-termo: tom casual + noção de espaço/tempo (cantos, base, "~40s"), sem números exatos. |
+| **A** | `nivel-A-spec.md` | A **spec** do artigo: intenção estruturada (posições, tempos, durações e teclas precisas). |
 
 A curva de fidelidade ao longo de **B → C → A** é o **argumento central do paper**: quanto mais a
 intenção se aproxima de uma spec, mais fiel fica o NCL gerado.
@@ -39,8 +39,8 @@ intenção se aproxima de uma spec, mais fiel fica o NCL gerado.
    ```
    (Dica: faça cada teste num chat **novo/limpo**, pra um não influenciar o outro. Pode salvar os
    resultados como `app-B.ncl`, `app-C.ncl` e `app-A.ncl`.)
-2. **Cole o prompt** correspondente (`PROMPT-simples.md` no B; `PROMPT-intermediario.md` no C;
-   `PROMPT-detalhado.md` no A). O agente gera o `.ncl` ali, usando só as mídias que enxerga.
+2. **Cole o prompt** correspondente (`nivel-B-vago.md` no B; `nivel-C-intermediario.md` no C;
+   `nivel-A-spec.md` no A). O agente gera o `.ncl` ali, usando só as mídias que enxerga.
 3. **Rode** o que ele gerou pra ver se funciona:
    ```bash
    ginga app-A.ncl     # (de dentro de sets/)

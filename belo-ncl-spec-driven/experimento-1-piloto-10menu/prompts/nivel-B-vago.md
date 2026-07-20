@@ -18,4 +18,4 @@ que dá pra abrir e mostrar um formulário. usa os arquivos da pasta e faz funci
 *É de propósito que falta tudo aqui: posições na tela, os tempos (quando cada coisa aparece), o clipe
 de drible e a foto, o liga/desliga da interatividade, qual tecla faz o quê, o idioma do formulário…
 Tudo isso o agente vai ter que **adivinhar**. Comparar o resultado deste prompt com o do
-`PROMPT-detalhado.md` é justamente o que mostra o valor da spec.*
+`nivel-A-spec.md` é justamente o que mostra o valor da spec.*

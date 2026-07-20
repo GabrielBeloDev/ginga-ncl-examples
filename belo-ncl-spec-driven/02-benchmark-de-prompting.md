@@ -5,7 +5,7 @@
 > semântico"** entre a *intenção* do autor e o *código NCL* gerado por um LLM.
 >
 > **De onde ele parte.** Do piloto `10menu` (n=1, 3 níveis de intenção B→C→A), documentado em
-> [`../piloto-10menu/RESULTADO.md`](../piloto-10menu/RESULTADO.md). O piloto mostrou que **mais
+> [`experimento-1-piloto-10menu/RESULTADO.md`](experimento-1-piloto-10menu/RESULTADO.md). O piloto mostrou que **mais
 > estrutura na descrição → mais fidelidade**, e que uma **etapa de validação/correção** é necessária
 > (o nível A/C só carregou depois de corrigir 1 atributo). Este benchmark generaliza aquele achado de
 > um exemplo para uma avaliação com sinal estatístico.
@@ -153,14 +153,14 @@ o "esqueleto Garrincha" → gradiente de dificuldade controlado); os demais são
 
 | App | Caminho | Gabarito (RFC) | Linhas | Complexidade estrutural (do RFC) | Papel |
 |-----|---------|----------------|:------:|----------------------------------|-------|
-| **02syncInt** | `Primeiro joao/.../Exemplos/02syncInt.ncl` | [RFC-0004](../../rfcs/0004-02-syncint.md) | 83 | 5 regiões, 7 mídias, âncoras 12/41/45–51s, 1 tecla (RED), 0 switch | núcleo — sincronismo puro |
-| **07transition** | `.../Exemplos/07transition.ncl` | [RFC-0009](../../rfcs/0009-07-transition.md) | 107 | + `transitionBase` (fade/barWipe), 1 switch (idioma), formReg | núcleo — transições |
-| **08animation** | `.../Exemplos/08animation.ncl` | [RFC-0010](../../rfcs/0010-08-animation.md) | 116 | + animação `set`/`duration` (`top`, `bounds`), 1 switch | núcleo — animação |
-| **10menu** | `.../Exemplos/10menu.ncl` | [RFC-0012](../../rfcs/0012-10-menu.md) | 217 | 11 regiões, 18 mídias, **2 switches**, menu por foco (anel), teclas ENTER/OK, INFO, RED, linha do tempo 5/12/41/45/51/64s, settings | núcleo — **app do piloto** |
-| **A_Onda** | `A_Onda/A_Onda.ncl` | [RFC-0001](../../rfcs/0001-a-onda.md) | 1562 | app educacional grande, muitas regiões/contextos | estresse — escala |
-| **TVDQuiz** | `TVDQuiz/main.ncl` | [RFC-0016](../../rfcs/0016-tvdquiz.md) | 104 (+NCLua) | quiz interativo em **NCLua** (Lua 5.3) | estresse — NCLua |
-| **enquete-ncl** | `enquete-ncl/main.ncl` | [RFC-0017](../../rfcs/0017-enquete.md) | 177 (+NCLua) | votação Sim/Não em **NCLua** | estresse — NCLua |
-| **rss-reader** | `rss-reader/main.ncl` | [RFC-0018](../../rfcs/0018-rss-reader.md) | 87 (+NCLua) | leitor RSS em **NCLua** | estresse — NCLua |
+| **02syncInt** | `Primeiro joao/.../Exemplos/02syncInt.ncl` | [RFC-0004](../rfcs/0004-02-syncint.md) | 83 | 5 regiões, 7 mídias, âncoras 12/41/45–51s, 1 tecla (RED), 0 switch | núcleo — sincronismo puro |
+| **07transition** | `.../Exemplos/07transition.ncl` | [RFC-0009](../rfcs/0009-07-transition.md) | 107 | + `transitionBase` (fade/barWipe), 1 switch (idioma), formReg | núcleo — transições |
+| **08animation** | `.../Exemplos/08animation.ncl` | [RFC-0010](../rfcs/0010-08-animation.md) | 116 | + animação `set`/`duration` (`top`, `bounds`), 1 switch | núcleo — animação |
+| **10menu** | `.../Exemplos/10menu.ncl` | [RFC-0012](../rfcs/0012-10-menu.md) | 217 | 11 regiões, 18 mídias, **2 switches**, menu por foco (anel), teclas ENTER/OK, INFO, RED, linha do tempo 5/12/41/45/51/64s, settings | núcleo — **app do piloto** |
+| **A_Onda** | `A_Onda/A_Onda.ncl` | [RFC-0001](../rfcs/0001-a-onda.md) | 1562 | app educacional grande, muitas regiões/contextos | estresse — escala |
+| **TVDQuiz** | `TVDQuiz/main.ncl` | [RFC-0016](../rfcs/0016-tvdquiz.md) | 104 (+NCLua) | quiz interativo em **NCLua** (Lua 5.3) | estresse — NCLua |
+| **enquete-ncl** | `enquete-ncl/main.ncl` | [RFC-0017](../rfcs/0017-enquete.md) | 177 (+NCLua) | votação Sim/Não em **NCLua** | estresse — NCLua |
+| **rss-reader** | `rss-reader/main.ncl` | [RFC-0018](../rfcs/0018-rss-reader.md) | 87 (+NCLua) | leitor RSS em **NCLua** | estresse — NCLua |
 
 > **Nota sobre os apps NCLua.** Além do NCL, exigem gerar **Lua 5.3** correto (sem `module()`/`setfenv()`,
 > `string.format("%d", …)` com inteiro). São o teste mais duro do spec-kit — as regras de Lua (Apêndice A,
@@ -297,7 +297,7 @@ $$\text{FS} = V \times S$$
 
 O agente que gera o NCL **nunca vê o gabarito** (nem o `.ncl` original, nem o RFC). Ele enxerga apenas:
 (a) as **mídias** do app numa pasta isolada e (b) o **brief** de intenção (+ o andaime da técnica). É o
-mesmo desenho do piloto ([`INSTRUCOES.md`](../piloto-10menu/INSTRUCOES.md)): o original fica **fora** da
+mesmo desenho do piloto ([`como-reproduzir.md`](experimento-1-piloto-10menu/como-reproduzir.md)): o original fica **fora** da
 pasta de trabalho de propósito, para o experimento ser honesto (sem "colar").
 
 ### 4.2 Isolamento por pasta
@@ -358,7 +358,7 @@ Saída final = a **tabela de fidelidade generalizada** (o formato da tabela do p
 linha por célula e o FS agregado), pronta para o paper.
 
 > **Limite conhecido da automação:** o Ginga headless **não simula teclas do controle**
-> ([`CODE-CHANGES.md`](../../docs/CODE-CHANGES.md) já registra isso para o damasTV). Logo, a dimensão
+> ([`CODE-CHANGES.md`](../docs/CODE-CHANGES.md) já registra isso para o damasTV). Logo, a dimensão
 > **I (interações)** é aferida **estaticamente** (presença/correção dos `<link>` com `key=…`
 > mapeando tecla→ação no NCL), e não por execução dinâmica. Uma **amostra** de células passa por
 > verificação manual com teclas para calibrar o proxy estático (§5.2).
@@ -427,7 +427,7 @@ via teste não-paramétrico pareado (Wilcoxon) + correção para múltiplas comp
   cruzar `técnica × nível_de_brief`, mas isso multiplica a matriz.)
 
 **Contaminação de dados (o maior risco aqui).**
-- Os apps são uma **coleção histórica pública (2008–2012)** — o [`README`](../../README.md) diz isso
+- Os apps são uma **coleção histórica pública (2008–2012)** — o [`README`](../README.md) diz isso
   explicitamente. Um LLM pode **já ter visto** o `10menu.ncl`/`A_Onda.ncl` no treino, inflando a
   fidelidade artificialmente (não seria "geração a partir da intenção", e sim recuperação de memória).
   **Mitigações:** (i) renomear IDs/mídias e parafrasear o brief para descolar do original; (ii) medir a
@@ -450,14 +450,14 @@ via teste não-paramétrico pareado (Wilcoxon) + correção para múltiplas comp
   `config.yaml`, garantir `git lfs pull`, e distinguir no log "mídia ausente" de "erro de NCL".
 - Diferenças **esperadas e OK** (caminho `animGar.mp4` vs `../media/animGar.mp4`; conector inline vs
   `importBase`) **não** podem contar como erro — o `extract_structure.py` deve normalizar isso (já
-  previsto no [`INSTRUCOES.md`](../piloto-10menu/INSTRUCOES.md) do piloto).
+  previsto no [`como-reproduzir.md`](experimento-1-piloto-10menu/como-reproduzir.md) do piloto).
 
 ---
 
 ## Apêndice A — Spec-kit (semente de regras)
 
 Regras que o **system prompt** (T5/T6/T7) injeta. Vêm dos *pitfalls* reais achados neste repositório
-([`CODE-CHANGES.md`](../../docs/CODE-CHANGES.md), RFCs e o piloto). São o insumo direto para "quais
+([`CODE-CHANGES.md`](../docs/CODE-CHANGES.md), RFCs e o piloto). São o insumo direto para "quais
 regras benchmarkar".
 
 **Perfil e forma.**

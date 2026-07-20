@@ -44,7 +44,7 @@ flowchart LR
 
 A **spec é elicitada por perguntas**, não escrita inteira de cara — é a diferença-chave frente à
 caixa-preta. O detalhamento formal (hipóteses, contribuição, seções do paper, trabalhos relacionados)
-está em [`PLANO-ARTIGO.md`](PLANO-ARTIGO.md).
+está em [`01-plano-do-artigo.md`](01-plano-do-artigo.md).
 
 ---
 
@@ -57,7 +57,7 @@ está em [`PLANO-ARTIGO.md`](PLANO-ARTIGO.md).
 3. No teste "cru", **C e A não carregaram** por **1 atributo** de sintaxe (`transparency` como atributo do
    `<descriptor>`); corrigido esse ponto, ambos renderizaram — justamente o que a etapa de validação/correção existe para absorver.
 
-Detalhes, tabela de fidelidade e figuras em [`piloto-10menu/RESULTADO.md`](piloto-10menu/RESULTADO.md).
+Detalhes, tabela de fidelidade e figuras em [`experimento-1-piloto-10menu/RESULTADO.md`](experimento-1-piloto-10menu/RESULTADO.md).
 
 ---
 
@@ -67,30 +67,30 @@ Detalhes, tabela de fidelidade e figuras em [`piloto-10menu/RESULTADO.md`](pilot
 
 | Documento | O que é |
 |---|---|
-| [`PLANO-ARTIGO.md`](PLANO-ARTIGO.md) | O *blueprint* do artigo: título, motivação, hipóteses (H1–H3), o fluxo formalizado com diagrama, a evidência do piloto, estrutura de seções, agenda de pesquisa e trabalhos relacionados. |
-| [`benchmark-prompting/BENCHMARK.md`](benchmark-prompting/BENCHMARK.md) | O desenho experimental: taxonomia de técnicas de *prompting*, matriz `técnica × app × modelo × rodada`, métricas (*Fidelity Score*, validade técnica, qualidade das perguntas), protocolo do agente cego, design mínimo e ameaças à validade. |
-| [`SPEC-KIT-REGRAS.md`](SPEC-KIT-REGRAS.md) | O *system prompt* / spec-kit: regras estruturais, de mídia e de *pitfalls* do Ginga, o protocolo de elicitação por perguntas e o formato da spec intermediária (YAML). É o que o agente carrega antes de qualquer pedido. |
+| [`01-plano-do-artigo.md`](01-plano-do-artigo.md) | O *blueprint* do artigo: título, motivação, hipóteses (H1–H3), o fluxo formalizado com diagrama, a evidência do piloto, estrutura de seções, agenda de pesquisa e trabalhos relacionados. |
+| [`02-benchmark-de-prompting.md`](02-benchmark-de-prompting.md) | O desenho experimental: taxonomia de técnicas de *prompting*, matriz `técnica × app × modelo × rodada`, métricas (*Fidelity Score*, validade técnica, qualidade das perguntas), protocolo do agente cego, design mínimo e ameaças à validade. |
+| [`03-spec-kit-de-regras.md`](03-spec-kit-de-regras.md) | O *system prompt* / spec-kit: regras estruturais, de mídia e de *pitfalls* do Ginga, o protocolo de elicitação por perguntas e o formato da spec intermediária (YAML). É o que o agente carrega antes de qualquer pedido. |
 
 ### Piloto `10menu`
 
 | Item | O que é |
 |---|---|
-| [`piloto-10menu/RESULTADO.md`](piloto-10menu/RESULTADO.md) | O relato do experimento e a tabela de fidelidade (B/C/A vs. original), para quem chega sem contexto. |
-| [`piloto-10menu/INSTRUCOES.md`](piloto-10menu/INSTRUCOES.md) | O passo a passo para reproduzir o piloto (montagem, 3 níveis de prompt, execução, comparação). |
-| [`piloto-10menu/original-10menu.ncl`](piloto-10menu/original-10menu.ncl) | O **gabarito**: o app NCL real que a IA tenta recriar (fica **fora** da pasta de mídias de propósito). |
-| [`piloto-10menu/prompts/`](piloto-10menu/prompts/) | Os 3 prompts de intenção: `PROMPT-simples.md` (B), `PROMPT-intermediario.md` (C), `PROMPT-detalhado.md` (A). |
-| [`piloto-10menu/gerados/`](piloto-10menu/gerados/) | Os NCLs gerados pela IA: `gerado-B-porco.ncl`, `gerado-C-intermediario.ncl`, `gerado-A-spec.ncl` (este último **contém** o erro `transparency`, preservado como evidência). |
-| [`piloto-10menu/figuras/`](piloto-10menu/figuras/) | Screenshots: `00-original.png`, `01-B-porco.png`, `02-C-intermediario.png`. |
+| [`experimento-1-piloto-10menu/RESULTADO.md`](experimento-1-piloto-10menu/RESULTADO.md) | O relato do experimento e a tabela de fidelidade (B/C/A vs. original), para quem chega sem contexto. |
+| [`experimento-1-piloto-10menu/como-reproduzir.md`](experimento-1-piloto-10menu/como-reproduzir.md) | O passo a passo para reproduzir o piloto (montagem, 3 níveis de prompt, execução, comparação). |
+| [`experimento-1-piloto-10menu/gabarito-10menu.ncl`](experimento-1-piloto-10menu/gabarito-10menu.ncl) | O **gabarito**: o app NCL real que a IA tenta recriar (fica **fora** da pasta de mídias de propósito). |
+| [`experimento-1-piloto-10menu/prompts/`](experimento-1-piloto-10menu/prompts/) | Os 3 prompts de intenção: `nivel-B-vago.md` (B), `nivel-C-intermediario.md` (C), `nivel-A-spec.md` (A). |
+| [`experimento-1-piloto-10menu/ncl-gerado/`](experimento-1-piloto-10menu/ncl-gerado/) | Os NCLs gerados pela IA: `nivel-B-vago.ncl`, `nivel-C-intermediario.ncl`, `nivel-A-spec.ncl` (este último **contém** o erro `transparency`, preservado como evidência). |
+| [`experimento-1-piloto-10menu/figuras/`](experimento-1-piloto-10menu/figuras/) | Screenshots: `00-original.png`, `01-B-porco.png`, `02-C-intermediario.png`. |
 
 ### Replicação em 3 exemplos (n=4 no total)
 
 | Item | O que é |
 |---|---|
-| [`replicacao-3-exemplos/RESULTADO-REPLICACAO.md`](replicacao-3-exemplos/RESULTADO-REPLICACAO.md) | Replicação **automatizada** do piloto em `02syncInt`, `07transition` e `08animation` (agentes cegos Opus, 3 níveis cada). Resultado: **9/9 carregam** no Ginga e o gradiente **B < C < A** se confirma em todos (nível A reproduz **~93–100%** da linha do tempo). |
-| [`replicacao-3-exemplos/gerados/`](replicacao-3-exemplos/gerados/) | Os **9 NCLs** gerados pelos agentes cegos (`<exemplo>-B/C/A.ncl`). |
-| [`replicacao-3-exemplos/prompts/`](replicacao-3-exemplos/prompts/) | Os 3 prompts (B/C/A) por exemplo, escritos pelo agente **analista**. |
-| [`replicacao-3-exemplos/screenshots/`](replicacao-3-exemplos/screenshots/) | Execução no Ginga dos 9 gerados. |
-| [`replicacao-3-exemplos/originais/`](replicacao-3-exemplos/originais/) | Os **gabaritos** dos 3 exemplos. |
+| [`experimento-2-replicacao/RESULTADO.md`](experimento-2-replicacao/RESULTADO.md) | Replicação **automatizada** do piloto em `02syncInt`, `07transition` e `08animation` (agentes cegos Opus, 3 níveis cada). Resultado: **9/9 carregam** no Ginga e o gradiente **B < C < A** se confirma em todos (nível A reproduz **~93–100%** da linha do tempo). |
+| [`experimento-2-replicacao/ncl-gerado/`](experimento-2-replicacao/ncl-gerado/) | Os **9 NCLs** gerados pelos agentes cegos (`<exemplo>-B/C/A.ncl`). |
+| [`experimento-2-replicacao/prompts/`](experimento-2-replicacao/prompts/) | Os 3 prompts (B/C/A) por exemplo, escritos pelo agente **analista**. |
+| [`experimento-2-replicacao/figuras/`](experimento-2-replicacao/figuras/) | Execução no Ginga dos 9 gerados. |
+| [`experimento-2-replicacao/gabaritos/`](experimento-2-replicacao/gabaritos/) | Os **gabaritos** dos 3 exemplos. |
 
 ### Artefatos de apoio (raiz do repositório)
 
@@ -103,7 +103,7 @@ Detalhes, tabela de fidelidade e figuras em [`piloto-10menu/RESULTADO.md`](pilot
 
 ## Como reproduzir o experimento
 
-O piloto foi rodado à mão; o [`INSTRUCOES.md`](piloto-10menu/INSTRUCOES.md) tem o passo a passo completo.
+O piloto foi rodado à mão; o [`como-reproduzir.md`](experimento-1-piloto-10menu/como-reproduzir.md) tem o passo a passo completo.
 Em resumo:
 
 1. **Isole as mídias.** Coloque **apenas** as 18 mídias do app (vídeos, imagens, áudios, formulários)
@@ -115,17 +115,17 @@ Em resumo:
    cd .../sets
    claude
    ```
-3. **Cole cada prompt** e salve a saída: `PROMPT-simples.md` → `app-B.ncl`; `PROMPT-intermediario.md`
-   → `app-C.ncl`; `PROMPT-detalhado.md` → `app-A.ncl`. O agente gera o `.ncl` usando só as mídias que enxerga.
+3. **Cole cada prompt** e salve a saída: `nivel-B-vago.md` → `app-B.ncl`; `nivel-C-intermediario.md`
+   → `app-C.ncl`; `nivel-A-spec.md` → `app-A.ncl`. O agente gera o `.ncl` usando só as mídias que enxerga.
 4. **Rode cada gerado no Ginga** (a partir de `sets/`):
    ```bash
    ginga app-A.ncl
    ```
-5. **Compare com o gabarito** `original-10menu.ncl`: layout (posições), linha do tempo (o que aparece
+5. **Compare com o gabarito** `gabarito-10menu.ncl`: layout (posições), linha do tempo (o que aparece
    quando), interações (teclas → efeitos), `switch` e mídias usadas. Diferenças **esperadas e OK**:
    caminhos de mídia (`animGar.mp4` vs. `../media/animGar.mp4`) e conectores *inline* vs. `importBase`
    — não contam como erro.
 
 Para **generalizar** o piloto num benchmark reprodutível (harness, métricas automáticas, corpus de
 apps, ablação de técnicas), o protocolo completo está em
-[`benchmark-prompting/BENCHMARK.md`](benchmark-prompting/BENCHMARK.md).
+[`02-benchmark-de-prompting.md`](02-benchmark-de-prompting.md).

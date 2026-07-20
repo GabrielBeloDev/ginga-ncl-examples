@@ -670,8 +670,8 @@ layout/tempo.
   checklist (6.2) são candidatos naturais a virar métricas automáticas (taxa de carga no Ginga +
   fidelidade estrutural — linha do tempo, nº de regiões/switches/mídias, layout — como no piloto).
 - **Artefatos de referência no repo.** Gabarito e gerados do piloto em
-  `research/piloto-10menu/` (`original-10menu.ncl`, `gerados/gerado-A-spec.ncl` — este último
-  **contém** o erro P3.1 como evidência); prompts de 3 níveis em `research/piloto-10menu/prompts/`;
+  `research/experimento-1-piloto-10menu/` (`gabarito-10menu.ncl`, `ncl-gerado/nivel-A-spec.ncl` — este último
+  **contém** o erro P3.1 como evidência); prompts de 3 níveis em `research/experimento-1-piloto-10menu/prompts/`;
   RFCs técnicas dos exemplos executáveis em `rfcs/`; correções de compatibilidade Lua em
   `docs/CODE-CHANGES.md`.
 - **Escopo.** EDTV/NCL 3.0. Se o alvo mudar (ex.: perfil EnhancedDTV ou NCL 3.1), revisar R1.1, o

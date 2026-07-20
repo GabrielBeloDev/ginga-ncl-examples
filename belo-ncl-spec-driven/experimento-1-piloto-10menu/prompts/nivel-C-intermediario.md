@@ -38,5 +38,5 @@ usa as mídias da pasta e faz funcionar.
 
 *Tem noção de espaço (cantos, base, lateral) e tempo (uns 5s, ~12s, ~40s, metade do vídeo) e diz qual
 imagem em qual momento — mas continua sem os números exatos, as durações, as teclas certas (além do
-vermelho), nem o idioma do formulário. É o degrau do meio entre o `PROMPT-simples.md` e o
-`PROMPT-detalhado.md`.*
+vermelho), nem o idioma do formulário. É o degrau do meio entre o `nivel-B-vago.md` e o
+`nivel-A-spec.md`.*
