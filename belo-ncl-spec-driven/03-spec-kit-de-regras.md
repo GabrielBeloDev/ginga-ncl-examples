@@ -1,5 +1,13 @@
 # SPEC-KIT DE REGRAS — Geração assistida de NCL (Ginga / TV Digital)
 
+> **NOTA — versão enxuta e como carregar.** Este arquivo é a **versão de referência completa** das
+> regras (com notas de manutenção). Já existe uma **versão enxuta, pronta para carregar**, em
+> [`spec-kit.md`](spec-kit.md) — é ela que se usa como system prompt na prática. **Como** essa
+> versão é carregada como system prompt está documentado em
+> [`04-arquitetura-system-prompt.md`](04-arquitetura-system-prompt.md), que descreve **3 formas** no
+> Claude Code: (1) `--append-system-prompt-file`; (2) `CLAUDE.md` (automático); (3) agente
+> customizado em `.claude/agents/`.
+
 > **O que é este documento.** Este é o **system prompt / conjunto de regras** que a IA carrega
 > ANTES de qualquer pedido do usuário. Ele define (a) como gerar **NCL confiável** (que carrega e
 > renderiza no Ginga) e (b) como **conduzir a elicitação** — perguntar o que falta em vez de

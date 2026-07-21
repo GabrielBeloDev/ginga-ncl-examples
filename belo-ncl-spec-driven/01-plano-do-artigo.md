@@ -3,7 +3,7 @@
 > **Tipo:** *position / work-in-progress paper*
 > **Veículo-alvo:** WebMedia (Simpósio Brasileiro de Sistemas Multimídia e Web)
 > **Grupo:** Paulo Victor Borges, Daniel de S. Moraes, Simone D. J. Barbosa, Sergio Colcher (+ autoria discente)
-> **Status:** rascunho de plano — consolida a ideia central (fluxo refinado aprovado) e a evidência inicial (piloto `10menu`).
+> **Status:** rascunho de plano — consolida a ideia central (fluxo refinado aprovado) e a evidência (piloto `10menu` e os apps de botão + navegação).
 
 Este documento **não é o artigo**; é o *blueprint* dele. Define título, enquadramento, motivação, hipótese, contribuição, o fluxo formalizado (com diagrama), a evidência do piloto, a estrutura de seções, a agenda de pesquisa e a conexão com trabalhos relacionados. O objetivo é que qualquer coautor consiga escrever cada seção a partir daqui.
 
@@ -49,13 +49,13 @@ Corolários testáveis:
 
 ### 3.2 Contribuição
 
-A contribuição do paper é um **fluxo de autoria** e três artefatos que o instanciam:
+A contribuição do paper é um **fluxo de autoria** — a **elicitação por perguntas (T6)** — e três artefatos que o instanciam:
 
-1. **Spec-kit de regras (o *system prompt* spec-driven).** Um conjunto curado de regras que o agente **sempre** aplica: (a) um **plano/estruturação padrão** de um documento NCL (o esqueleto que toda intenção deve preencher — regiões, descritores, mídias, linha do tempo, interações); e (b) um catálogo de **pitfalls conhecidos** do Ginga/NCL derivados de experiência real de execução (ver §6). O spec-kit é o que transforma "gerar NCL" em "gerar NCL **segundo uma especificação**".
+1. **Spec-kit de regras (o *system prompt* spec-driven).** Um conjunto curado de regras que o agente **sempre** aplica: (a) um **plano/estruturação padrão** de um documento NCL (o esqueleto que toda intenção deve preencher — regiões, descritores, mídias, linha do tempo, interações); e (b) um catálogo de **pitfalls conhecidos** do Ginga/NCL derivados de experiência real de execução (ver §6). Nas condições com spec-kit, ele é **carregado como o *system prompt* de verdade** do agente (não colado dentro do pedido) — as três formas de fazer isso no Claude Code estão em [`04-arquitetura-system-prompt.md`](04-arquitetura-system-prompt.md). O spec-kit é o que transforma "gerar NCL" em "gerar NCL **segundo uma especificação**".
 
-2. **Elicitação por perguntas (a spec construída em diálogo).** Em vez de exigir que o autor escreva a spec inteira de cara, o agente **detecta ambiguidade** e **devolve perguntas de esclarecimento** ("em que segundo a imagem aparece?", "em qual canto?", "qual tecla ativa a propaganda?", "qual o idioma padrão do formulário?"). A spec é **elicitada incrementalmente**. Esta é a diferença-chave em relação à caixa preta.
+2. **Elicitação por perguntas (a spec construída em diálogo) — a contribuição central (T6).** Em vez de exigir que o autor escreva a spec inteira de cara, o agente **detecta ambiguidade** e **devolve perguntas de esclarecimento** ("em que segundo a imagem aparece?", "em qual canto?", "qual tecla ativa a propaganda?", "qual o idioma padrão do formulário?", "qual a **ordem** dos botões do menu?"). A spec é **elicitada incrementalmente até fechar** — a IA **pergunta para fechar a spec** antes de gerar código. Esta é a diferença-chave em relação à caixa preta e o que o paper de fato defende.
 
-3. **Benchmark de técnicas de prompting + validação estrutural.** Um protocolo de avaliação que compara técnicas de *prompting* (baseline vago, zero-/one-/few-shot, e *rules-augmented* com o spec-kit) sob **métricas de fidelidade** objetivas: (i) **carrega/renderiza no Ginga?** e (ii) **comparação estrutural com um gabarito** (linha do tempo, nº de regiões, nº de *switches*, mídias usadas, layout). O piloto `10menu` é a primeira instância desse benchmark.
+3. **Validação comparativa focada (não um estudo extenso de técnicas).** Por decisão de orientação, o paper **não** faz o levantamento amplo de técnicas de *prompting* — isso já foi coberto em trabalho anterior do grupo e fugiria da linha. O foco é o **fluxo** (spec-kit + perguntas); as demais condições entram **apenas como validação comparativa**, sob **métricas de fidelidade** objetivas: (i) **carrega/renderiza no Ginga?** e (ii) **comparação estrutural com um gabarito** (linha do tempo, nº de regiões, nº de *switches*, mídias usadas, layout, **ordem dos elementos**). As condições efetivamente rodadas são **T0, T1, T3, T5 e T6** (§7); *one-shot* (T2), *chain-of-thought* (T4), *few-shot+regras+elicitação* (T7) e *self-consistency* (T8) ficam como **trabalho futuro**.
 
 ---
 
@@ -65,7 +65,7 @@ O fluxo aprovado substitui *prompt → caixa preta → NCL* por um ciclo com **e
 
 **Passos:**
 1. O usuário escreve um **prompt de intenção** (ex.: *"quero uma aplicação NCL com um vídeo e um menu"*).
-2. O prompt chega a um **agente LLM cujo *system prompt* é o spec-kit** — o plano de estruturação padrão + as regras/pitfalls que o agente **sempre** aplica.
+2. O prompt chega a um **agente LLM cujo *system prompt* é o spec-kit** — o plano de estruturação padrão + as regras/pitfalls que o agente **sempre** aplica. O spec-kit é **carregado como *system prompt* de verdade** (não colado no pedido); as formas de fazer isso no Claude Code estão em [`04-arquitetura-system-prompt.md`](04-arquitetura-system-prompt.md).
 3. Seguindo o spec-kit, se a intenção estiver **ambígua ou incompleta**, o agente **não gera código**: ele **retorna perguntas de esclarecimento** dirigidas às lacunas do esqueleto da spec (posição, tempo, duração, tecla, idioma…).
 4. O usuário **responde**; as respostas refinam a **spec elicitada**. O ciclo (3–4) repete até a spec estar completa o suficiente.
 5. O agente **gera o documento NCL** a partir da spec elicitada e o submete à **validação**: carrega no Ginga? o parser aceita? viola algum pitfall conhecido? Se falhar, uma etapa de **correção automática** (guiada pelas regras de pitfalls) reescreve e revalida. Ao passar, devolve o **NCL final** — e, opcionalmente, um **relatório de fidelidade** contra a spec.
@@ -108,7 +108,7 @@ flowchart TD
 
 ---
 
-## 5. Evidência inicial — o piloto `10menu`
+## 5. Evidência — o piloto `10menu` e os apps de botão + navegação
 
 Para tornar o gap semântico **visível e mensurável**, conduzimos um piloto (arquivos em `research/experimento-1-piloto-10menu/`).
 
@@ -140,6 +140,22 @@ Cada saída foi **executada no Ginga** e **comparada estruturalmente** com o gab
 Na primeira execução "crua", **B carregou** e **C/A não**. O motivo reforça a arquitetura: os prompts detalhados (C e A) **tentaram um recurso a mais** — uma **foto semitransparente** que o B simplesmente ignorou — e escreveram o atributo de um jeito que o parser do Ginga **recusa** (`transparency` como atributo de `<descriptor>`, em vez de `<descriptorParam>`). **Removido/corrigido esse 1 atributo**, ambos passaram a **carregar e renderizar**. Ou seja: o "erro" de C/A **não é da ideia**, é um deslize de sintaxe — exatamente o que a **etapa de validação/correção** do fluxo (§4, laço de trás) existe para absorver. O piloto mostrou que essa etapa é necessária **e por quê**.
 
 > **Ressalva honesta (a manter no paper):** é **n=1**. Serve como demonstração mínima de um *position paper*; para virar número em avaliação formal, é preciso repetir com vários apps e várias rodadas (ver agenda, §8).
+
+### 5.3 Evidência principal — apps de botão + navegação
+
+O piloto `10menu` torna o gap **visível**; a **evidência principal** do fluxo vem de **quatro apps de botão + navegação** — os cenários que de fato interessam à autoria interativa: **menu horizontal**, **lista vertical**, **grade 2×3** e **diálogo Sim/Não**, cada um com um **gabarito em NCL puro** que roda no Ginga. (Apps de puro **sincronismo** temporal — transição, animação, intervalos sincronizados — mostraram-se **fáceis** e pouco discriminantes; por isso a ênfase em botão + navegação.)
+
+Sobre esses quatro apps rodamos **cinco condições** (**T0, T1, T3, T5, T6**) com a **IA cega** ao gabarito, capturando entrada, saída, `gerado.ncl` e o **screenshot** de cada tela. Nas condições **T5/T6** o spec-kit entra como *system prompt* de verdade (ver [`04-arquitetura-system-prompt.md`](04-arquitetura-system-prompt.md)); em **T6** registram-se também as **perguntas** e **respostas** da elicitação.
+
+| Condição | Carrega (de 4) | Fidelidade estrutural (0–5) |
+|---|:---:|:---:|
+| **T0 — vago** | 4/4 | 3.8 |
+| **T1 — zero-shot estruturado** | 3/4 | 3.2 |
+| **T3 — few-shot** | 4/4 | 5.0 |
+| **T5 — spec-kit (system prompt)** | 4/4 | 5.0 |
+| **T6 — spec-kit + elicitação** | 4/4 | 4.8 |
+
+**Leitura.** As condições **estruturadas (T3/T5/T6)** superam as **vagas (T0/T1)**; a **T1** ainda produziu **1 erro de sintaxe** (só 3/4 carregam). O caso mais revelador é a **T0 vaga**: o app **carrega**, mas renderiza o menu com os **botões fora de ordem** — divergência que **só o screenshot revela** (o NCL "parece" certo). É exatamente aí que a **elicitação (T6) recupera a intenção**: a IA **perguntou a ordem dos botões** e o usuário corrigiu, **fechando a spec antes de gerar**. A fidelidade quase máxima de **T5** (regras, sem perguntar) e **T6** (regras + perguntas) confirma **H1**; e o resgate da T0-vaga pela T6 é evidência direta de **H2** — a diferença entre *carregar* e carregar **certo**.
 
 ---
 
@@ -177,7 +193,7 @@ Aqui está a proposta concreta para a pergunta do grupo — **quais técnicas e 
 | T7 | **Few-shot + spec-kit + elicitação** (combinação) | se os exemplos somam sobre regras+perguntas |
 | T8 | **Self-consistency** (N gerações + seleção/votação) | se a votação estabiliza a fidelidade |
 
-Recomendação de escopo para o WIP: priorizar **T0, T1, T5, T6** (o eixo que sustenta a tese, com **T6** = o fluxo do paper) e tratar exemplos e CoT (**T2, T3, T4**) e a self-consistency (**T8**) como fatores secundários — evita explosão combinatória num paper de agenda.
+**Escopo decidido (orientação).** O paper **não** faz o estudo extenso de todas as técnicas — isso já foi coberto em trabalho anterior e fugiria da linha. As condições **efetivamente rodadas** são **T0, T1, T3, T5 e T6**, com **T6** = o fluxo do paper e **T0/T1/T3/T5** entrando **apenas como validação comparativa**; *one-shot* (**T2**), *chain-of-thought* (**T4**), *few-shot+regras+elicitação* (**T7**) e *self-consistency* (**T8**) ficam como **trabalho futuro**.
 
 ### 7.2 Regras do spec-kit a ativar (ablação)
 
@@ -219,7 +235,7 @@ Repetir o desenho `10menu` para **um pequeno corpus** de apps NCL reais: o **nú
 3. **Trabalhos relacionados** — LLMs na autoria de apps de TV (grupo), spec-driven/BDD-TDD, e *intent alignment* em geração de código (§9).
 4. **O fluxo spec-driven proposto** — elicitação por perguntas + spec-kit + validação/correção; o diagrama e os dois laços (§4).
 5. **O spec-kit** — plano/esqueleto padrão e catálogo de pitfalls reais do Ginga (§6).
-6. **Piloto `10menu`** — desenho (3 níveis B/C/A), a tabela de fidelidade e os dois achados (§5).
+6. **Evidência** — piloto `10menu` (3 níveis B/C/A) e os **apps de botão + navegação** (5 condições, tabela de fidelidade e o resgate da intenção por elicitação) (§5).
 7. **Discussão** — o que o piloto sustenta (H1) e justifica (H3), limites do n=1, ameaças à validade.
 8. **Agenda / benchmark proposto** — técnicas, ablação de regras e métricas de fidelidade (§7).
 9. **Conclusão** — a camada de especificação elicitada como caminho para fechar o gap semântico.

@@ -13,6 +13,18 @@
 > **Para onde ele vai.** Position/WIP paper (WebMedia). O objetivo não é um leaderboard de modelos, e
 > sim **isolar o efeito da técnica de prompting** (com destaque para o fluxo *spec-driven + elicitação
 > por perguntas* aprovado pelo orientador).
+>
+> **Status (o que já rodou vs. o que este documento projeta).** A versão **executada** deste benchmark
+> rodou **5 técnicas — T0, T1, T3, T5, T6** — sobre os **4 apps de botão + navegação** do
+> [`experimento-3-apps-com-botao/`](experimento-3-apps-com-botao/) (menu horizontal, lista vertical,
+> grade 2×3, diálogo Sim/Não), com **1 agente Opus cego**, **1 rodada** por célula. Números e artefatos
+> por célula em
+> [`experimento-3-apps-com-botao/benchmark/RESULTADO.md`](experimento-3-apps-com-botao/benchmark/RESULTADO.md)
+> (resumidos na **§6**). As técnicas **T2 (one-shot), T4 (chain-of-thought), T7 (few-shot+regras+elicitação)
+> e T8 (self-consistency)** ficam como **trabalho futuro (não rodadas)** — corte do orientador: **foco no
+> fluxo spec-driven + elicitação (T6)**, sem repetir o estudo extenso de prompting do paper anterior. O
+> resto deste documento descreve o **desenho completo** (métricas, protocolo, ameaças à validade) que
+> continua valendo como alvo; a taxonomia e o escopo abaixo estão marcados por *rodada* vs. *trabalho futuro*.
 
 ---
 
@@ -54,17 +66,23 @@ diante todas recebem a **mesma descrição de intenção do usuário** (um *brie
 ("porco")**, para servir de piso. A etapa de **validação/correção no Ginga** (H3) é um **estágio
 ortogonal do pipeline** (§4.6) aplicado sobre qualquer técnica, não um código de prompting à parte.
 
-| ID | Técnica | O que muda no prompt |
-|----|---------|----------------------|
-| **T0** | Baseline vago ("porco") | *brief* vago; nenhum exemplo, nenhuma regra |
-| **T1** | Zero-shot estruturado | *brief* estruturado; **sem** exemplos, **sem** spec-kit |
-| **T2** | One-shot | brief + **1** par `prompt→NCL` |
-| **T3** | Few-shot (k=3) | brief + **k** pares `prompt→NCL` |
-| **T4** | Chain-of-thought / raciocínio explícito | brief + instrução para **planejar antes** (mídias→regiões→linha do tempo→interações→código) |
-| **T5** | Spec-kit / rule-augmented (**SEM** elicitação) | **system prompt = spec-kit** (regras + template de plano) + brief |
-| **T6** | Spec-kit + elicitação (**o fluxo do paper**) | spec-kit **elicitando** a spec por perguntas; um oráculo responde |
-| **T7** | Few-shot + spec-kit + elicitação | pipeline com exemplos + regras + perguntas |
-| **T8** | Self-consistency (votação de N) | qualquer técnica-base, mas **N gerações** e seleção/consenso |
+**Escopo executado.** Das nove técnicas canônicas abaixo (os códigos T0…T8 são fixos, não mudam), o
+benchmark **rodado** usou **cinco — T0, T1, T3, T5, T6** (coluna *Status*). **T2, T4, T7, T8** são
+**trabalho futuro** — o corte do orientador manteve o foco no fluxo *spec-kit + elicitação* (**T6**),
+com T0/T1/T3/T5 como validação comparativa. O **mecanismo** de T5/T6 (spec-kit carregada como *system
+prompt* de verdade) está na §1.1 e em [`04-arquitetura-system-prompt.md`](04-arquitetura-system-prompt.md).
+
+| ID | Técnica | O que muda no prompt | Status |
+|----|---------|----------------------|--------|
+| **T0** | Baseline vago ("porco") | *brief* vago; nenhum exemplo, nenhuma regra | **rodada** |
+| **T1** | Zero-shot estruturado | *brief* estruturado; **sem** exemplos, **sem** spec-kit | **rodada** |
+| **T2** | One-shot | brief + **1** par `prompt→NCL` | trabalho futuro |
+| **T3** | Few-shot (k=3) | brief + **k** pares `prompt→NCL` | **rodada** |
+| **T4** | Chain-of-thought / raciocínio explícito | brief + instrução para **planejar antes** (mídias→regiões→linha do tempo→interações→código) | trabalho futuro |
+| **T5** | Spec-kit / rule-augmented (**SEM** elicitação) | **system prompt = spec-kit** (regras + template de plano) via `--append-system-prompt-file` + brief | **rodada** |
+| **T6** | Spec-kit + elicitação (**o fluxo do paper**) | spec-kit (system prompt) **elicitando** a spec por perguntas; um oráculo responde | **rodada** |
+| **T7** | Few-shot + spec-kit + elicitação | pipeline com exemplos + regras + perguntas | trabalho futuro |
+| **T8** | Self-consistency (votação de N) | qualquer técnica-base, mas **N gerações** e seleção/consenso | trabalho futuro |
 
 ### 1.1 Descrição e motivação de cada uma
 
@@ -77,7 +95,7 @@ ortogonal do pipeline** (§4.6) aplicado sobre qualquer técnica, não um códig
   brief C). Mede o efeito da **estrutura da intenção sozinha** (H1) — é o análogo dos níveis C/A do
   piloto sem nenhum andaime adicional.
 
-- **T2 — One-shot.** Um único exemplo `descrição→NCL` (de outro app, para não vazar o gabarito). Mostra
+- **T2 — One-shot.** *(Trabalho futuro — não rodada.)* Um único exemplo `descrição→NCL` (de outro app, para não vazar o gabarito). Mostra
   ao modelo **a forma esperada** (perfil EDTV, regiões/descritores/conectores/elos). Motivação:
   quantificar o quanto **um só** exemplo já corrige erros de sintaxe/perfil.
 
@@ -86,7 +104,7 @@ ortogonal do pipeline** (§4.6) aplicado sobre qualquer técnica, não um códig
   `<area>` → `<link onBegin start>`, anel `focusIndex/moveLeft/moveRight`); exemplos ancoram esses
   idiomas. Hipótese H4: melhora **validade técnica** mais que fidelidade estrutural.
 
-- **T4 — Chain-of-thought / raciocínio explícito.** O modelo primeiro **planeja** (lista mídias e
+- **T4 — Chain-of-thought / raciocínio explícito.** *(Trabalho futuro — não rodada.)* O modelo primeiro **planeja** (lista mídias e
   papéis, deriva regiões e a linha do tempo, mapeia teclas→efeitos) e só então escreve o NCL. Como
   NCL é um grafo temporal (âncoras→links→ações), raciocinar o plano antes tende a **acertar a
   temporização** — a dimensão em que o piloto mais separou B de A.
@@ -97,18 +115,25 @@ ortogonal do pipeline** (§4.6) aplicado sobre qualquer técnica, não um códig
   do brief. É o coração das regras: transforma conhecimento tácito ("transparency vai em
   `<descriptorParam>`, nunca como atributo do `<descriptor>`") em restrição explícita. Motivação
   direta: os erros do piloto (C/A abortando por 1 atributo) são **exatamente** o que uma regra evitaria.
+  **Mecanismo (no benchmark rodado):** esse system prompt é **de verdade** — a spec-kit é carregada via
+  `claude -p "<brief>" --append-system-prompt-file spec-kit.md` (**não** colada dentro da mensagem).
+  T0/T1/T3 rodam **sem** essa flag. As três formas de carregar como system prompt estão em
+  [`04-arquitetura-system-prompt.md`](04-arquitetura-system-prompt.md).
 
 - **T6 — Spec-kit + elicitação (o fluxo do paper).** Combinação canônica do paper: o spec-kit **decide
   o que perguntar** (as lacunas da spec viram perguntas dirigidas — "em que segundo a imagem
   aparece?", "qual canto?", "qual tecla ativa?"), um **oráculo** (§4.4) responde com fatos do gabarito,
   a IA gera. É a **hipótese principal (H2)** operacionalizada e a diferença conceitual do paper — a
   spec é **elicitada**, não escrita inteira de cara. O contraste **com vs. sem elicitação** (T6 vs.
-  T5) é uma das comparações centrais (RQ2).
+  T5) é uma das comparações centrais (RQ2). **Mesmo mecanismo de T5** (spec-kit como *system prompt*
+  via `--append-system-prompt-file spec-kit.md`), mas o pedido é **vago** e a spec faz o modelo
+  **perguntar** antes de gerar — roda em 2 etapas (pedido vago → perguntas → respostas do oráculo →
+  NCL); ver [`04-arquitetura-system-prompt.md`](04-arquitetura-system-prompt.md).
 
-- **T7 — Few-shot + spec-kit + elicitação.** Acrescenta exemplos ao fluxo do paper. Testa se exemplos
+- **T7 — Few-shot + spec-kit + elicitação.** *(Trabalho futuro — não rodada.)* Acrescenta exemplos ao fluxo do paper. Testa se exemplos
   *somam* sobre regras+perguntas ou se há redundância (ablação).
 
-- **T8 — Self-consistency (votação de N gerações).** Gera **N** vezes (temperatura > 0) e escolhe por
+- **T8 — Self-consistency (votação de N gerações).** *(Trabalho futuro — não rodada.)* Gera **N** vezes (temperatura > 0) e escolhe por
   **consenso estrutural** (ver §3.5) ou pela variante que passa na validação com maior FS. Compõe com
   qualquer técnica-base (ex.: T6/T7). Motivação: geração de código é estocástica; medir **variância** e
   se a votação estabiliza a fidelidade (e a que custo de tokens).
@@ -116,16 +141,22 @@ ortogonal do pipeline** (§4.6) aplicado sobre qualquer técnica, não um códig
 ### 1.2 Ablação (para atribuir o efeito a cada componente)
 
 ```
+RODADAS (experimento-3):
 T0  baseline vago ......................... piso
- └► T5  + regras (spec-kit) ............... efeito das REGRAS
-      └► T6  + elicitação ................. efeito das PERGUNTAS  (fluxo do paper)
-           └► T7  + few-shot ............. efeito dos EXEMPLOS
-                └► T8  + self-consistência .. estabilização
-   (validação/correção no Ginga = etapa ORTOGONAL do pipeline, §4.6 — recupera o gate do parser)
+T1  + intenção estruturada ............... efeito da ESTRUTURA da intenção
+T3  + few-shot (exemplos) ................ efeito dos EXEMPLOS
+T5  + regras (spec-kit no system prompt) . efeito das REGRAS
+T6  + elicitação por perguntas ........... efeito das PERGUNTAS  (fluxo do paper)
+
+TRABALHO FUTURO (não rodadas): T2 (one-shot), T4 (chain-of-thought),
+                               T7 (few-shot+regras+elicitação), T8 (self-consistency).
+
+(validação/correção no Ginga = etapa ORTOGONAL do pipeline, §4.6 — recupera o gate do parser)
 ```
 
 Rodar a cadeia como ablação permite dizer, no paper, **quanto de fidelidade cada bloco adiciona** —
-não só "o sistema completo é melhor".
+não só "o sistema completo é melhor". Os contrastes centrais da rodada: **estruturadas (T3/T5/T6) vs.
+vagas (T0/T1)** e **com vs. sem elicitação (T6 vs. T5)**.
 
 ---
 
@@ -166,12 +197,23 @@ o "esqueleto Garrincha" → gradiente de dificuldade controlado); os demais são
 > `string.format("%d", …)` com inteiro). São o teste mais duro do spec-kit — as regras de Lua (Apêndice A,
 > R11–R12) só "pagam" aqui. Recomenda-se incluir **pelo menos um** NCLua no design mínimo.
 
+> **Apps efetivamente usados (benchmark rodado).** A tabela acima é o **conjunto de expansão**
+> (gradiente de sincronismo + NCLua) — alvo de trabalho futuro (RQ4). O experimento **executado**
+> ([`experimento-3-apps-com-botao/`](experimento-3-apps-com-botao/)) trocou o núcleo "Garrincha" por
+> **4 apps de botão + navegação** — o que interessa ao paper (sincronismo puro não): **app-1-menu**
+> (menu horizontal), **app-2-guia** (lista vertical), **app-3-grade** (grade 2×3) e **app-4-dialogo**
+> (diálogo Sim/Não), todos em **NCL puro** como gabarito e rodando no Ginga. É sobre esses 4 blocos que
+> a §6 reporta os números.
+
 ### 2.2 Modelos
 
 Escolher **2–3** modelos de famílias diferentes para testar robustez do efeito da técnica (ex.: um
 *frontier*, um *mid-tier*, opcionalmente um aberto). O ID/parâmetros exatos ficam registrados no
 `config.yaml` da rodada (reprodutibilidade). **Temperatura:** fixa e baixa (ex.: 0.2) para T0–T7;
 para **T8 (self-consistency)** usar temperatura > 0 (ex.: 0.7) e `N` gerações.
+
+> **No benchmark rodado** usou-se **um** modelo (**Claude Opus**, como agente cego, via Claude Code); a
+> comparação multi-modelo fica para expansão.
 
 ### 2.3 Rodadas
 
@@ -183,6 +225,10 @@ contém `N` amostras internas + a seleção por consenso.
 
 Matriz **completa** (referência): `9 técnicas × 8 apps × 3 modelos × 5 rodadas = 1080 células` — grande
 demais para um WIP. O **design mínimo** com sinal está em §5.
+
+> **O que rodou de fato:** `5 técnicas (T0/T1/T3/T5/T6) × 4 apps de botão × 1 modelo (Opus) × 1 rodada
+> = 20 células` (§6 e [`RESULTADO.md`](experimento-3-apps-com-botao/benchmark/RESULTADO.md)). O restante
+> da matriz — T2/T4/T7/T8, apps de sincronismo/NCLua, 2º/3º modelo e r≥5 — é **trabalho futuro**.
 
 ---
 
@@ -384,16 +430,22 @@ linha por célula e o FS agregado), pronta para o paper.
 A matriz completa (1080 células) é inviável para um position/WIP paper. Proposta de **fração
 suficiente para sinal**, priorizando a **cadeia de ablação** (que responde H1/H2/H3) sobre a largura:
 
-- **Técnicas (5):** T0 (piso), T5 (regras/spec-kit), T6 (regras+elicitação = fluxo do paper), T7
-  (+few-shot), T8 (self-consistency). Isto **é** a ablação da §1.2 + o contraste "com elicitação (T6)
-  vs. sem (T5)". A etapa de validação/correção no Ginga é aplicada como **estágio ortogonal** do
-  pipeline (§4.6) sobre as células com regras.
-- **Apps (4):** os 3 núcleo com gradiente `02syncInt → 08animation → 10menu` **+ 1 NCLua** (ex.:
-  `enquete-ncl`) para generalização (RQ4). 10menu é obrigatório (continuidade com o piloto).
-- **Modelos (2):** um *frontier* + um *mid-tier*.
-- **Rodadas (r=5):** por célula.
+> **Rodado até agora (§6):** `5 técnicas (T0/T1/T3/T5/T6) × 4 apps de botão × 1 modelo (Opus) × 1
+> rodada = 20 células`. O design mínimo abaixo é o **alvo** para dar sinal estatístico (mais modelos e
+> r≥5); os deltas de interesse já apareceram grandes na rodada única (§6).
 
-Tamanho: `5 × 4 × 2 × 5 = 200` células — factível e já dá poder.
+- **Técnicas (5):** as cinco **efetivamente rodadas** — T0 (piso), T1 (zero-shot estruturado), T3
+  (few-shot), T5 (regras/spec-kit), T6 (regras+elicitação = fluxo do paper). Cobrem os dois contrastes
+  centrais: **estruturadas (T3/T5/T6) vs. vagas (T0/T1)** e **com vs. sem elicitação (T6 vs. T5)**. A
+  etapa de validação/correção no Ginga é aplicada como **estágio ortogonal** do pipeline (§4.6) sobre as
+  células com regras. *(T2/T4/T7/T8 entram numa expansão futura.)*
+- **Apps (4):** os **4 apps de botão + navegação** do experimento-3 (menu horizontal, lista vertical,
+  grade 2×3, diálogo Sim/Não) — apps com botão/foco, não sincronismo puro (o corte do paper). Expansão
+  futura: gradiente de sincronismo (`02syncInt → 08animation → 10menu`) **+ 1 NCLua** para RQ4.
+- **Modelos (2):** um *frontier* + um *mid-tier* (a rodada usou **1**: Opus).
+- **Rodadas (r=5):** por célula (a rodada atual usou **r=1**).
+
+Tamanho-alvo: `5 × 4 × 2 × 5 = 200` células — factível e já dá poder.
 
 **Justificativa do sinal.** A comparação é **pareada por app** (cada técnica corre no mesmo bloco), o
 que remove a variância entre-apps e aumenta o poder. Com `r=5` por célula estima-se a variância
@@ -404,9 +456,9 @@ via teste não-paramétrico pareado (Wilcoxon) + correção para múltiplas comp
 `r=3` já **sinaliza** a curva de ablação; `r=5` dá barras de erro apresentáveis.
 
 **Escada de execução (se o orçamento apertar):**
-1. **Núcleo mínimo:** T0 vs. T6, em 10menu, 1 modelo, r=5 (replica e formaliza o piloto → 1 gráfico).
-2. **+ Ablação:** adiciona T5, T7, T8 no mesmo app (a curva T0→T5→T6→T7→T8).
-3. **+ Generalização:** repete a ablação nos outros 3 apps e no 2º modelo.
+1. **Núcleo mínimo:** T0 vs. T6, em 1 app de botão, 1 modelo, r=5 (formaliza o achado do experimento-3 → 1 gráfico).
+2. **+ Ablação:** adiciona T1, T3, T5 no mesmo app (a curva T0→T1→T3→T5→T6 — já esboçada na §6 com r=1).
+3. **+ Generalização:** repete a ablação nos outros 3 apps e num 2º modelo; depois, expansão para T2/T4/T7/T8 e apps de sincronismo/NCLua.
 
 ### 5.2 Ameaças à validade
 
@@ -451,6 +503,53 @@ via teste não-paramétrico pareado (Wilcoxon) + correção para múltiplas comp
 - Diferenças **esperadas e OK** (caminho `animGar.mp4` vs `../media/animGar.mp4`; conector inline vs
   `importBase`) **não** podem contar como erro — o `extract_structure.py` deve normalizar isso (já
   previsto no [`como-reproduzir.md`](experimento-1-piloto-10menu/como-reproduzir.md) do piloto).
+
+---
+
+## 6. Resultados observados (benchmark rodado)
+
+Esta seção resume a **execução real** — não o design completo das §§1–5. Rodou-se **5 técnicas (T0, T1,
+T3, T5, T6) × 4 apps de botão** ([`experimento-3-apps-com-botao/`](experimento-3-apps-com-botao/)), com
+**1 agente Opus cego** (§4.1) e **1 rodada** por célula = **20 células**. Métricas, artefatos
+(`entrada.md`, `saida.md`, `gerado.ncl`, `tela-gerada.png`; no T6, `perguntas.md` + `respostas.md`) e
+screenshots completos em
+[`experimento-3-apps-com-botao/benchmark/RESULTADO.md`](experimento-3-apps-com-botao/benchmark/RESULTADO.md).
+
+| Técnica | Carrega no Ginga | Fidelidade estrutural média (de 5)\* |
+|---------|:----------------:|:------------------------------------:|
+| **T0** — vago               | **4/4** | 3.8 |
+| **T1** — zero-shot          | **3/4** | 3.2 |
+| **T3** — few-shot           | **4/4** | 5.0 |
+| **T5** — regras (spec-kit)  | **4/4** | 5.0 |
+| **T6** — elicitação         | **4/4** | 4.8 |
+
+\* *Métrica grosseira desta rodada — nº de sinais de navegação (botões focáveis, setas, tecla OK, tecla
+VERMELHA, `<port>`s) que batem com o gabarito. É um **proxy** do Fidelity Score da §3, ainda **não** a
+decomposição completa `T/I/L/Sw/M/R` — complementada por screenshot + diálogo + análise qualitativa.*
+
+**Leitura.** As técnicas **estruturadas (T3/T5/T6)** superam as **vagas (T0/T1)**, tanto em carregar
+quanto em reproduzir a navegação certa. Três achados-chave (detalhe em `RESULTADO.md`):
+
+1. **"Carrega" ≠ "está certo".** O T0 carrega nos 4 apps, mas no menu põe os botões **fora de ordem** —
+   só o **screenshot** revela (o log dizia "carrega"); o T5 reproduz fielmente. Reforça capturar o
+   screenshot de **cada** geração (§4.5).
+2. **A elicitação (T6) recupera a intenção.** No menu, a IA (com a spec-kit) **perguntou a ordem dos
+   botões** e o usuário corrigiu — exatamente o detalhe que o T0 errou. É a **H2** em ação: a spec é
+   *elicitada*, não escrita de cara.
+3. **Sem regras/exemplo, erra a sintaxe.** O único que não carregou (T1 no `app-2-guia`) usou `key` como
+   atributo do `<bind>` — erro que T3/T5/T6 evitam (a tecla vai no conector). Confirma H4 e o valor da
+   etapa de validação/correção (H3).
+
+**Mecanismo (fidedigno).** Em **T5/T6** a spec-kit é o **system prompt de verdade**, carregada via
+`claude -p "<pedido>" --append-system-prompt-file spec-kit.md` (**não** colada na mensagem); T0/T1/T3
+rodam **sem** a spec — é isso que a comparação isola. As três formas de carregar como system prompt no
+Claude Code (`--append-system-prompt-file`, `CLAUDE.md`, agente em `.claude/agents/`) estão em
+[`04-arquitetura-system-prompt.md`](04-arquitetura-system-prompt.md).
+
+> **Ressalvas (honestas).** (1) A métrica estrutural desta rodada é **grosseira** — a prova forte é o
+> conjunto *carrega + screenshot + estrutura + diálogo*; (2) é **1 rodada** por célula e **4 apps** —
+> para virar número no artigo, repetir com mais rodadas/apps/modelos (§5.1); (3) **T2, T4, T7, T8**
+> seguem **trabalho futuro** (não rodadas), pelo corte do orientador (foco no T6).
 
 ---
 

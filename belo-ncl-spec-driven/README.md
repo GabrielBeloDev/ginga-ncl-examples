@@ -7,9 +7,10 @@ especificação elicitada** entre a **intenção** do autor e o **código** — 
 monta uma **spec** inspecionável e só então gera um `.ncl` **validado** no Ginga.
 
 Aqui você encontra o **plano do artigo**, o **desenho do benchmark** que vai medir a hipótese, o
-**spec-kit de regras** (o *system prompt* que instrumenta o agente), o **piloto `10menu`** e a
-**replicação em 3 outros exemplos** — a evidência (n=4) de que estruturar a intenção reduz o
-*gap semântico*.
+**spec-kit de regras** (o *system prompt* que instrumenta o agente), o **piloto `10menu`**, a
+**replicação em 3 outros exemplos** (n=4) e os **4 apps de botão + navegação** — o experimento
+principal, com benchmark das técnicas (T0/T1/T3/T5/T6) rodado com a spec como *system prompt*. Juntos,
+a evidência de que estruturar a intenção reduz o *gap semântico*.
 
 ---
 
@@ -93,6 +94,13 @@ Detalhes, tabela de fidelidade e figuras em [`experimento-1-piloto-10menu/RESULT
 | [`experimento-2-replicacao/prompts/`](experimento-2-replicacao/prompts/) | Os 3 prompts (B/C/A) por exemplo, escritos pelo agente **analista**. |
 | [`experimento-2-replicacao/figuras/`](experimento-2-replicacao/figuras/) | Execução no Ginga dos 9 gerados. |
 | [`experimento-2-replicacao/gabaritos/`](experimento-2-replicacao/gabaritos/) | Os **gabaritos** dos 3 exemplos. |
+
+### Experimento principal — 4 apps de botão + navegação
+
+| Item | O que é |
+|---|---|
+| [`experimento-3-apps-com-botao/README.md`](experimento-3-apps-com-botao/README.md) | O **experimento principal**: 4 apps de **botão + navegação** em NCL puro como gabarito (menu horizontal, lista vertical, grade 2×3, diálogo Sim/Não), todos rodando no Ginga. |
+| [`experimento-3-apps-com-botao/benchmark/RESULTADO.md`](experimento-3-apps-com-botao/benchmark/RESULTADO.md) | O **benchmark** das 5 técnicas (T0, T1, T3, T5, T6) por IA **cega**, com a spec-kit carregada como *system prompt*. As estruturadas (T3/T5/T6) superam as vagas (T0/T1): carrega **T0 4/4, T1 3/4, T3 4/4, T5 4/4, T6 4/4**; fidelidade estrutural **T0 3.8, T1 3.2, T3 5.0, T5 5.0, T6 4.8** (de 5). O T0 vago renderiza o menu com os botões **fora de ordem** (só o screenshot revela); o T6 (elicitação) **recupera** a intenção ao perguntar a ordem dos botões. |
 
 ### Artefatos de apoio (raiz do repositório)
 
