@@ -1,145 +1,120 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<ncl id="guia-vertical" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
+<?xml version="1.0" encoding="UTF-8"?>
+<ncl id="listaVertical" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
   <head>
-
     <regionBase>
-      <!-- Fundo em tela cheia -->
-      <region id="rgFundo" left="0" top="0" width="100%" height="100%" zIndex="0"/>
-
-      <!-- Lista vertical de 5 itens a esquerda -->
-      <region id="rgItem1" left="5%" top="12%" width="38%" height="13%" zIndex="1"/>
-      <region id="rgItem2" left="5%" top="27%" width="38%" height="13%" zIndex="1"/>
-      <region id="rgItem3" left="5%" top="42%" width="38%" height="13%" zIndex="1"/>
-      <region id="rgItem4" left="5%" top="57%" width="38%" height="13%" zIndex="1"/>
-      <region id="rgItem5" left="5%" top="72%" width="38%" height="13%" zIndex="1"/>
-
-      <!-- Tela cheia dos itens (reaproveitada pelas 5 telas) -->
-      <region id="rgTela" left="0" top="0" width="100%" height="100%" zIndex="5"/>
+      <region id="rgFundo" left="0%" top="0%" width="100%" height="100%" zIndex="0"/>
+      <region id="rgItem1" left="4%" top="8%"  width="34%" height="14%" zIndex="1"/>
+      <region id="rgItem2" left="4%" top="24%" width="34%" height="14%" zIndex="1"/>
+      <region id="rgItem3" left="4%" top="40%" width="34%" height="14%" zIndex="1"/>
+      <region id="rgItem4" left="4%" top="56%" width="34%" height="14%" zIndex="1"/>
+      <region id="rgItem5" left="4%" top="72%" width="34%" height="14%" zIndex="1"/>
+      <region id="rgTela"  left="0%" top="0%" width="100%" height="100%" zIndex="2"/>
     </regionBase>
-
     <descriptorBase>
-      <descriptor id="descFundo" region="rgFundo"/>
-
-      <!-- Botoes navegaveis: foco em amarelo e navegacao vertical circular -->
-      <descriptor id="descItem1" region="rgItem1" focusIndex="1"
-                  moveUp="5" moveDown="2"
-                  focusBorderColor="yellow" focusBorderWidth="4"/>
-      <descriptor id="descItem2" region="rgItem2" focusIndex="2"
-                  moveUp="1" moveDown="3"
-                  focusBorderColor="yellow" focusBorderWidth="4"/>
-      <descriptor id="descItem3" region="rgItem3" focusIndex="3"
-                  moveUp="2" moveDown="4"
-                  focusBorderColor="yellow" focusBorderWidth="4"/>
-      <descriptor id="descItem4" region="rgItem4" focusIndex="4"
-                  moveUp="3" moveDown="5"
-                  focusBorderColor="yellow" focusBorderWidth="4"/>
-      <descriptor id="descItem5" region="rgItem5" focusIndex="5"
-                  moveUp="4" moveDown="1"
-                  focusBorderColor="yellow" focusBorderWidth="4"/>
-
-      <descriptor id="descTela" region="rgTela"/>
+      <descriptor id="dsFundo" region="rgFundo"/>
+      <descriptor id="dsItem1" region="rgItem1" focusIndex="1" moveUp="5" moveDown="2" moveLeft="1" moveRight="1" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsItem2" region="rgItem2" focusIndex="2" moveUp="1" moveDown="3" moveLeft="2" moveRight="2" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsItem3" region="rgItem3" focusIndex="3" moveUp="2" moveDown="4" moveLeft="3" moveRight="3" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsItem4" region="rgItem4" focusIndex="4" moveUp="3" moveDown="5" moveLeft="4" moveRight="4" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsItem5" region="rgItem5" focusIndex="5" moveUp="4" moveDown="1" moveLeft="5" moveRight="5" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsTela1" region="rgTela"/>
+      <descriptor id="dsTela2" region="rgTela"/>
+      <descriptor id="dsTela3" region="rgTela"/>
+      <descriptor id="dsTela4" region="rgTela"/>
+      <descriptor id="dsTela5" region="rgTela"/>
     </descriptorBase>
-
     <connectorBase>
-      <!-- OK: ao selecionar, inicia a tela cheia -->
-      <causalConnector id="onSelectionStart">
+      <causalConnector id="cnOnSelStart">
         <simpleCondition role="onSelection"/>
         <simpleAction role="start"/>
       </causalConnector>
-
-      <!-- Tecla VERMELHA: ao selecionar a tecla, para a tela cheia (volta) -->
-      <causalConnector id="onKeySelectionStop">
+      <causalConnector id="cnOnKeyStop">
         <connectorParam name="tecla"/>
         <simpleCondition role="onSelection" key="$tecla"/>
         <simpleAction role="stop"/>
       </causalConnector>
     </connectorBase>
-
   </head>
-
   <body>
-    <!-- Foco inicial no primeiro item -->
+    <port id="pFundo" component="fundo"/>
     <port id="pSettings" component="settings"/>
-    <!-- Componente de entrada -->
-    <port id="entry" component="fundo"/>
-    <!-- Itens que aparecem no inicio precisam de port -->
-    <port id="pItem1" component="item-1"/>
-    <port id="pItem2" component="item-2"/>
-    <port id="pItem3" component="item-3"/>
-    <port id="pItem4" component="item-4"/>
-    <port id="pItem5" component="item-5"/>
+    <port id="pItem1" component="item1"/>
+    <port id="pItem2" component="item2"/>
+    <port id="pItem3" component="item3"/>
+    <port id="pItem4" component="item4"/>
+    <port id="pItem5" component="item5"/>
+
+    <media id="fundo" src="fundo.png" descriptor="dsFundo"/>
 
     <media id="settings" type="application/x-ginga-settings">
       <property name="service.currentFocus" value="1"/>
     </media>
 
-    <media id="fundo" src="fundo.png" descriptor="descFundo"/>
+    <media id="item1" src="item-1.png" descriptor="dsItem1"/>
+    <media id="item2" src="item-2.png" descriptor="dsItem2"/>
+    <media id="item3" src="item-3.png" descriptor="dsItem3"/>
+    <media id="item4" src="item-4.png" descriptor="dsItem4"/>
+    <media id="item5" src="item-5.png" descriptor="dsItem5"/>
 
-    <media id="item-1" src="item-1.png" descriptor="descItem1"/>
-    <media id="item-2" src="item-2.png" descriptor="descItem2"/>
-    <media id="item-3" src="item-3.png" descriptor="descItem3"/>
-    <media id="item-4" src="item-4.png" descriptor="descItem4"/>
-    <media id="item-5" src="item-5.png" descriptor="descItem5"/>
+    <media id="tela1" src="tela-1.png" descriptor="dsTela1"/>
+    <media id="tela2" src="tela-2.png" descriptor="dsTela2"/>
+    <media id="tela3" src="tela-3.png" descriptor="dsTela3"/>
+    <media id="tela4" src="tela-4.png" descriptor="dsTela4"/>
+    <media id="tela5" src="tela-5.png" descriptor="dsTela5"/>
 
-    <!-- Telas cheias: iniciam escondidas, sem port -->
-    <media id="tela-1" src="tela-1.png" descriptor="descTela"/>
-    <media id="tela-2" src="tela-2.png" descriptor="descTela"/>
-    <media id="tela-3" src="tela-3.png" descriptor="descTela"/>
-    <media id="tela-4" src="tela-4.png" descriptor="descTela"/>
-    <media id="tela-5" src="tela-5.png" descriptor="descTela"/>
-
-    <!-- OK abre a tela cheia do item selecionado -->
-    <link xconnector="onSelectionStart">
-      <bind role="onSelection" component="item-1"/>
-      <bind role="start" component="tela-1"/>
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item1"/>
+      <bind role="start" component="tela1"/>
     </link>
-    <link xconnector="onSelectionStart">
-      <bind role="onSelection" component="item-2"/>
-      <bind role="start" component="tela-2"/>
-    </link>
-    <link xconnector="onSelectionStart">
-      <bind role="onSelection" component="item-3"/>
-      <bind role="start" component="tela-3"/>
-    </link>
-    <link xconnector="onSelectionStart">
-      <bind role="onSelection" component="item-4"/>
-      <bind role="start" component="tela-4"/>
-    </link>
-    <link xconnector="onSelectionStart">
-      <bind role="onSelection" component="item-5"/>
-      <bind role="start" component="tela-5"/>
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item1">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="tela1"/>
     </link>
 
-    <!-- VERMELHO volta (para a tela cheia) -->
-    <link xconnector="onKeySelectionStop">
-      <bind role="onSelection" component="tela-1">
-        <bindParam name="tecla" value="RED"/>
-      </bind>
-      <bind role="stop" component="tela-1"/>
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item2"/>
+      <bind role="start" component="tela2"/>
     </link>
-    <link xconnector="onKeySelectionStop">
-      <bind role="onSelection" component="tela-2">
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item2">
         <bindParam name="tecla" value="RED"/>
       </bind>
-      <bind role="stop" component="tela-2"/>
+      <bind role="stop" component="tela2"/>
     </link>
-    <link xconnector="onKeySelectionStop">
-      <bind role="onSelection" component="tela-3">
-        <bindParam name="tecla" value="RED"/>
-      </bind>
-      <bind role="stop" component="tela-3"/>
+
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item3"/>
+      <bind role="start" component="tela3"/>
     </link>
-    <link xconnector="onKeySelectionStop">
-      <bind role="onSelection" component="tela-4">
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item3">
         <bindParam name="tecla" value="RED"/>
       </bind>
-      <bind role="stop" component="tela-4"/>
+      <bind role="stop" component="tela3"/>
     </link>
-    <link xconnector="onKeySelectionStop">
-      <bind role="onSelection" component="tela-5">
+
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item4"/>
+      <bind role="start" component="tela4"/>
+    </link>
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item4">
         <bindParam name="tecla" value="RED"/>
       </bind>
-      <bind role="stop" component="tela-5"/>
+      <bind role="stop" component="tela4"/>
+    </link>
+
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item5"/>
+      <bind role="start" component="tela5"/>
+    </link>
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item5">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="tela5"/>
     </link>
   </body>
 </ncl>

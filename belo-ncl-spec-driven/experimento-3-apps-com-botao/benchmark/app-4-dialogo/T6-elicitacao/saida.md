@@ -1,38 +1,99 @@
-# Saída — Explicação do `gerado.ncl`
+```xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ncl id="dialogoSimNao" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
+  <head>
+    <regionBase>
+      <region id="rgFundo"  left="0"   top="0"   width="1280" height="720" zIndex="0"/>
+      <region id="rgBtnSim" left="380" top="590" width="220"  height="90"  zIndex="1"/>
+      <region id="rgBtnNao" left="680" top="590" width="220"  height="90"  zIndex="1"/>
+      <region id="rgTela"   left="0"   top="0"   width="1280" height="720" zIndex="5"/>
+    </regionBase>
 
-App NCL 3.0 **EDTV autocontido** de diálogo Sim/Não do "Canal Belo". Tudo (regiões, descritores, conectores causais e elos) está inline no próprio documento; usa **apenas** as 5 imagens da pasta, referenciadas pelo nome. Canvas **1280x720**.
+    <descriptorBase>
+      <descriptor id="dFundo" region="rgFundo"/>
+      <descriptor id="dBtnSim" region="rgBtnSim"
+                  focusIndex="1" moveLeft="2" moveRight="2"
+                  focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dBtnNao" region="rgBtnNao"
+                  focusIndex="2" moveLeft="1" moveRight="1"
+                  focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dTelaSim" region="rgTela" focusIndex="3"/>
+      <descriptor id="dTelaNao" region="rgTela" focusIndex="4"/>
+    </descriptorBase>
 
-## Fluxo implementado (exatamente o aprovado)
-1. Abre em `fundo.png` (tela cheia) com os botões **SIM** (esquerda) e **NAO** (direita) no meio da tela.
-2. Foco inicial no **SIM**, com **borda amarela espessura 4**.
-3. **← / →** alternam o foco, de forma **circular** (SIM ↔ NAO).
-4. **OK** no **SIM** → mostra `tela-sim.png` ("Assinatura confirmada!"); **OK** no **NAO** → mostra `tela-nao.png` ("Talvez depois."). O diálogo (fundo + botões) **some** e o resultado ocupa a **tela inteira**.
-5. Nas telas de resultado, a tecla **VERMELHA** volta ao diálogo inicial, com o **foco restaurado no SIM**.
-6. Na tela inicial o VERMELHO **não faz nada** (não há elo para isso).
+    <connectorBase>
+      <causalConnector id="cAbreComFoco">
+        <connectorParam name="idxFoco"/>
+        <simpleCondition role="onSelection"/>
+        <compoundAction operator="par">
+          <simpleAction role="start"/>
+          <simpleAction role="set" value="$idxFoco"/>
+        </compoundAction>
+      </causalConnector>
 
-## Como cada regra do spec-kit foi atendida
-- **Perfil/namespace:** `xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile"`.
-- **Aparecer no início = ter `<port>`:** portas para `fundo`, `settings`, `btnSim` e `btnNao` no `<body>`.
-- **Botão navegável:** cada botão é uma `<media>` cujo descritor tem `focusIndex` e `moveLeft`/`moveRight` apontando o vizinho (circular), com `focusBorderColor="yellow"` e `focusBorderWidth="4"`.
-  - `dSim`: `focusIndex="1"`, `moveLeft/moveRight="2"` (vai pro NAO).
-  - `dNao`: `focusIndex="2"`, `moveLeft/moveRight="1"` (vai pro SIM).
-  - `moveUp/moveDown` apontam pra si mesmos (só ← → movem o foco, como pedido).
-- **Foco inicial:** `<media type="application/x-ginga-settings">` com `<property name="service.currentFocus" value="1"/>` (e port). Valor `1` = botão SIM.
-- **OK (seleção):** conector `cOKMostra` com `<simpleCondition role="onSelection"/>` → ação composta `stop` (fundo + os 2 botões) + `start` (tela de resultado) + `set` (move o foco pra tela de resultado, pra ela receber o VERMELHO).
-- **Tecla VERMELHA (voltar):** conector `cVoltaVermelho` com `<connectorParam name="tecla"/>` + `<simpleCondition role="onSelection" key="$tecla"/>` → `stop` (tela de resultado) + `start` (fundo + botões) + `set` (foco de volta pro SIM). Nos binds: `<bindParam name="tecla" value="RED"/>`.
-- **Transparência:** não foi usada (não havia necessidade).
-- **Só imagens da pasta:** `fundo.png`, `btn-sim.png`, `btn-nao.png`, `tela-sim.png`, `tela-nao.png`.
+      <causalConnector id="cVoltaComFoco">
+        <connectorParam name="tecla"/>
+        <connectorParam name="idxFoco"/>
+        <simpleCondition role="onSelection" key="$tecla"/>
+        <compoundAction operator="par">
+          <simpleAction role="stop"/>
+          <simpleAction role="set" value="$idxFoco"/>
+        </compoundAction>
+      </causalConnector>
+    </connectorBase>
+  </head>
 
-## Layout dos botões (coordenadas)
-Botões de **260x64 px**, lado a lado, centralizados: espaço de 40 px entre eles, largura total 560 px, margem 360 px de cada lado.
-- `rgSim`: `left=360 top=360 width=260 height=64`
-- `rgNao`: `left=660 top=360 width=260 height=64`
-- Ambos com `zIndex=1` (sobre o fundo). Telas de resultado em `rgResultado` (tela cheia, `zIndex=2`).
+  <body>
+    <port id="pSettings" component="settings"/>
+    <port id="pFundo"    component="fundo"/>
+    <port id="pBtnSim"   component="btnSim"/>
+    <port id="pBtnNao"   component="btnNao"/>
 
-## Detalhe técnico do "voltar"
-Para o `onSelection key="RED"` disparar numa tela de resultado, ela precisa estar em foco. Por isso `dTelaSim`/`dTelaNao` têm `focusIndex` (3 e 4) e, ao serem exibidas, o elo do OK também faz `set service.currentFocus` pra elas. O elo do VERMELHO devolve o foco pro SIM (`value="1"`) ao reabrir o diálogo. As telas de resultado usam `focusBorderWidth="0"` pra não mostrar borda de foco.
+    <media id="settings" type="application/x-ginga-settings">
+      <property name="service.currentFocus" value="1"/>
+    </media>
 
-## Validação
-Documento validado como **XML bem-formado**. Estrutura: 5 regiões, 5 descritores, 2 conectores causais, 6 mídias, 4 portas, 4 elos.
+    <media id="fundo"   src="fundo.png"    descriptor="dFundo"/>
+    <media id="btnSim"  src="btn-sim.png"  descriptor="dBtnSim"/>
+    <media id="btnNao"  src="btn-nao.png"  descriptor="dBtnNao"/>
+    <media id="telaSim" src="tela-sim.png" descriptor="dTelaSim"/>
+    <media id="telaNao" src="tela-nao.png" descriptor="dTelaNao"/>
 
-Arquivo gerado: `gerado.ncl` (nesta pasta).
+    <link xconnector="cAbreComFoco">
+      <bind role="onSelection" component="btnSim"/>
+      <bind role="start" component="telaSim"/>
+      <bind role="set" component="settings" interface="service.currentFocus">
+        <bindParam name="idxFoco" value="3"/>
+      </bind>
+    </link>
+
+    <link xconnector="cAbreComFoco">
+      <bind role="onSelection" component="btnNao"/>
+      <bind role="start" component="telaNao"/>
+      <bind role="set" component="settings" interface="service.currentFocus">
+        <bindParam name="idxFoco" value="4"/>
+      </bind>
+    </link>
+
+    <link xconnector="cVoltaComFoco">
+      <bind role="onSelection" component="telaSim">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="telaSim"/>
+      <bind role="set" component="settings" interface="service.currentFocus">
+        <bindParam name="idxFoco" value="1"/>
+      </bind>
+    </link>
+
+    <link xconnector="cVoltaComFoco">
+      <bind role="onSelection" component="telaNao">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="telaNao"/>
+      <bind role="set" component="settings" interface="service.currentFocus">
+        <bindParam name="idxFoco" value="1"/>
+      </bind>
+    </link>
+  </body>
+</ncl>
+```

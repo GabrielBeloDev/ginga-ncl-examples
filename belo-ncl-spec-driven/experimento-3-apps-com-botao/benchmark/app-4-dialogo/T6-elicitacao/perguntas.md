@@ -1,49 +1,23 @@
-# Elicitação — App NCL "Diálogo de decisão Sim/Não" (Canal Belo)
+Boa! Antes de gerar o `.ncl` preciso fechar a spec. Só uns pontos (todos com default sugerido — se topar tudo, responde **"usa os defaults"**):
 
-Pedido do usuário (vago): *"quero um app NCL de diálogo de decisão Sim/Não com botões, com as imagens dessa pasta"*.
+**1. Layout e navegação dos botões**
+- Sim e Não lado a lado, centralizados na parte de baixo sobre o `fundo.png`, com navegação esquerda/direita circular?
+- *(default: sim — horizontal, Sim à esquerda e Não à direita, Left/Right circular entre os dois)*
 
-Antes de gerar o NCL, preciso confirmar alguns pontos. Já dei uma olhada nas imagens e elas sugerem um fluxo — marquei minha **suposição (default)** em cada pergunta. Se estiver tudo certo, é só dizer "pode usar os defaults" que eu sigo.
+**2. Foco inicial**
+- Começa com o foco no **Sim**?
+- *(default: foco no Sim)*
 
-## Imagens encontradas na pasta
-- `fundo.png` — tela de fundo: header "CANAL BELO", pergunta "Deseja assinar o Canal Belo?" e a dica no rodapé "(← → escolhe • OK confirma • VERMELHO volta)".
-- `btn-sim.png` — botão verde "SIM".
-- `btn-nao.png` — botão vermelho "NAO".
-- `tela-sim.png` — tela verde "Assinatura confirmada! (VERMELHO volta)".
-- `tela-nao.png` — tela vermelha "Talvez depois. (VERMELHO volta)".
+**3. O que o OK faz**
+- Selecionar **Sim** → mostra `tela-sim.png` em tela cheia; **Não** → mostra `tela-nao.png` em tela cheia, cobrindo fundo e botões?
+- *(default: sim — a tela de resultado ocupa 1280x720 e some com o diálogo)*
 
-> Regra: uso **só** essas imagens, referenciando pelo nome. Confirme se posso usar todas ou se alguma deve ficar de fora.
+**4. Como volta**
+- Na tela de resultado, tecla **VERMELHA** volta pro diálogo (fundo + botões com foco de novo)?
+- *(default: sim — RED = voltar ao diálogo)*
 
----
+**5. Visual / resolução**
+- Borda de foco **amarela, 4px**, e base **1280x720** (EDTV/720p)?
+- *(default: sim para os dois)*
 
-## 1. Botões: quais e quantos
-1.1. Confirma que são **2 botões**: SIM (`btn-sim.png`) e NAO (`btn-nao.png`)? Ou quer mais alguma opção?
-1.2. A ordem na tela é **SIM à esquerda / NAO à direita** (default)? Ou invertido?
-
-## 2. Layout / posição e tamanho dos botões
-2.1. Onde ficam os botões sobre o `fundo.png`? Default meu: **centralizados horizontalmente, lado a lado, na metade da tela** (a pergunta fica em cima e a dica embaixo, então sobra o meio). Serve, ou prefere posição/coordenadas específicas?
-2.2. Tamanho de cada botão: default **~260x64 px** cada, com um espaço entre eles. Ok ou quer outro tamanho?
-2.3. A dica de navegação já está **desenhada dentro do `fundo.png`** — confirmo que não preciso criar texto extra pra isso (uso a imagem como está)?
-
-## 3. Navegação e foco
-3.1. Navegação entre botões com as **setas ESQUERDA/DIREITA** (default, bate com a dica "← → escolhe")? Ou quer CIMA/BAIXO também?
-3.2. Navegação **circular** (do NAO com seta direita volta pro SIM e vice-versa)? Default: **sim, circular**.
-3.3. Foco inicial no **SIM** (default) ou no NAO?
-3.4. Destaque do foco: borda **amarela, espessura 4** (conforme regra). Mantém ou quer outra cor/espessura?
-
-## 4. O que o OK (seleção) faz
-4.1. Confirma o mapeamento: **OK no SIM → mostra `tela-sim.png`** ("Assinatura confirmada!") e **OK no NAO → mostra `tela-nao.png`** ("Talvez depois.")?
-4.2. Ao mostrar a tela de resultado, o **diálogo (fundo + botões) some** e fica só a tela de resultado ocupando a tela inteira (default)? Ou os botões continuam visíveis por cima?
-
-## 5. Voltar (tecla VERMELHA)
-5.1. Nas telas de resultado (`tela-sim`/`tela-nao`), a tecla **VERMELHA volta pro diálogo inicial** (fundo + botões, com foco restaurado)? Default: **sim**.
-5.2. Na tela **inicial do diálogo**, a tecla VERMELHA faz algo (ex.: encerrar/sair do app) ou **não faz nada** (default)?
-
-## 6. Detalhes técnicos do documento
-6.1. Perfil **NCL 3.0 EDTV** e documento **autocontido** (regiões, descritores, conectores e elos inline), conforme as regras. Confirmado?
-6.2. Resolução alvo do canvas: **1280x720 (720p)** — que é o tamanho das imagens (default). Ok?
-6.3. Nome do arquivo `.ncl` de saída: default **`main.ncl`** na própria `pasta-de-trabalho/`. Prefere outro nome/local?
-
----
-
-**Resumo dos defaults (fluxo que vou seguir se você aprovar):**
-Abre no `fundo.png` com SIM e NAO no centro, foco inicial no SIM (borda amarela). ← → alternam o foco (circular). OK no SIM abre `tela-sim.png`; OK no NAO abre `tela-nao.png` (tela cheia, diálogo some). Nas telas de resultado, VERMELHO volta pro diálogo. Documento NCL 3.0 EDTV autocontido, 1280x720, saída `main.ncl`.
+Me confirma (ou ajusta o que quiser) que eu já gero o documento.

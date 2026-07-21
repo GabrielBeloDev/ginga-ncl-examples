@@ -1,80 +1,109 @@
-# Saida — Explicacao do NCL gerado (`gerado.ncl`)
+```xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ncl id="menuCanais" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
+  <head>
+    <regionBase>
+      <region id="rgFundo"       left="0"    top="0"   width="1920" height="1080" zIndex="0"/>
+      <region id="rgBtnJogos"    left="300"  top="960" width="300"  height="80"   zIndex="1"/>
+      <region id="rgBtnNoticias" left="640"  top="960" width="300"  height="80"   zIndex="1"/>
+      <region id="rgBtnClima"    left="980"  top="960" width="300"  height="80"   zIndex="1"/>
+      <region id="rgBtnSobre"    left="1320" top="960" width="300"  height="80"   zIndex="1"/>
+      <region id="rgTela"        left="0"    top="0"   width="1920" height="1080" zIndex="5"/>
+    </regionBase>
 
-Documento **NCL 3.0, perfil EDTV**, **autocontido** (regioes, descritores, conectores
-causais e elos todos inline). Usa **somente** as imagens da pasta, referenciadas por nome.
-Tudo derivado direto das respostas — nada foi inventado alem do respondido.
+    <descriptorBase>
+      <descriptor id="dFundo" region="rgFundo"/>
+      <descriptor id="dBtnJogos"    region="rgBtnJogos"    focusIndex="1"
+        moveLeft="4" moveRight="2" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dBtnNoticias" region="rgBtnNoticias" focusIndex="2"
+        moveLeft="1" moveRight="3" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dBtnClima"    region="rgBtnClima"    focusIndex="3"
+        moveLeft="2" moveRight="4" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dBtnSobre"    region="rgBtnSobre"    focusIndex="4"
+        moveLeft="3" moveRight="1" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dTela" region="rgTela"/>
+    </descriptorBase>
 
-## Layout (rodape, centralizado)
+    <connectorBase>
+      <causalConnector id="cOK">
+        <simpleCondition role="onSelection"/>
+        <simpleAction role="start"/>
+      </causalConnector>
+      <causalConnector id="cVoltar">
+        <connectorParam name="tecla"/>
+        <simpleCondition role="onSelection" key="$tecla"/>
+        <simpleAction role="stop"/>
+      </causalConnector>
+    </connectorBase>
+  </head>
 
-Canvas 1280x720. Os 4 botoes de 260px ocupam 4x260 = 1040px. Sobram 240px,
-divididos em **5 folgas iguais de 48px** (antes, entre e depois) -> centralizado
-com espacamento uniforme:
+  <body>
+    <port id="pFoco"     component="settings"/>
+    <port id="pFundo"    component="fundo"/>
+    <port id="pJogos"    component="btnJogos"/>
+    <port id="pNoticias" component="btnNoticias"/>
+    <port id="pClima"    component="btnClima"/>
+    <port id="pSobre"    component="btnSobre"/>
 
-| Botao | Imagem | left | top | tamanho |
-|---|---|---|---|---|
-| 1 JOGOS | `btn-jogos.png` | 48 | 620 | 260x70 |
-| 2 NOTICIAS | `btn-noticias.png` | 356 | 620 | 260x70 |
-| 3 CLIMA | `btn-clima.png` | 664 | 620 | 260x70 |
-| 4 SOBRE | `btn-sobre.png` | 972 | 620 | 260x70 |
+    <media id="settings" type="application/x-ginga-settings">
+      <property name="service.currentFocus" value="1"/>
+    </media>
 
-`top=620` deixa a faixa no rodape (620+70 = 690, com 30px de margem inferior).
-`fundo.png` ocupa a tela toda em `zIndex=0`, os botoes em `zIndex=1` (por cima do fundo),
-e a `tela-*` de canal em `zIndex=5` (cobre o menu inteiro).
+    <media id="fundo" src="fundo.png" descriptor="dFundo"/>
 
-## Foco inicial
+    <media id="btnJogos"    src="btn-jogos.png"    descriptor="dBtnJogos"/>
+    <media id="btnNoticias" src="btn-noticias.png" descriptor="dBtnNoticias"/>
+    <media id="btnClima"    src="btn-clima.png"    descriptor="dBtnClima"/>
+    <media id="btnSobre"    src="btn-sobre.png"    descriptor="dBtnSobre"/>
 
-`<media type="application/x-ginga-settings">` com
-`<property name="service.currentFocus" value="1"/>` (com port) coloca o foco no
-**botao 1 = JOGOS** ao abrir.
+    <media id="telaJogos"    src="tela-jogos.png"    descriptor="dTela"/>
+    <media id="telaNoticias" src="tela-noticias.png" descriptor="dTela"/>
+    <media id="telaClima"    src="tela-clima.png"    descriptor="dTela"/>
+    <media id="telaSobre"    src="tela-sobre.png"    descriptor="dTela"/>
 
-## Botoes navegaveis (foco horizontal circular)
+    <!-- OK: abre a tela cheia por cima do menu -->
+    <link xconnector="cOK">
+      <bind role="onSelection" component="btnJogos"/>
+      <bind role="start" component="telaJogos"/>
+    </link>
+    <link xconnector="cOK">
+      <bind role="onSelection" component="btnNoticias"/>
+      <bind role="start" component="telaNoticias"/>
+    </link>
+    <link xconnector="cOK">
+      <bind role="onSelection" component="btnClima"/>
+      <bind role="start" component="telaClima"/>
+    </link>
+    <link xconnector="cOK">
+      <bind role="onSelection" component="btnSobre"/>
+      <bind role="start" component="telaSobre"/>
+    </link>
 
-Cada botao e uma `<media>` cujo descritor tem `focusIndex` e apontamentos
-`moveLeft`/`moveRight` (so horizontal, como pedido; sem `moveUp`/`moveDown`),
-formando ciclo:
-
-| focusIndex | botao | moveLeft | moveRight |
-|---|---|---|---|
-| 1 | JOGOS | 4 (SOBRE) | 2 (NOTICIAS) |
-| 2 | NOTICIAS | 1 (JOGOS) | 3 (CLIMA) |
-| 3 | CLIMA | 2 (NOTICIAS) | 4 (SOBRE) |
-| 4 | SOBRE | 3 (CLIMA) | 1 (JOGOS) |
-
-Do ultimo (SOBRE) a seta direita volta pro primeiro (JOGOS) e vice-versa.
-Destaque de foco: `focusBorderColor="yellow"` e `focusBorderWidth="4"` em todos.
-
-## Ports (o que aparece no inicio)
-
-Toda media inicial tem `<port>`: settings, `fundo.png` e os 4 botoes. As 4 telas de
-canal **nao** tem port — elas so entram em cena via elo de selecao (OK).
-
-## Selecao (OK / ENTER)
-
-Conector `cSelStart`: `<simpleCondition role="onSelection"/> -> <simpleAction role="start"/>`.
-Um elo por botao liga `onSelection` do botao ao `start` da `tela-*` correspondente
-(JOGOS->tela-jogos, NOTICIAS->tela-noticias, CLIMA->tela-clima, SOBRE->tela-sobre).
-Como a `tela-*` e 1280x720 opaca em `zIndex=5`, ela cobre o menu (o menu "some").
-
-## Voltar (tecla VERMELHA / RED)
-
-Conector `cSelStopKey` com `<connectorParam name="tecla"/>` +
-`<simpleCondition role="onSelection" key="$tecla"/> -> <simpleAction role="stop"/>`.
-Um elo por botao com `<bindParam name="tecla" value="RED"/>`. O botao continua sendo
-o elemento em foco enquanto a tela esta aberta; ao apertar **RED**, o elo para (`stop`)
-a tela, que sai de cena e revela o menu de novo, com o **foco preservado** no mesmo botao.
-Fecha so a tela aberta; nao ha tela de menu separada.
-
-## O que NAO entrou (conforme respostas)
-
-- **Sem** titulo/logo (nao ha imagem de titulo na pasta e o usuario nao quis texto).
-- **Sem** transparencia extra (os PNGs de botao ja sao RGBA; nenhum `descriptorParam
-  transparency` foi usado).
-- **Sem** audio/beep.
-- **Sem** opcao de sair do app.
-- **Sem** navegacao vertical (Cima/Baixo nao fazem nada).
-
-## Arquivos
-
-- `gerado.ncl` — o app NCL EDTV autocontido.
-- `entrada.md` — pedido + perguntas + respostas.
-- `saida.md` — esta explicacao.
+    <!-- VERMELHA (RED): fecha a tela e volta ao menu -->
+    <link xconnector="cVoltar">
+      <bind role="onSelection" component="btnJogos">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="telaJogos"/>
+    </link>
+    <link xconnector="cVoltar">
+      <bind role="onSelection" component="btnNoticias">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="telaNoticias"/>
+    </link>
+    <link xconnector="cVoltar">
+      <bind role="onSelection" component="btnClima">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="telaClima"/>
+    </link>
+    <link xconnector="cVoltar">
+      <bind role="onSelection" component="btnSobre">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="telaSobre"/>
+    </link>
+  </body>
+</ncl>
+```

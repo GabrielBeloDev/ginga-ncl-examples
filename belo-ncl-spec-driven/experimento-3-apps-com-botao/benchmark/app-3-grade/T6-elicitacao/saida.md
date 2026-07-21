@@ -1,66 +1,154 @@
-# Saida — explicacao do `gerado.ncl`
+```xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ncl id="appGrade" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
+  <head>
+    <regionBase>
+      <region id="rgFundo" left="0%" top="0%" width="100%" height="100%" zIndex="0"/>
+      <region id="rgApp1" left="8%"  top="18%" width="26%" height="30%" zIndex="1"/>
+      <region id="rgApp2" left="37%" top="18%" width="26%" height="30%" zIndex="1"/>
+      <region id="rgApp3" left="66%" top="18%" width="26%" height="30%" zIndex="1"/>
+      <region id="rgApp4" left="8%"  top="55%" width="26%" height="30%" zIndex="1"/>
+      <region id="rgApp5" left="37%" top="55%" width="26%" height="30%" zIndex="1"/>
+      <region id="rgApp6" left="66%" top="55%" width="26%" height="30%" zIndex="1"/>
+      <region id="rgDetalhe" left="0%" top="0%" width="100%" height="100%" zIndex="2"/>
+    </regionBase>
 
-App NCL 3.0 perfil EDTV, **autocontido** (regioes, descritores, conectores causais e elos inline),
-referenciando **apenas** as imagens da pasta pelo nome. Implementa exatamente o que foi confirmado
-na elicitacao — nada alem disso.
+    <descriptorBase>
+      <descriptor id="dFundo" region="rgFundo"/>
+      <descriptor id="dApp1" region="rgApp1" focusIndex="1"
+        moveRight="2" moveLeft="3" moveUp="4" moveDown="4"
+        focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp2" region="rgApp2" focusIndex="2"
+        moveRight="3" moveLeft="1" moveUp="5" moveDown="5"
+        focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp3" region="rgApp3" focusIndex="3"
+        moveRight="1" moveLeft="2" moveUp="6" moveDown="6"
+        focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp4" region="rgApp4" focusIndex="4"
+        moveRight="5" moveLeft="6" moveUp="1" moveDown="1"
+        focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp5" region="rgApp5" focusIndex="5"
+        moveRight="6" moveLeft="4" moveUp="2" moveDown="2"
+        focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp6" region="rgApp6" focusIndex="6"
+        moveRight="4" moveLeft="5" moveUp="3" moveDown="3"
+        focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dTela1" region="rgDetalhe"/>
+      <descriptor id="dTela2" region="rgDetalhe"/>
+      <descriptor id="dTela3" region="rgDetalhe"/>
+      <descriptor id="dTela4" region="rgDetalhe"/>
+      <descriptor id="dTela5" region="rgDetalhe"/>
+      <descriptor id="dTela6" region="rgDetalhe"/>
+    </descriptorBase>
 
-## Grade 3 colunas x 2 linhas (paisagem), centralizada
-Canvas 1280x720 (mesmo tamanho do `fundo.png`). Botoes de 340x170 posicionados com
-margens/gaps automaticos para ficar centralizado abaixo do cabecalho:
+    <connectorBase>
+      <causalConnector id="conSelecao">
+        <simpleCondition role="onSelection"/>
+        <simpleAction role="start"/>
+      </causalConnector>
+      <causalConnector id="conVoltar">
+        <connectorParam name="tecla"/>
+        <simpleCondition role="onSelection" key="$tecla"/>
+        <simpleAction role="stop"/>
+      </causalConnector>
+    </connectorBase>
+  </head>
 
+  <body>
+    <port id="pSettings" component="mSettings"/>
+    <port id="pFundo" component="mFundo"/>
+    <port id="pApp1" component="mApp1"/>
+    <port id="pApp2" component="mApp2"/>
+    <port id="pApp3" component="mApp3"/>
+    <port id="pApp4" component="mApp4"/>
+    <port id="pApp5" component="mApp5"/>
+    <port id="pApp6" component="mApp6"/>
+
+    <media id="mSettings" type="application/x-ginga-settings">
+      <property name="service.currentFocus" value="1"/>
+    </media>
+
+    <media id="mFundo" src="fundo.png" descriptor="dFundo"/>
+
+    <media id="mApp1" src="app-1.png" descriptor="dApp1"/>
+    <media id="mApp2" src="app-2.png" descriptor="dApp2"/>
+    <media id="mApp3" src="app-3.png" descriptor="dApp3"/>
+    <media id="mApp4" src="app-4.png" descriptor="dApp4"/>
+    <media id="mApp5" src="app-5.png" descriptor="dApp5"/>
+    <media id="mApp6" src="app-6.png" descriptor="dApp6"/>
+
+    <media id="mTela1" src="tela-1.png" descriptor="dTela1"/>
+    <media id="mTela2" src="tela-2.png" descriptor="dTela2"/>
+    <media id="mTela3" src="tela-3.png" descriptor="dTela3"/>
+    <media id="mTela4" src="tela-4.png" descriptor="dTela4"/>
+    <media id="mTela5" src="tela-5.png" descriptor="dTela5"/>
+    <media id="mTela6" src="tela-6.png" descriptor="dTela6"/>
+
+    <link xconnector="conSelecao">
+      <bind role="onSelection" component="mApp1"/>
+      <bind role="start" component="mTela1"/>
+    </link>
+    <link xconnector="conVoltar">
+      <bind role="onSelection" component="mApp1">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela1"/>
+    </link>
+
+    <link xconnector="conSelecao">
+      <bind role="onSelection" component="mApp2"/>
+      <bind role="start" component="mTela2"/>
+    </link>
+    <link xconnector="conVoltar">
+      <bind role="onSelection" component="mApp2">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela2"/>
+    </link>
+
+    <link xconnector="conSelecao">
+      <bind role="onSelection" component="mApp3"/>
+      <bind role="start" component="mTela3"/>
+    </link>
+    <link xconnector="conVoltar">
+      <bind role="onSelection" component="mApp3">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela3"/>
+    </link>
+
+    <link xconnector="conSelecao">
+      <bind role="onSelection" component="mApp4"/>
+      <bind role="start" component="mTela4"/>
+    </link>
+    <link xconnector="conVoltar">
+      <bind role="onSelection" component="mApp4">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela4"/>
+    </link>
+
+    <link xconnector="conSelecao">
+      <bind role="onSelection" component="mApp5"/>
+      <bind role="start" component="mTela5"/>
+    </link>
+    <link xconnector="conVoltar">
+      <bind role="onSelection" component="mApp5">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela5"/>
+    </link>
+
+    <link xconnector="conSelecao">
+      <bind role="onSelection" component="mApp6"/>
+      <bind role="start" component="mTela6"/>
+    </link>
+    <link xconnector="conVoltar">
+      <bind role="onSelection" component="mApp6">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela6"/>
+    </link>
+  </body>
+</ncl>
 ```
-colunas x = 90, 470, 850   (gap 40, margem lateral 90 dos dois lados)
-linhas  y = 200, 440       (gap 70, folga ~115 em cima e embaixo)
-
-        1 VIDEO    2 MUSICA   3 FOTOS      (app-1  app-2  app-3)
-        4 JOGOS    5 LOJA     6 CONFIG     (app-4  app-5  app-6)
-```
-
-`fundo.png` ocupa a tela toda em `regFundo` (zIndex 0); os botoes ficam por cima (zIndex 1);
-as telas de detalhe abrem em `regTela` fullscreen (zIndex 2), cobrindo a grade.
-
-## Aparecer no inicio
-Todo componente inicial tem `<port>`: `fundo`, os 6 botoes `app-1..app-6` e o no de `ajustes`
-(settings). As telas `tela-1..tela-6` **nao** tem port — so aparecem quando o OK as inicia.
-
-## Botoes navegaveis (setas, circular)
-Cada botao e uma `<media>` com descritor contendo `focusIndex` e `moveLeft/moveRight/moveUp/moveDown`,
-mais `focusBorderColor="yellow"` e `focusBorderWidth="4"` para destacar o foco. Mapa (circular):
-
-| foco | botao  | left | right | up | down |
-|------|--------|------|-------|----|------|
-| 1    | VIDEO  | 3    | 2     | 4  | 4    |
-| 2    | MUSICA | 1    | 3     | 5  | 5    |
-| 3    | FOTOS  | 2    | 1     | 6  | 6    |
-| 4    | JOGOS  | 6    | 5     | 1  | 1    |
-| 5    | LOJA   | 4    | 6     | 2  | 2    |
-| 6    | CONFIG | 5    | 4     | 3  | 3    |
-
-Horizontal circular dentro da linha (da ultima coluna volta pra primeira); vertical circular dentro
-da coluna (como so ha 2 linhas, cima e baixo levam sempre a outra linha).
-
-## Foco inicial
-`<media type="application/x-ginga-settings">` (id `ajustes`) com
-`<property name="service.currentFocus" value="1"/>` e port — foco comeca no VIDEO (app-1).
-
-## OK (selecao) abre a tela de detalhe
-Conector `cSelectOpen`: `onSelection` (OK) -> acao composta `start` + `set`. Cada elo liga
-`app-N` a `start tela-N` **e** move o foco para o `focusIndex` da tela (11..16). Mover o foco para
-a tela e o que permite a tecla VERMELHA valer ali (o `onSelection key=RED` so dispara no no focado).
-As telas usam `focusBorderWidth="0"` (sem borda). Mapeamento 1:1: app-1->tela-1 ... app-6->tela-6.
-
-## VERMELHA (RED) volta e devolve o foco
-Conector `cRedBack`: `<connectorParam name="tecla"/>` + `<simpleCondition role="onSelection" key="$tecla"/>`
--> acao composta `stop` + `set`. No `<bind>`, `<bindParam name="tecla" value="RED"/>`. Cada elo para a
-`tela-N` e devolve o foco ao botao que a abriu (`service.currentFocus` = N). Assim, ao voltar, o foco
-retorna ao botao de origem (item 13).
-
-## RED na grade nao faz nada (item 14)
-As condicoes de RED estao **so** nas telas (`onSelection` na `tela-N`). Os botoes so respondem ao OK
-(`onSelection` sem key). Logo, com a grade aberta e nenhum detalhe na tela, o VERMELHO nao tem efeito.
-
-## Notas tecnicas
-- Perfil EDTV (`xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile"`).
-- Sem `transparency` (nao foi pedida); se fosse usada, iria como `<descriptorParam>`, nunca atributo do descritor.
-- XML validado como bem-formado; todas as 13 imagens referenciadas existem na pasta e nenhuma imagem externa e usada.
-- Arquivo de saida: `gerado.ncl` na propria `pasta-de-trabalho`.

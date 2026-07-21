@@ -1,45 +1,86 @@
-# Saida (resposta / explicacao)
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Grade 2x3 (6 apps) sobre fundo.png: navegacao por setas, OK abre a tela do app, VERMELHO volta. NCL puro EDTV. -->
+<ncl id="grade6" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
+  <head>
+    <regionBase>
+      <region id="rBg" width="100%" height="100%" zIndex="0"/>
+      <region id="rConteudo" width="100%" height="100%" zIndex="5"/>
+      <!-- Linha 1 -->
+      <region id="rApp1" left="10%" top="20%" width="20%" height="22%" zIndex="2"/>
+      <region id="rApp2" left="40%" top="20%" width="20%" height="22%" zIndex="2"/>
+      <region id="rApp3" left="70%" top="20%" width="20%" height="22%" zIndex="2"/>
+      <!-- Linha 2 -->
+      <region id="rApp4" left="10%" top="55%" width="20%" height="22%" zIndex="2"/>
+      <region id="rApp5" left="40%" top="55%" width="20%" height="22%" zIndex="2"/>
+      <region id="rApp6" left="70%" top="55%" width="20%" height="22%" zIndex="2"/>
+    </regionBase>
+    <descriptorBase>
+      <descriptor id="dBg" region="rBg"/>
+      <descriptor id="dConteudo" region="rConteudo"/>
+      <!-- Grade circular: 1 2 3 / 4 5 6 -->
+      <descriptor id="dApp1" region="rApp1" focusIndex="1" moveRight="2" moveLeft="3" moveDown="4" moveUp="4" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp2" region="rApp2" focusIndex="2" moveRight="3" moveLeft="1" moveDown="5" moveUp="5" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp3" region="rApp3" focusIndex="3" moveRight="1" moveLeft="2" moveDown="6" moveUp="6" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp4" region="rApp4" focusIndex="4" moveRight="5" moveLeft="6" moveUp="1" moveDown="1" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp5" region="rApp5" focusIndex="5" moveRight="6" moveLeft="4" moveUp="2" moveDown="2" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dApp6" region="rApp6" focusIndex="6" moveRight="4" moveLeft="5" moveUp="3" moveDown="3" focusBorderColor="yellow" focusBorderWidth="4"/>
+    </descriptorBase>
+    <connectorBase>
+      <causalConnector id="onSelStart">
+        <simpleCondition role="onSelection"/>
+        <simpleAction role="start"/>
+      </causalConnector>
+      <causalConnector id="onKeyStop">
+        <connectorParam name="tecla"/>
+        <simpleCondition role="onSelection" key="$tecla"/>
+        <simpleAction role="stop"/>
+      </causalConnector>
+    </connectorBase>
+  </head>
+  <body>
+    <port id="entry" component="fundo"/>
+    <port id="pSet" component="settings"/>
+    <port id="pApp1" component="app1"/>
+    <port id="pApp2" component="app2"/>
+    <port id="pApp3" component="app3"/>
+    <port id="pApp4" component="app4"/>
+    <port id="pApp5" component="app5"/>
+    <port id="pApp6" component="app6"/>
 
-Gerado o documento `gerado.ncl` (NCL 3.0, perfil EDTV, autocontido) reproduzindo a grade de apps 2x3 com navegacao por setas, OK abrindo a tela do app e VERMELHO voltando. XML validado como bem-formado.
+    <media id="settings" type="application/x-ginga-settings">
+      <property name="service.currentFocus" value="1"/>
+    </media>
 
-## Imagens usadas (so as da pasta)
-- `fundo.png` (1280x720) — plano de fundo.
-- `app-1.png` a `app-6.png` (300x150 cada) — icones dos 6 apps.
-- `tela-1.png` a `tela-6.png` (1280x720) — telas abertas por OK.
+    <media id="fundo" src="fundo.png" descriptor="dBg"/>
 
-## Layout (grade 2 linhas x 3 colunas, canvas 1280x720)
-Cada icone tem 300x150. Posicionamento (left, top):
+    <media id="app1" src="app-1.png" descriptor="dApp1"/>
+    <media id="app2" src="app-2.png" descriptor="dApp2"/>
+    <media id="app3" src="app-3.png" descriptor="dApp3"/>
+    <media id="app4" src="app-4.png" descriptor="dApp4"/>
+    <media id="app5" src="app-5.png" descriptor="dApp5"/>
+    <media id="app6" src="app-6.png" descriptor="dApp6"/>
 
-| focus | app        | imagem    | left | top |
-|-------|------------|-----------|------|-----|
-| 1     | VIDEO      | app-1.png | 90   | 210 |
-| 2     | MUSICA     | app-2.png | 490  | 210 |
-| 3     | FOTOS      | app-3.png | 890  | 210 |
-| 4     | JOGOS      | app-4.png | 90   | 450 |
-| 5     | LOJA       | app-5.png | 490  | 450 |
-| 6     | CONFIG     | app-6.png | 890  | 450 |
+    <media id="tela1" src="tela-1.png" descriptor="dConteudo"/>
+    <media id="tela2" src="tela-2.png" descriptor="dConteudo"/>
+    <media id="tela3" src="tela-3.png" descriptor="dConteudo"/>
+    <media id="tela4" src="tela-4.png" descriptor="dConteudo"/>
+    <media id="tela5" src="tela-5.png" descriptor="dConteudo"/>
+    <media id="tela6" src="tela-6.png" descriptor="dConteudo"/>
 
-Fundo em `zIndex=0`, icones em `zIndex=1`, telas em `zIndex=5` (por cima).
+    <!-- OK em cada app abre a tela correspondente -->
+    <link xconnector="onSelStart"><bind role="onSelection" component="app1"/><bind role="start" component="tela1"/></link>
+    <link xconnector="onSelStart"><bind role="onSelection" component="app2"/><bind role="start" component="tela2"/></link>
+    <link xconnector="onSelStart"><bind role="onSelection" component="app3"/><bind role="start" component="tela3"/></link>
+    <link xconnector="onSelStart"><bind role="onSelection" component="app4"/><bind role="start" component="tela4"/></link>
+    <link xconnector="onSelStart"><bind role="onSelection" component="app5"/><bind role="start" component="tela5"/></link>
+    <link xconnector="onSelStart"><bind role="onSelection" component="app6"/><bind role="start" component="tela6"/></link>
 
-## Como cada regra foi aplicada
-- **Perfil EDTV / autocontido:** `xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile"`; `regionBase`, `descriptorBase`, `connectorBase` e todos os `link` inline no proprio documento.
-- **Ports (aparece no inicio => precisa de port):** ha `<port>` para `fundo` (id `entry`), para o `settings` (foco) e para os 6 apps (`app1`..`app6`). As 6 telas NAO tem port (so surgem ao apertar OK).
-- **Botao navegavel:** cada `dApp*` tem `focusIndex`, os quatro `move*` circulares e `focusBorderColor="yellow" focusBorderWidth="4"`.
-- **Navegacao circular (grade 2x3):**
-  - Esq/Dir dao a volta na linha: linha 1 = 1<->2<->3->1; linha 2 = 4<->5<->6->4.
-  - Cima/Baixo alternam entre as duas linhas na mesma coluna (col 1: 1<->4; col 2: 2<->5; col 3: 3<->6).
-- **Foco inicial no primeiro:** `<media type="application/x-ginga-settings">` com `service.currentFocus=1` (VIDEO), com port.
-- **OK abre a tela:** conector `cAbre` (`onSelection` -> `start`); um `link` por app ligando `appN` (onSelection) ao `telaN` (start).
-- **VERMELHO volta:** conector `cVolta` com `connectorParam name="tecla"`, `onSelection key="$tecla"` -> `stop`; um `link` por app com `<bindParam name="tecla" value="RED"/>` ligando o botao ao `stop` da respectiva tela. O foco permanece no botao que abriu a tela, entao o VERMELHO fecha exatamente aquela tela.
-- **Transparencia:** nao foi usada (nao havia necessidade), evitando o atributo proibido no descriptor.
-- **Port de entrada:** `<port id="entry" component="fundo"/>`.
-
-## Fluxo de uso
-1. Abre com o fundo + os 6 icones; foco no VIDEO (borda amarela).
-2. Setas movem o foco pela grade (2 direcoes, circular).
-3. OK no icone focado abre a tela cheia daquele app (`tela-N.png`).
-4. VERMELHO fecha a tela e volta a grade.
-
-## Validacao
-- `python3 xml.dom.minidom` -> XML bem-formado.
-- Contagem conferida: 6 descritores com `focusIndex`, 8 `<port>` (fundo+settings+6 apps), 12 `link` (6 OK + 6 VERMELHO), 6 midias de app e 6 de tela.
+    <!-- VERMELHO fecha a tela e volta a grade -->
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela1"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela1"/></link>
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela2"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela2"/></link>
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela3"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela3"/></link>
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela4"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela4"/></link>
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela5"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela5"/></link>
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela6"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela6"/></link>
+  </body>
+</ncl>

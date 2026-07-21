@@ -1,131 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ncl id="app-1-menu" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Menu com 4 botoes navegaveis (setas ESQ/DIR circular), OK abre tela cheia, VERMELHO volta. NCL puro EDTV. -->
+<ncl id="menu4botoes" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
   <head>
-
     <regionBase>
-      <!-- fundo ocupa a tela inteira, atras de tudo -->
-      <region id="rgFundo" left="0" top="0" width="100%" height="100%" zIndex="0"/>
-
-      <!-- tela cheia dos itens, na frente de tudo -->
-      <region id="rgTela" left="0" top="0" width="100%" height="100%" zIndex="5"/>
-
-      <!-- 4 botoes lado a lado na BASE da tela -->
-      <region id="rgBtnJogos"    left="4%"  top="80%" width="21%" height="15%" zIndex="1"/>
-      <region id="rgBtnNoticias" left="27%" top="80%" width="21%" height="15%" zIndex="1"/>
-      <region id="rgBtnClima"    left="50%" top="80%" width="21%" height="15%" zIndex="1"/>
-      <region id="rgBtnSobre"    left="73%" top="80%" width="21%" height="15%" zIndex="1"/>
+      <region id="rBg" width="100%" height="100%" zIndex="0"/>
+      <region id="rConteudo" width="100%" height="100%" zIndex="5"/>
+      <region id="rB1" left="5%"  top="80%" width="20%" height="12%" zIndex="2"/>
+      <region id="rB2" left="28%" top="80%" width="20%" height="12%" zIndex="2"/>
+      <region id="rB3" left="51%" top="80%" width="20%" height="12%" zIndex="2"/>
+      <region id="rB4" left="74%" top="80%" width="20%" height="12%" zIndex="2"/>
     </regionBase>
-
     <descriptorBase>
-      <descriptor id="dFundo" region="rgFundo"/>
-
-      <!-- um unico descritor de tela cheia serve para os 4 itens (so 1 aparece por vez) -->
-      <descriptor id="dTela" region="rgTela"/>
-
-      <!-- botoes navegaveis: focusIndex + move* circular + borda de foco amarela -->
-      <descriptor id="dBtnJogos" region="rgBtnJogos"
-                  focusIndex="1" moveLeft="4" moveRight="2" moveUp="1" moveDown="1"
-                  focusBorderColor="yellow" focusBorderWidth="4"/>
-      <descriptor id="dBtnNoticias" region="rgBtnNoticias"
-                  focusIndex="2" moveLeft="1" moveRight="3" moveUp="2" moveDown="2"
-                  focusBorderColor="yellow" focusBorderWidth="4"/>
-      <descriptor id="dBtnClima" region="rgBtnClima"
-                  focusIndex="3" moveLeft="2" moveRight="4" moveUp="3" moveDown="3"
-                  focusBorderColor="yellow" focusBorderWidth="4"/>
-      <descriptor id="dBtnSobre" region="rgBtnSobre"
-                  focusIndex="4" moveLeft="3" moveRight="1" moveUp="4" moveDown="4"
-                  focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dBg" region="rBg"/>
+      <descriptor id="dConteudo" region="rConteudo"/>
+      <descriptor id="dB1" region="rB1" focusIndex="1" moveRight="2" moveLeft="4" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dB2" region="rB2" focusIndex="2" moveRight="3" moveLeft="1" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dB3" region="rB3" focusIndex="3" moveRight="4" moveLeft="2" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dB4" region="rB4" focusIndex="4" moveRight="1" moveLeft="3" focusBorderColor="yellow" focusBorderWidth="4"/>
     </descriptorBase>
-
     <connectorBase>
-      <!-- OK (selecao) abre a tela cheia do item -->
-      <causalConnector id="cAbre">
+      <causalConnector id="onSelStart">
         <simpleCondition role="onSelection"/>
         <simpleAction role="start"/>
       </causalConnector>
-
-      <!-- tecla VERMELHA fecha a tela cheia e volta ao menu.
-           O foco NUNCA sai do botao, entao o onSelection(RED) do botao focado dispara o stop da tela. -->
-      <causalConnector id="cVolta">
+      <causalConnector id="onKeyStop">
         <connectorParam name="tecla"/>
         <simpleCondition role="onSelection" key="$tecla"/>
         <simpleAction role="stop"/>
       </causalConnector>
     </connectorBase>
-
   </head>
-
   <body>
-    <!-- ===== PORTS: tudo que aparece no inicio precisa de port ===== -->
-    <port id="entry"        component="fundo"/>
-    <port id="pSettings"    component="settings"/>
-    <port id="pBtnJogos"    component="btnJogos"/>
-    <port id="pBtnNoticias" component="btnNoticias"/>
-    <port id="pBtnClima"    component="btnClima"/>
-    <port id="pBtnSobre"    component="btnSobre"/>
+    <port id="entry" component="fundo"/>
+    <port id="pSet" component="settings"/>
+    <port id="pB1" component="b1"/>
+    <port id="pB2" component="b2"/>
+    <port id="pB3" component="b3"/>
+    <port id="pB4" component="b4"/>
 
-    <!-- foco inicial no primeiro botao (JOGOS, focusIndex=1) -->
     <media id="settings" type="application/x-ginga-settings">
       <property name="service.currentFocus" value="1"/>
     </media>
 
-    <!-- fundo -->
-    <media id="fundo" src="fundo.png" descriptor="dFundo"/>
+    <media id="fundo" src="fundo.png" descriptor="dBg"/>
+    <media id="b1" src="btn-jogos.png"    descriptor="dB1"/>
+    <media id="b2" src="btn-noticias.png" descriptor="dB2"/>
+    <media id="b3" src="btn-clima.png"    descriptor="dB3"/>
+    <media id="b4" src="btn-sobre.png"    descriptor="dB4"/>
 
-    <!-- botoes do menu -->
-    <media id="btnJogos"    src="btn-jogos.png"    descriptor="dBtnJogos"/>
-    <media id="btnNoticias" src="btn-noticias.png" descriptor="dBtnNoticias"/>
-    <media id="btnClima"    src="btn-clima.png"    descriptor="dBtnClima"/>
-    <media id="btnSobre"    src="btn-sobre.png"    descriptor="dBtnSobre"/>
+    <media id="tela1" src="tela-jogos.png"    descriptor="dConteudo"/>
+    <media id="tela2" src="tela-noticias.png" descriptor="dConteudo"/>
+    <media id="tela3" src="tela-clima.png"    descriptor="dConteudo"/>
+    <media id="tela4" src="tela-sobre.png"    descriptor="dConteudo"/>
 
-    <!-- telas cheias (sem port: so aparecem ao pressionar OK) -->
-    <media id="telaJogos"    src="tela-jogos.png"    descriptor="dTela"/>
-    <media id="telaNoticias" src="tela-noticias.png" descriptor="dTela"/>
-    <media id="telaClima"    src="tela-clima.png"    descriptor="dTela"/>
-    <media id="telaSobre"    src="tela-sobre.png"    descriptor="dTela"/>
+    <!-- OK em cada botao abre a tela cheia correspondente -->
+    <link xconnector="onSelStart"><bind role="onSelection" component="b1"/><bind role="start" component="tela1"/></link>
+    <link xconnector="onSelStart"><bind role="onSelection" component="b2"/><bind role="start" component="tela2"/></link>
+    <link xconnector="onSelStart"><bind role="onSelection" component="b3"/><bind role="start" component="tela3"/></link>
+    <link xconnector="onSelStart"><bind role="onSelection" component="b4"/><bind role="start" component="tela4"/></link>
 
-    <!-- ===== OK: abre a tela cheia do item selecionado ===== -->
-    <link xconnector="cAbre">
-      <bind role="onSelection" component="btnJogos"/>
-      <bind role="start"       component="telaJogos"/>
-    </link>
-    <link xconnector="cAbre">
-      <bind role="onSelection" component="btnNoticias"/>
-      <bind role="start"       component="telaNoticias"/>
-    </link>
-    <link xconnector="cAbre">
-      <bind role="onSelection" component="btnClima"/>
-      <bind role="start"       component="telaClima"/>
-    </link>
-    <link xconnector="cAbre">
-      <bind role="onSelection" component="btnSobre"/>
-      <bind role="start"       component="telaSobre"/>
-    </link>
-
-    <!-- ===== VERMELHA: fecha a tela cheia e volta ao menu ===== -->
-    <link xconnector="cVolta">
-      <bind role="onSelection" component="btnJogos">
-        <bindParam name="tecla" value="RED"/>
-      </bind>
-      <bind role="stop" component="telaJogos"/>
-    </link>
-    <link xconnector="cVolta">
-      <bind role="onSelection" component="btnNoticias">
-        <bindParam name="tecla" value="RED"/>
-      </bind>
-      <bind role="stop" component="telaNoticias"/>
-    </link>
-    <link xconnector="cVolta">
-      <bind role="onSelection" component="btnClima">
-        <bindParam name="tecla" value="RED"/>
-      </bind>
-      <bind role="stop" component="telaClima"/>
-    </link>
-    <link xconnector="cVolta">
-      <bind role="onSelection" component="btnSobre">
-        <bindParam name="tecla" value="RED"/>
-      </bind>
-      <bind role="stop" component="telaSobre"/>
-    </link>
+    <!-- VERMELHO fecha a tela e volta ao menu -->
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela1"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela1"/></link>
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela2"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela2"/></link>
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela3"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela3"/></link>
+    <link xconnector="onKeyStop"><bind role="onSelection" component="tela4"><bindParam name="tecla" value="RED"/></bind><bind role="stop" component="tela4"/></link>
   </body>
 </ncl>

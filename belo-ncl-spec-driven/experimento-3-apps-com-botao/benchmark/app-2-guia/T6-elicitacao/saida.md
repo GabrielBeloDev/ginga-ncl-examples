@@ -1,48 +1,121 @@
-# Saída — Explicação do `gerado.ncl`
+```xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ncl id="guia" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
+  <head>
+    <regionBase>
+      <region id="rgFundo" left="0%" top="0%" width="100%" height="100%" zIndex="0"/>
+      <region id="rgItem1" left="5%" top="10%" width="30%" height="14%" zIndex="1"/>
+      <region id="rgItem2" left="5%" top="26%" width="30%" height="14%" zIndex="1"/>
+      <region id="rgItem3" left="5%" top="42%" width="30%" height="14%" zIndex="1"/>
+      <region id="rgItem4" left="5%" top="58%" width="30%" height="14%" zIndex="1"/>
+      <region id="rgItem5" left="5%" top="74%" width="30%" height="14%" zIndex="1"/>
+      <region id="rgTela" left="0%" top="0%" width="100%" height="100%" zIndex="5"/>
+    </regionBase>
 
-App NCL 3.0 perfil EDTV, **autocontido** (regiões, descritores, conectores causais e elos todos inline) e gerado **só a partir das respostas** confirmadas na elicitação. Usa **apenas** as imagens da pasta.
+    <descriptorBase>
+      <descriptor id="dFundo" region="rgFundo"/>
+      <descriptor id="dItem1" region="rgItem1" focusIndex="1" moveUp="5" moveDown="2" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dItem2" region="rgItem2" focusIndex="2" moveUp="1" moveDown="3" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dItem3" region="rgItem3" focusIndex="3" moveUp="2" moveDown="4" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dItem4" region="rgItem4" focusIndex="4" moveUp="3" moveDown="5" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dItem5" region="rgItem5" focusIndex="5" moveUp="4" moveDown="1" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dTela" region="rgTela"/>
+    </descriptorBase>
 
-## Estrutura geral
-- **`<ncl>`** com `xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile"`.
-- **`<head>`**: `regionBase`, `descriptorBase`, `connectorBase`.
-- **`<body>`**: portas, mídias e elos.
+    <connectorBase>
+      <causalConnector id="cSelect">
+        <simpleCondition role="onSelection"/>
+        <simpleAction role="start"/>
+      </causalConnector>
+      <causalConnector id="cVoltar">
+        <connectorParam name="tecla"/>
+        <simpleCondition role="onSelection" key="$tecla"/>
+        <simpleAction role="stop"/>
+      </causalConnector>
+    </connectorBase>
+  </head>
 
-## Layout (1280×720)
-- `rgTela` é a região raiz 1280×720; as demais são filhas.
-- `rgFundo` (0,0,1280×720, `zIndex=0`) — fundo com o cabeçalho, sempre atrás.
-- `rgItem1..5` — coluna à esquerda (`left=60`), abaixo do cabeçalho, começando em `top=110` e empilhados de 80 em 80 (item de 70px + gap de 10px): 110, 190, 270, 350, 430. Cada região é **520×70**, o tamanho nativo de `item-N.png`, então **mantém a proporção** sem distorcer. `zIndex=1`.
-- `rgDetalhe` (0,0,1280×720, `zIndex=5`) — tela de detalhe em **tela cheia por cima de tudo**. As 5 telas compartilham essa região (só uma abre por vez).
+  <body>
+    <port id="pSettings" component="settings"/>
+    <port id="pFundo" component="mFundo"/>
+    <port id="pItem1" component="mItem1"/>
+    <port id="pItem2" component="mItem2"/>
+    <port id="pItem3" component="mItem3"/>
+    <port id="pItem4" component="mItem4"/>
+    <port id="pItem5" component="mItem5"/>
 
-## Botões navegáveis (o que a spec pede)
-Cada botão é uma `<media>` (`item1..item5`) apontando `item-N.png`, com um descritor que tem:
-- `focusIndex="N"`;
-- `moveUp` / `moveDown` **circulares** — item1: up→5/down→2; item2: up→1/down→3; …; item5: up→4/down→1;
-- **sem** `moveLeft`/`moveRight` (←/→ ignoradas, conforme resposta 3.3);
-- `focusBorderColor="yellow"` e `focusBorderWidth="4"` pra destacar o foco.
+    <media id="settings" type="application/x-ginga-settings">
+      <property name="service.currentFocus" value="1"/>
+    </media>
 
-## Foco inicial
-`<media id="cfg" type="application/x-ginga-settings">` com `<property name="service.currentFocus" value="1"/>` — foco começa no item 1 (18h Novela). Tem porta (`pCfg`) pra ser ativada.
+    <media id="mFundo" src="fundo.png" descriptor="dFundo"/>
 
-## Portas (aparece no início ⇒ precisa de port)
-- `entry` → `fundo` (componente de entrada);
-- `pCfg` → `cfg` (foco inicial);
-- `pItem1..pItem5` → botões da lista.
-As telas de detalhe **não** têm porta (só entram via OK).
+    <media id="mItem1" src="item-1.png" descriptor="dItem1"/>
+    <media id="mItem2" src="item-2.png" descriptor="dItem2"/>
+    <media id="mItem3" src="item-3.png" descriptor="dItem3"/>
+    <media id="mItem4" src="item-4.png" descriptor="dItem4"/>
+    <media id="mItem5" src="item-5.png" descriptor="dItem5"/>
 
-## OK (seleção) — abrir detalhe
-Conector `cSelecao`: `simpleCondition role="onSelection"` → `simpleAction role="start"`.
-Um elo por item liga `onSelection` do botão ao `start` da tela correspondente (item-N → tela-N). Como `rgDetalhe` tem `zIndex=5`, a tela cheia cobre a lista e o fundo.
+    <media id="mTela1" src="tela-1.png" descriptor="dTela"/>
+    <media id="mTela2" src="tela-2.png" descriptor="dTela"/>
+    <media id="mTela3" src="tela-3.png" descriptor="dTela"/>
+    <media id="mTela4" src="tela-4.png" descriptor="dTela"/>
+    <media id="mTela5" src="tela-5.png" descriptor="dTela"/>
 
-## VERMELHO (RED) — voltar
-Conector `cVoltar`: `connectorParam name="tecla"` + `simpleCondition role="onSelection" key="$tecla"` → `simpleAction role="stop"`, com `<bindParam name="tecla" value="RED"/>` no `<bind>`.
+    <link xconnector="cSelect">
+      <bind role="onSelection" component="mItem1"/>
+      <bind role="start" component="mTela1"/>
+    </link>
+    <link xconnector="cVoltar">
+      <bind role="onSelection" component="mItem1">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela1"/>
+    </link>
 
-Detalhe importante do design: tanto o OK quanto o RED estão vinculados ao **próprio botão da lista** (`item-N`), que permanece o elemento em foco. Assim:
-- **O foco nunca sai do item** — quando a tela fecha, a lista reaparece com o mesmo item selecionado (atende 5.2).
-- RED só tem efeito enquanto o detalhe correspondente está aberto; parar uma tela já parada é no-op, então **na lista o VERMELHO não faz nada** (atende 5.3).
-- Garante **uma única tela por vez**: como o foco fica no item, você só consegue abrir/fechar a tela daquele item.
+    <link xconnector="cSelect">
+      <bind role="onSelection" component="mItem2"/>
+      <bind role="start" component="mTela2"/>
+    </link>
+    <link xconnector="cVoltar">
+      <bind role="onSelection" component="mItem2">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela2"/>
+    </link>
 
-## Extras
-Sem áudio e sem transparência (respostas 6.1/6.2). Nenhuma imagem além das da pasta foi usada.
+    <link xconnector="cSelect">
+      <bind role="onSelection" component="mItem3"/>
+      <bind role="start" component="mTela3"/>
+    </link>
+    <link xconnector="cVoltar">
+      <bind role="onSelection" component="mItem3">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela3"/>
+    </link>
 
-## Validação
-XML checado como bem-formado (`xml.dom.minidom`). Arquivo salvo em `gerado.ncl` na própria pasta-de-trabalho.
+    <link xconnector="cSelect">
+      <bind role="onSelection" component="mItem4"/>
+      <bind role="start" component="mTela4"/>
+    </link>
+    <link xconnector="cVoltar">
+      <bind role="onSelection" component="mItem4">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela4"/>
+    </link>
+
+    <link xconnector="cSelect">
+      <bind role="onSelection" component="mItem5"/>
+      <bind role="start" component="mTela5"/>
+    </link>
+    <link xconnector="cVoltar">
+      <bind role="onSelection" component="mItem5">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="mTela5"/>
+    </link>
+  </body>
+</ncl>
+```

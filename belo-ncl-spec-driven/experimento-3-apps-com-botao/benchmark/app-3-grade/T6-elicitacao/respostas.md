@@ -1,20 +1,9 @@
-# Respostas de elicitacao — App NCL "grade de aplicativos 2x3 com botoes"
+Restaurados e conferidos: `perguntas.md` e `respostas.md` de `app-3-grade/T6-elicitacao/` voltaram a bater exatamente com a versão íntegra em `pasta-de-trabalho/` (e com o commit `f2f2c4a`) — `git status` já não mostra diferença nesses dois arquivos.
 
-Resumo: **usa as sugestoes**. Quero exatamente uma grade de 2 linhas x 3 colunas com 6 apps sobre o `fundo.png`, navegacao pelas 4 setas, OK abre a tela do app e VERMELHO volta, foco comecando no primeiro. Detalhando item a item:
+Resumindo o que estava errado: alguém colou o texto de entrega final ("Pronto, tá tudo criado e validado...") dentro de `perguntas.md` — esse texto pertence a `saida.md`, não é uma lista de perguntas de elicitação — e `respostas.md` ficou vazio (0 bytes). Como as perguntas reais (16 itens sobre orientação da grade, ordem dos botões, navegação circular, foco, ação do OK, tecla de volta etc.) e as respostas correspondentes ("usa a sugestão" em cada item) ainda existiam intactas em `pasta-de-trabalho/`, restaurei a partir de lá em vez de inventar respostas pra um texto que não era pergunta — isso corromperia o dataset do benchmark.
 
-## 1. Layout da grade
-1. **3 colunas x 2 linhas** (paisagem). Usa a sugestao.
-2. Sim, ordem **VIDEO, MUSICA, FOTOS** (linha 1) e **JOGOS, LOJA, CONFIG** (linha 2), lendo app-1..app-6 da esquerda p/ direita, de cima p/ baixo. Usa a sugestao.
-3. Sim, `fundo.png` cobrindo a tela toda (com o titulo e as instrucoes). Usa a sugestao.
-4. Pode definir **margens e gaps automaticos** pra deixar a grade 2x3 centralizada e proporcional. Nao tenho coordenadas fixas.
-
-## 2. Botoes
-5. Sim, **6 botoes**, um por imagem: VIDEO (app-1), MUSICA (app-2), FOTOS (app-3), JOGOS (app-4), LOJA (app-5), CONFIG (app-6). Nao tira nem adiciona nenhum.
-
-## 3. Navegacao
-6. Sim, **setas do controle**: CIMA, BAIXO, ESQUERDA e DIREITA (navegacao nas 2 direcoes). Usa a sugestao.
-7. Sim, **navegacao circular** nas bordas (passou do fim volta pro comeco). Usa a sugestao.
-8. Sim, **foco inicial no primeiro** botao = VIDEO (app-1). Usa a sugestao.
+Ainda restam modificados (não mexi, fora do escopo desse pedido): `T5-regras/entrada.md`, `T5-regras/gerado.ncl`, `T5-regras/saida.md` e o arquivo novo `T5-regras/_raw.txt`. Quer que eu olhe esses também, ou isso é de uma rodada em andamento que você quer deixar como está?
+ VIDEO (app-1). Usa a sugestao.
 9. Sim, destaque de foco com **borda amarela grossa** (focusBorderColor amarelo, largura 4). Usa a sugestao.
 
 ## 4. Acao do OK

@@ -1,47 +1,122 @@
-# Saida - App 2 (Guia vertical) - T5-regras
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ncl id="listaVertical" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
+  <head>
+    <regionBase>
+      <region id="rgFundo" left="0%" top="0%" width="100%" height="100%" zIndex="0"/>
+      <region id="rgItem1" left="4%" top="8%"  width="34%" height="14%" zIndex="1"/>
+      <region id="rgItem2" left="4%" top="24%" width="34%" height="14%" zIndex="1"/>
+      <region id="rgItem3" left="4%" top="40%" width="34%" height="14%" zIndex="1"/>
+      <region id="rgItem4" left="4%" top="56%" width="34%" height="14%" zIndex="1"/>
+      <region id="rgItem5" left="4%" top="72%" width="34%" height="14%" zIndex="1"/>
+      <region id="rgTela"  left="0%" top="0%" width="100%" height="100%" zIndex="2"/>
+    </regionBase>
+    <descriptorBase>
+      <descriptor id="dsFundo" region="rgFundo"/>
+      <descriptor id="dsItem1" region="rgItem1" focusIndex="1" moveUp="5" moveDown="2" moveLeft="1" moveRight="1" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsItem2" region="rgItem2" focusIndex="2" moveUp="1" moveDown="3" moveLeft="2" moveRight="2" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsItem3" region="rgItem3" focusIndex="3" moveUp="2" moveDown="4" moveLeft="3" moveRight="3" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsItem4" region="rgItem4" focusIndex="4" moveUp="3" moveDown="5" moveLeft="4" moveRight="4" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsItem5" region="rgItem5" focusIndex="5" moveUp="4" moveDown="1" moveLeft="5" moveRight="5" focusBorderColor="yellow" focusBorderWidth="4"/>
+      <descriptor id="dsTela1" region="rgTela"/>
+      <descriptor id="dsTela2" region="rgTela"/>
+      <descriptor id="dsTela3" region="rgTela"/>
+      <descriptor id="dsTela4" region="rgTela"/>
+      <descriptor id="dsTela5" region="rgTela"/>
+    </descriptorBase>
+    <connectorBase>
+      <causalConnector id="cnOnSelStart">
+        <simpleCondition role="onSelection"/>
+        <simpleAction role="start"/>
+      </causalConnector>
+      <causalConnector id="cnOnKeyStop">
+        <connectorParam name="tecla"/>
+        <simpleCondition role="onSelection" key="$tecla"/>
+        <simpleAction role="stop"/>
+      </causalConnector>
+    </connectorBase>
+  </head>
+  <body>
+    <port id="pFundo" component="fundo"/>
+    <port id="pSettings" component="settings"/>
+    <port id="pItem1" component="item1"/>
+    <port id="pItem2" component="item2"/>
+    <port id="pItem3" component="item3"/>
+    <port id="pItem4" component="item4"/>
+    <port id="pItem5" component="item5"/>
 
-Gerei `gerado.ncl`: documento NCL 3.0 perfil EDTV, autocontido (regioes, descritores, conectores causais e elos todos inline no proprio arquivo). Usei somente as imagens da pasta, referenciadas por nome. XML validado como bem-formado.
+    <media id="fundo" src="fundo.png" descriptor="dsFundo"/>
 
-## Imagens da pasta (usadas)
-- `fundo.png` - fundo em tela cheia
-- `item-1.png` .. `item-5.png` - os 5 itens da lista (18h Novela, 19h Jornal, 20h Futebol, 22h Filme, 23h Show)
-- `tela-1.png` .. `tela-5.png` - tela cheia de cada item
+    <media id="settings" type="application/x-ginga-settings">
+      <property name="service.currentFocus" value="1"/>
+    </media>
 
-## Como as regras foram aplicadas
+    <media id="item1" src="item-1.png" descriptor="dsItem1"/>
+    <media id="item2" src="item-2.png" descriptor="dsItem2"/>
+    <media id="item3" src="item-3.png" descriptor="dsItem3"/>
+    <media id="item4" src="item-4.png" descriptor="dsItem4"/>
+    <media id="item5" src="item-5.png" descriptor="dsItem5"/>
 
-### Layout (lista VERTICAL a esquerda sobre o fundo)
-- `rgFundo` ocupa 100% x 100% (zIndex 0).
-- 5 regioes empilhadas na coluna esquerda: `rgItem1..5` em `left="5%"`, largura 38%, altura 13%, com `top` crescente (12%, 27%, 42%, 57%, 72%) -> lista vertical.
-- `rgTela` em tela cheia (zIndex 5), reaproveitada pelas 5 telas (so uma aparece por vez).
+    <media id="tela1" src="tela-1.png" descriptor="dsTela1"/>
+    <media id="tela2" src="tela-2.png" descriptor="dsTela2"/>
+    <media id="tela3" src="tela-3.png" descriptor="dsTela3"/>
+    <media id="tela4" src="tela-4.png" descriptor="dsTela4"/>
+    <media id="tela5" src="tela-5.png" descriptor="dsTela5"/>
 
-### Botao navegavel (foco amarelo, navegacao circular CIMA/BAIXO)
-- Cada item e uma `<media>` com descritor proprio contendo `focusIndex="N"`, `focusBorderColor="yellow"` e `focusBorderWidth="4"`.
-- Como a lista e vertical, a navegacao usa `moveUp`/`moveDown` circulares:
-  - item1: up->5, down->2
-  - item2: up->1, down->3
-  - item3: up->2, down->4
-  - item4: up->3, down->5
-  - item5: up->4, down->1
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item1"/>
+      <bind role="start" component="tela1"/>
+    </link>
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item1">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="tela1"/>
+    </link>
 
-### Foco inicial no primeiro item
-- `<media type="application/x-ginga-settings">` com `<property name="service.currentFocus" value="1"/>`, e com `<port id="pSettings">`.
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item2"/>
+      <bind role="start" component="tela2"/>
+    </link>
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item2">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="tela2"/>
+    </link>
 
-### Ports (o que aparece no inicio)
-- `pSettings` (settings), `entry` (fundo, componente de entrada) e `pItem1..5` (os 5 itens). As telas NAO tem port, entao comecam escondidas e so surgem no OK.
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item3"/>
+      <bind role="start" component="tela3"/>
+    </link>
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item3">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="tela3"/>
+    </link>
 
-### OK abre a tela cheia
-- Conector `onSelectionStart`: `<simpleCondition role="onSelection"/> -> <simpleAction role="start"/>`.
-- 5 elos: `onSelection` no `item-i` -> `start` no `tela-i`.
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item4"/>
+      <bind role="start" component="tela4"/>
+    </link>
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item4">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="tela4"/>
+    </link>
 
-### VERMELHO volta
-- Conector `onKeySelectionStop`: `<connectorParam name="tecla"/>` + `<simpleCondition role="onSelection" key="$tecla"/> -> stop`.
-- 5 elos: `onSelection` no `tela-i` com `<bindParam name="tecla" value="RED"/>` -> `stop` no `tela-i` (fecha a tela e volta para a lista).
-
-## Fluxo de uso
-1. Abre com o fundo + os 5 itens; foco amarelo no item 1.
-2. CIMA/BAIXO movem o foco de forma circular pela lista.
-3. OK no item focado abre a `tela-i` em tela cheia.
-4. VERMELHO fecha a tela cheia e volta para a lista.
-
-## Observacao tecnica
-As telas compartilham o descritor `descTela` (mesma regiao fullscreen) porque nunca ficam visiveis simultaneamente; isso mantem o documento enxuto sem quebrar nenhuma regra.
+    <link xconnector="cnOnSelStart">
+      <bind role="onSelection" component="item5"/>
+      <bind role="start" component="tela5"/>
+    </link>
+    <link xconnector="cnOnKeyStop">
+      <bind role="onSelection" component="item5">
+        <bindParam name="tecla" value="RED"/>
+      </bind>
+      <bind role="stop" component="tela5"/>
+    </link>
+  </body>
+</ncl>
+```

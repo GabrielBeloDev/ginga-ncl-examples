@@ -10,6 +10,12 @@ screenshot da execução (`tela-gerada.png`) e — no T6 — o **diálogo** (`pe
 > **T0** vago · **T1** zero-shot estruturado · **T3** few-shot (com exemplo) · **T5** spec-kit de regras ·
 > **T6** spec-kit + elicitação por perguntas (**o fluxo do paper**).
 
+> ⚙️ **Mecanismo (fidedigno):** nas condições **T5 e T6**, a spec-kit é o **system prompt de verdade** —
+> carregada com `claude -p "<pedido>" --append-system-prompt-file spec-kit.md`, **não** colada dentro da
+> mensagem. É o fluxo real do Claude Code (ver [`../../04-arquitetura-system-prompt.md`](../../04-arquitetura-system-prompt.md)).
+> T0/T1/T3 rodam **sem** a spec. Os 8 documentos de T5/T6 foram **re-executados** assim e **todos os 8
+> carregam** no Ginga, com a estrutura (foco/ports/tecla) batendo com o gabarito.
+
 ## Resultado geral (4 apps × 5 técnicas = 20 células)
 
 | Técnica | Carrega no Ginga | Fidelidade estrutural média* |
@@ -17,8 +23,8 @@ screenshot da execução (`tela-gerada.png`) e — no T6 — o **diálogo** (`pe
 | **T0** — vago | 4/4 | 3.8 / 5 |
 | **T1** — zero-shot | **3/4** | **3.2 / 5** |
 | **T3** — few-shot | 4/4 | **5.0 / 5** |
-| **T5** — regras | 4/4 | 4.5 / 5 |
-| **T6** — elicitação | 4/4 | 4.5 / 5 |
+| **T5** — regras | 4/4 | **5.0 / 5** |
+| **T6** — elicitação | 4/4 | **4.8 / 5** |
 
 \* *Fidelidade estrutural = quantos sinais de navegação (nº de botões focáveis, setas, tecla OK, tecla
 VERMELHA, ports) batem com o gabarito. Métrica grosseira — complementada pelos screenshots e pela
