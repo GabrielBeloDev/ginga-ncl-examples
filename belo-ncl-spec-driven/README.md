@@ -70,6 +70,8 @@ Detalhes, tabela de fidelidade e figuras em [`experimento-1-piloto-10menu/RESULT
 | [`01-plano-do-artigo.md`](01-plano-do-artigo.md) | O *blueprint* do artigo: título, motivação, hipóteses (H1–H3), o fluxo formalizado com diagrama, a evidência do piloto, estrutura de seções, agenda de pesquisa e trabalhos relacionados. |
 | [`02-benchmark-de-prompting.md`](02-benchmark-de-prompting.md) | O desenho experimental: taxonomia de técnicas de *prompting*, matriz `técnica × app × modelo × rodada`, métricas (*Fidelity Score*, validade técnica, qualidade das perguntas), protocolo do agente cego, design mínimo e ameaças à validade. |
 | [`03-spec-kit-de-regras.md`](03-spec-kit-de-regras.md) | O *system prompt* / spec-kit: regras estruturais, de mídia e de *pitfalls* do Ginga, o protocolo de elicitação por perguntas e o formato da spec intermediária (YAML). É o que o agente carrega antes de qualquer pedido. |
+| [`04-arquitetura-system-prompt.md`](04-arquitetura-system-prompt.md) | **Como a spec vira *system prompt* no Claude Code** (as 3 formas: `--append-system-prompt-file`, `CLAUDE.md`, agente customizado) + o diagrama do fluxo e a receita reproduzível usada no benchmark. |
+| [`spec-kit.md`](spec-kit.md) | A spec-kit em formato **enxuto pronto pra carregar** como system prompt (é o arquivo passado em `--append-system-prompt-file`). |
 
 ### Piloto `10menu`
 
